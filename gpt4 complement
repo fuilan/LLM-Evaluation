@@ -1,0 +1,1062 @@
+"prompt": We want to proof that the trace of a matrix is the sum of its eigenvalues. By definition, the characteristic polynomial of an $n\\times n$ matrix $A$ is given by \n$$p(t) = \\det(A-tI) = (-1)^n \\big(t^n - (\\text{tr} A) \\,t^{n-1} + \\dots + (-1)^n \\det A\\big)\\,.$$\nCan you finish the proof?
+"output": 
+Certainly! The proof that the trace of a matrix is the sum of its eigenvalues involves understanding the relationship between the coefficients of the characteristic polynomial of the matrix and its eigenvalues. We'll start from the expression for the characteristic polynomial that you provided:
+
+\[ p(t) = \det(A - tI) = (-1)^n \left(t^n - (\text{tr} A) t^{n-1} + \cdots + (-1)^n \det A\right). \]
+
+### Step 1: Understanding the Coefficients
+The characteristic polynomial \( p(t) \) of a square matrix \( A \) is given by the determinant of \( A - tI \), where \( I \) is the identity matrix of the same dimension as \( A \). For an \( n \times n \) matrix, the polynomial \( p(t) \) will be a degree \( n \) polynomial in \( t \).
+
+### Step 2: Relation to Eigenvalues
+The roots of the characteristic polynomial are the eigenvalues of \( A \). If \( \lambda_1, \lambda_2, \dots, \lambda_n \) are the eigenvalues of \( A \) (counted with algebraic multiplicities), then the characteristic polynomial can be expressed as:
+\[ p(t) = (-1)^n (t - \lambda_1)(t - \lambda_2) \cdots (t - \lambda_n). \]
+
+### Step 3: Expanding the Product
+Expanding this product using the binomial theorem, the coefficient of \( t^{n-1} \) is given by the sum of the products of the roots taken \( n-1 \) at a time, which simplifies to:
+\[ -(\lambda_1 + \lambda_2 + \cdots + \lambda_n) \]
+due to the structure of the polynomial expansion where each root appears exactly once in the term for \( t^{n-1} \).
+
+### Step 4: Coefficient of \( t^{n-1} \) in the Characteristic Polynomial
+From the original definition:
+\[ p(t) = (-1)^n \left(t^n - (\text{tr} A) t^{n-1} + \cdots + (-1)^n \det A\right), \]
+the coefficient of \( t^{n-1} \) is \((-1)^n \cdot (-1) \cdot (\text{tr} A) = (\text{tr} A)\).
+
+### Step 5: Equating the Two Expressions
+Since both expressions for \( p(t) \) must be identical, we have:
+\[ \text{tr} A = \lambda_1 + \lambda_2 + \cdots + \lambda_n. \]
+Thus, the trace of the matrix \( A \), which is the sum of the diagonal elements, equals the sum of the eigenvalues \( \lambda_1, \lambda_2, \dots, \lambda_n \) of \( A \).
+
+### Conclusion
+This proof shows that the trace of a matrix \( A \) is indeed equal to the sum of its eigenvalues, counting multiplicities, as seen from the coefficient of \( t^{n-1} \) in the characteristic polynomial of \( A \). This is a fundamental result linking eigenvalues, the characteristic polynomial, and matrix trace.
+"rating":3
+"error_codes":3a
+"warning_codes": 3
+"comment":t^(n-1)的系数计算错误
+"msc":Complement
+    
+  
+
+"prompt": Let $f$ be a real-valued function continuous on $[a,b]$ and differentiable on $(a,b)$. Suppose that $\\lim_{x\\rightarrow a}f'(x)$ exists. Then, we want to prove that $f$ is differentiable at $a$ and $f'(a)=\\lim_{x\\rightarrow a}f'(x)$. Using the definition of derivative, we need to show that\n$$\n\\lim_{h\\rightarrow 0^+} {f(a+h)-f(a)\\over h }\n$$\nexists and is equal to $\\lim\\limits_{x\\rightarrow a^+} f'(x)$.\n\nNote that for $h>0$ the Mean Value Theorem provides a point $c_h$ with $a<c_h<a+h$ such that [MISSING]\n\nFinally, note that $c_h\\rightarrow a^+$ as $h\\rightarrow0^+$. Can you fill in the missing equation?
+"output":Certainly! You're on the right track using the Mean Value Theorem (MVT) to connect the behavior of the function \( f \) near \( a \) to its derivative. Let's fill in the missing equation and complete the proof.
+
+Given that the function \( f \) is continuous on \([a, b]\) and differentiable on \((a, b)\), and assuming that \(\lim_{x \to a^+} f'(x)\) exists, we aim to show that \( f \) is differentiable at \( a \) and that \( f'(a) = \lim_{x \to a^+} f'(x) \).
+
+### Step 1: Mean Value Theorem Application
+According to the Mean Value Theorem, for each \( h > 0 \) such that \( a + h < b \), there exists a \( c_h \) in \((a, a+h)\) such that
+\[
+f'(c_h) = \frac{f(a+h) - f(a)}{h}.
+\]
+This equation is exactly what you are missing. It captures the essence of the Mean Value Theorem, stating that the average rate of change of \( f \) over the interval \([a, a+h]\) is equal to its instantaneous rate of change at some point within that interval.
+
+### Step 2: Analyze \( c_h \) as \( h \to 0^+ \)
+Since \( c_h \) lies in the interval \((a, a+h)\), it follows that \( c_h \to a \) as \( h \to 0^+ \).
+
+### Step 3: Limit of \( f'(c_h) \)
+Given that \( \lim_{x \to a^+} f'(x) \) exists, say
+\[
+L = \lim_{x \to a^+} f'(x),
+\]
+and considering \( c_h \to a^+ \) as \( h \to 0^+ \), by the continuity of \( f' \) over \((a, b)\) and the fact that \( c_h \) approaches \( a \) from the right, we have:
+\[
+\lim_{h \to 0^+} f'(c_h) = \lim_{x \to a^+} f'(x) = L.
+\]
+
+### Step 4: Connection to Differentiability at \( a \)
+Using the result from Step 3 and the equation from the MVT (Step 1), we have:
+\[
+\lim_{h \to 0^+} \frac{f(a+h) - f(a)}{h} = \lim_{h \to 0^+} f'(c_h) = L.
+\]
+This establishes that the right-hand derivative of \( f \) at \( a \) exists and equals \( L \). Since we only consider \( h \to 0^+ \), and given the assumptions and interval, this is sufficient to claim \( f'(a) = L \) under the given conditions.
+
+### Conclusion
+Hence, we've shown that \( f \) is differentiable at \( a \) and that \( f'(a) = \lim_{x \rightarrow a^+} f'(x) \). This completes the proof, demonstrating how limits of derivatives, the behavior of functions, and application of the Mean Value Theorem coalesce to provide insights into the differentiability at boundary points of intervals.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": Let $f$ have a continuous derivative on $[a,b]$. We want to show that $f$ satisfies a Lipschitz condition on $[a,b]$. By [MISSING], \n\n$$f(x) - f(y) = f'(\\xi)(x-y)$$ \n\nfor some $\\xi \\in (y,x)$. But since $f'$ is continuous and $[a,b]$ is compact, then $f'$ is bounded in that interval, say by $C$. Thus taking absolute values yields \n\n$$\\lvert f(x) - f(y)\\rvert \\le C \\lvert x-y\\rvert$$ \n\nCan you name the result used in [MISSING]?
+"output": The result used in [MISSING] is the Mean Value Theorem for Integrals.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": We want to show that the vector space of $\\mathbb{R}$ over $\\mathbb{Q}$ is infinite-dimensional. We use an explicit example of an infinite $\\, \\mathbb Q$-independent set of reals. Consider the set consisting of the logs of all primes $\\, p_i.\\,$ If $ \\, c_1 \\log p_1 +\\,\\cdots\\, + c_n\\log p_n =\\, 0,\\  c_i\\in\\mathbb Q,\\,$ multiplying by a common denominator we can assume that all $\\ c_i \\in \\mathbb Z\\,$. Can you finish the proof?
+"output":To complete the proof that the vector space of \(\mathbb{R}\) over \(\mathbb{Q}\) is infinite-dimensional using the example of logarithms of prime numbers, we need to show that the set of logarithms of all primes, \(\{\log p_1, \log p_2, \log p_3, \ldots\}\), where each \(p_i\) is a distinct prime, forms a \(\mathbb{Q}\)-independent set. This means we need to demonstrate that no finite linear combination of these logarithms (with rational coefficients) equals zero, unless all the coefficients are zero.
+
+### Step 1: Logarithms of Primes as a Basis
+Suppose we have a linear combination of the logarithms of primes that equals zero, with integer coefficients (multiplied through by the common denominator as you indicated):
+\[ c_1 \log p_1 + c_2 \log p_2 + \cdots + c_n \log p_n = 0, \]
+where each \(c_i \in \mathbb{Z}\).
+
+### Step 2: Exponentiate Both Sides
+Exponentiating both sides, we use the property that \(e^{\log x} = x\), resulting in:
+\[ e^{c_1 \log p_1 + c_2 \log p_2 + \cdots + c_n \log p_n} = e^0 = 1. \]
+Thus,
+\[ p_1^{c_1} p_2^{c_2} \cdots p_n^{c_n} = 1. \]
+
+### Step 3: Fundamental Theorem of Arithmetic
+According to the Fundamental Theorem of Arithmetic, every integer greater than 1 can be uniquely factored into a product of prime numbers up to ordering. Since the left side of the equation represents a product of prime powers, the only way for this product to equal 1 (which itself has no prime factors) is for all the exponents \(c_i\) to be zero:
+\[ c_1 = c_2 = \cdots = c_n = 0. \]
+
+### Step 4: Linear Independence Over \(\mathbb{Q}\)
+This argument shows that the set \(\{\log p_1, \log p_2, \log p_3, \ldots\}\) is linearly independent over \(\mathbb{Q}\). There are no nontrivial rational linear combinations of these logarithms that equal zero, as to achieve zero would require all coefficients \(c_i\) (which are integers and hence rational) to be zero.
+
+### Step 5: Infinite-Dimensional Space
+Since the set of primes is infinite, the set of their logarithms \(\{\log p_1, \log p_2, \log p_3, \ldots\}\) is also infinite. The linear independence of this infinite set implies that the vector space of \(\mathbb{R}\) over \(\mathbb{Q}\) cannot be spanned by any finite subset of \(\mathbb{R}\), making it infinite-dimensional.
+
+### Conclusion
+This proof confirms that the vector space \(\mathbb{R}\) over \(\mathbb{Q}\) is indeed infinite-dimensional by demonstrating an explicit infinite set of \(\mathbb{Q}\)-independent real numbers, thereby illustrating one of the profound differences between the structures of \(\mathbb{R}\) and \(\mathbb{Q}\) and showcasing the richness of the transcendentals within the reals.
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": $F$ is a finite field of order $q$. We want to compute the size of $\\operatorname{GL}_n(F)$. In order for an $n \\times n$ matrix to be invertible, we need the rows to be linearly independent. We have $q^n - 1$ choices for the first row; now, there are $q$ vectors in the span of the first row, so we have $q^n - q$ choices for the second row. Can you finish the proof?
+"output": Certainly! The computation of the size of the general linear group \(\operatorname{GL}_n(F)\) over a finite field \(F\) with order \(q\) involves determining the number of possible \(n \times n\) matrices with linearly independent rows, i.e., invertible matrices. The key insight here is to recognize that each row of the matrix must be selected so that it is not in the span of the rows selected before it. Let's proceed with the computation:
+
+### Step-by-step calculation:
+
+1. **First row**: The first row of an invertible \(n \times n\) matrix can be any non-zero vector in \(F^n\). Since there are \(q^n\) vectors in \(F^n\) and one of these is the zero vector, there are \(q^n - 1\) choices for the first row.
+
+2. **Second row**: The second row must be linearly independent from the first row. The span of any non-zero vector in \(F^n\) is a 1-dimensional subspace of \(F\), which contains \(q\) vectors. Hence, there are \(q^n - q\) choices for the second row, as it must lie outside the 1-dimensional subspace formed by the first row.
+
+3. **Subsequent rows**: For the \(k\)-th row (where \(k \leq n\)), we require that it does not lie in the subspace spanned by the previous \(k-1\) rows. The dimension of the subspace spanned by \(k-1\) linearly independent rows is \(k-1\), and thus this subspace contains \(q^{k-1}\) vectors. Consequently, the number of choices for the \(k\)-th row is \(q^n - q^{k-1}\).
+
+### Formula for \(|\operatorname{GL}_n(F)|\):
+To find the total number of invertible matrices, we multiply the number of choices for each row, considering the constraints imposed by the previously chosen rows:
+
+\[
+|\operatorname{GL}_n(F)| = (q^n - 1)(q^n - q)(q^n - q^2) \cdots (q^n - q^{n-1})
+\]
+
+This product is the total number of ways to select \(n\) linearly independent rows in \(F^n\), each avoiding the subspace spanned by all previous rows.
+
+### Interpretation:
+Each factor in the product formula represents the step-by-step choice for each row, ensuring the maintenance of linear independence necessary for invertibility. The general pattern for the size of the general linear group over a finite field reflects the combinatorial nature of constructing a matrix with non-degenerate rows.
+
+The computation explicitly showcases how field size and matrix dimensions interact to determine the structure and size of groups like \(\operatorname{GL}_n(F)\) over finite fields.
+
+"rating": 4
+"error_codes": 1b
+"warning_codes": 
+"comment": |\operatorname{GL}_n(F)|符号与行列式相同，应使用card{}
+"msc":Complement
+    
+  
+
+"prompt": Let $A$ and $B$ be real matrices. We want to show that the eigenvalues of $AB$ are equal to the eigenvalues of $BA$. If $v$ is an eigenvector of $AB$ for some nonzero $\\lambda$, then $Bv\\ne0$\nand $$\\lambda Bv=B(ABv)=(BA)Bv,$$ so $Bv$ is an eigenvector for $BA$ with the same eigenvalue. Can you finish the proof?
+"output": Certainly! The argument you started with is key in establishing that the eigenvalues of \(AB\) are equal to the eigenvalues of \(BA\). We need to further develop this into a general proof that handles the full spectrum of \(AB\) and \(BA\) and confirms that they indeed share the same set of eigenvalues. Here’s how to complete this:
+
+### Given:
+1. \(AB\) and \(BA\) are two matrices derived from \(A\) and \(B\).
+2. If \(\lambda\) is an eigenvalue of \(AB\) with corresponding eigenvector \(v\), then:
+   \[
+   ABv = \lambda v
+   \]
+   and
+   \[
+   BA(Bv) = B(ABv) = B(\lambda v) = \lambda Bv.
+   \]
+   Hence, \(Bv\) is an eigenvector of \(BA\) corresponding to the same eigenvalue \(\lambda\), provided \(Bv \neq 0\).
+
+### Completing the Proof:
+1. **Handling \(Bv = 0\)**: The argument above assumes \(Bv \neq 0\). If \(Bv = 0\), then \(\lambda\) must be 0 (since \(BA(Bv) = B(ABv) = B(\lambda v) = \lambda Bv = 0\)). This implies \(\lambda = 0\) is also an eigenvalue of \(BA\).
+
+2. **Nontrivial Eigenvalues**:
+   - If \(\lambda \neq 0\), then \(Bv\) cannot be zero, otherwise \(v\) would be in the kernel of \(B\), and hence \(ABv = \lambda v = 0\), contradicting \(\lambda \neq 0\).
+
+3. **Dimensionality and Rank**:
+   - Consider the determinants: if \(\det(AB - \lambda I) = 0\), this implies that \(\lambda\) is an eigenvalue of \(AB\). Notice that the characteristic polynomial of \(AB\) (which has degree equal to the dimension of the space) determines these eigenvalues.
+   - Due to the properties of determinants, \(\det(AB - \lambda I) = \det(BA - \lambda I)\), hence the characteristic polynomials of \(AB\) and \(BA\) are the same. Thus, they have the same eigenvalues, including algebraic multiplicities.
+
+4. **Eigenvalues for \(BA\)**:
+   - If \(\lambda\) is an eigenvalue of \(AB\), then by the determinant argument, it is also an eigenvalue of \(BA\).
+
+5. **Eigenvalues from \(BA\) to \(AB\)**:
+   - A similar argument shows that every eigenvalue of \(BA\) is an eigenvalue of \(AB\). This follows from reversing the roles of \(A\) and \(B\) in the proof structure.
+
+### Conclusion:
+Thus, \(AB\) and \(BA\) share the same eigenvalues, including algebraic multiplicities. The key points relied on are the behavior of the product under determinant and trace operations, and the movement of eigenvalues through non-zero transformations. This proof elegantly uses the properties of matrix operations and the fundamental theorems of linear algebra concerning eigenvalues and eigenvectors.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": Given a set of vectors $v_1 \\cdots v_n$, the $n\\times n$ Gram matrix $G$ is defined as\n$G_{i,j}=v_i \\cdot v_j$. We want to show that $|G|=0$ iff the vectors $v_i$ are not linearly independent.\n\nLet $A$ be the matrix whose columns are the vectors $v_1, v_2, ... v_n$, such that $G=A^TA$. If the vectors $v_i$ are linearly dependent, there exists a vector $u \\neq 0$ such that\n$$\n  A u = 0.\n$$\nIt follows that\n$$\n  0 = A^T A u = G u.\n$$\nSince $u \\neq 0$, $G$ is not invertible. Can you finish the proof?
+"output": 
+To complete the proof, we need to show the full bi-directional implication: not only that if the vectors \(v_i\) are linearly dependent then the determinant of the Gram matrix \(G\) is zero (\(|G| = 0\)), but also that if \(|G| = 0\), the vectors \(v_i\) are not linearly independent. We have already begun the first part; let's complete both directions of the proof.
+
+### From Linear Dependence to \(|G| = 0\)
+1. **Linear Dependence**: Given that the vectors \(v_1, v_2, \ldots, v_n\) are linearly dependent, there exists a nonzero vector \(u\) such that \(Au = 0\), where \(A\) is the matrix with columns \(v_1, v_2, \ldots, v_n\).
+   
+2. **Implication for \(G\)**: Since \(Au = 0\), we also have:
+   \[
+   Gu = A^TAu = A^T0 = 0.
+   \]
+   This shows that the vector \(u\) is in the kernel of \(G\), implying that \(G\) is not invertible because it has a nontrivial kernel.
+
+3. **Determinant of \(G\)**: Since \(G\) is not invertible, the determinant of \(G\) must be zero (\(|G| = 0\)).
+
+### From \(|G| = 0\) to Linear Dependence
+1. **Determinant Zero**: If \(|G| = 0\), then the matrix \(G\) is not invertible, implying that there exists a nonzero vector \(u\) such that \(Gu = 0\).
+
+2. **Relating to \(A\)**: Since \(G = A^TA\), we have:
+   \[
+   0 = Gu = A^TAu.
+   \]
+   Multiplying both sides by \(u^T\) from the left gives:
+   \[
+   0 = u^TA^TAu = (Au)^T(Au) = \|Au\|^2.
+   \]
+   Here, \(\|Au\|^2\) represents the squared Euclidean norm of \(Au\). The norm being zero implies \(Au = 0\).
+
+3. **Linear Dependence**: \(Au = 0\) for a nonzero \(u\) means that the columns of \(A\) (the vectors \(v_1, v_2, \ldots, v_n\)) are linearly dependent because they fail to span \(u\) or because \(u\) represents a nontrivial linear combination that sums to zero.
+
+### Conclusion
+Thus, \(|G| = 0\) if and only if the vectors \(v_1, v_2, \ldots, v_n\) are not linearly independent. The determinant of the Gram matrix \(G\) being zero is equivalent to the linear dependence of the set of vectors forming \(A\). This completes the proof, linking the concepts of matrix invertibility, determinants, and vector independence through the Gram matrix.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment": 
+"msc":Complement
+    
+  
+
+"prompt": We want to prove Lebesgue's dominated convergence theorem. Let $E$ be a measurable set and let $\\{f_n\\}$ be a sequence of measurable functions such that\n$$ f_n(x) \\to f(x) \\quad (x \\in E)$$\nas $ n\\to\\infty$. Further assume there is a function $g\\in\\mathcal{L}(\\mu)$ on $E$, such that\n$$|f_n(x)| \\le g(x) \\quad (n=1,2,3,\\dots, x\\in E).$$\n\nFirst we observe that $f_n\\in\\mathcal{L}(\\mu)$ and $f\\in\\mathcal{L}(\\mu)$ on $E$. Since, $f_n+g \\ge 0$, one can show that\n\n$$ \\int_E (f+g) d\\mu \\le \\liminf_{n\\to \\infty} \\int_E (f_n+g) d\\mu.$$\n\nWhat is the name of the result used in the previous equation?
+"output": The result used in the previous equation is Fatou's Lemma
+
+"rating": 5
+"error_codes": 
+"warning_codes": 
+"comment": 
+"msc":Complement
+    
+  
+
+"prompt":  Let $f$ be defined on $[a,b]$. We want to proof the following result: if $f$ has a local maximum at a point $x\\in(a,b)$, and if $f'(x)$ exists, then $f'(x)=0$. We choose $\\delta >0$ with\n$$ a < x-\\delta < x < x+\\delta < b $$ such that $f(y) \\le f(x)$ for all $y\\in[a,b]$ with $|x-y| < \\delta$. If $x-\\delta < t <x$, then\n[MISSING].\nLetting $t\\to x$, we see that $f'(x) \\ge 0$. Can you fill in the missing equation?
+"output":
+Certainly! To complete the proof that if \( f \) has a local maximum at \( x \) within \( (a, b) \) and \( f'(x) \) exists, then \( f'(x) = 0 \), we need to handle both the cases when \( t \) approaches \( x \) from the left and from the right. Let's fill in the missing details.
+
+### The Missing Equation
+If \( x - \delta < t < x \), we consider the difference quotient from the left:
+\[ \frac{f(t) - f(x)}{t - x} \]
+Since \( f \) has a local maximum at \( x \), \( f(t) \leq f(x) \) for all \( t \) near \( x \) (specifically for \( |x - t| < \delta \)). Therefore, when \( t < x \) (and thus \( t - x < 0 \)), the difference quotient:
+\[ \frac{f(t) - f(x)}{t - x} \geq 0 \]
+because \( f(t) - f(x) \leq 0 \) and \( t - x < 0 \), which makes the quotient non-negative.
+
+### Left-hand Derivative
+As \( t \) approaches \( x \) from the left (\( t \to x^- \)):
+\[ \lim_{t \to x^-} \frac{f(t) - f(x)}{t - x} \geq 0 \]
+This limit is the definition of the left-hand derivative of \( f \) at \( x \), denoted \( f'_-(x) \). Thus, we find:
+\[ f'_-(x) \geq 0 \]
+
+### Considering \( t \) Approaching \( x \) from the Right
+Similarly, if \( x < t < x + \delta \), we consider the difference quotient from the right:
+\[ \frac{f(t) - f(x)}{t - x} \]
+Here, \( f(t) \leq f(x) \) and \( t - x > 0 \), so:
+\[ \frac{f(t) - f(x)}{t - x} \leq 0 \]
+
+### Right-hand Derivative
+As \( t \) approaches \( x \) from the right (\( t \to x^+ \)):
+\[ \lim_{t \to x^+} \frac{f(t) - f(x)}{t - x} \leq 0 \]
+This limit is the definition of the right-hand derivative of \( f \) at \( x \), denoted \( f'_+(x) \). Thus, we find:
+\[ f'_+(x) \leq 0 \]
+
+### Conclusion
+Since \( f \) is differentiable at \( x \) and \( f'(x) \) exists, the left-hand and right-hand derivatives must be equal and finite:
+\[ f'(x) = f'_-(x) = f'_+(x) \]
+Given \( f'_-(x) \geq 0 \) and \( f'_+(x) \leq 0 \), it follows that:
+\[ f'(x) = 0 \]
+Thus, we conclude that if \( f \) has a local maximum at \( x \) and is differentiable at \( x \), then \( f'(x) \) must equal zero, completing the proof.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": We want to prove that $$\\lim_{x\\to 0}\\frac{\\sin x}{x}=1.$$\n\nIt is easy to show that $\\lim_{x\\to 0} \\sin x = 0$ and $\\lim_{x\\to 0}  x = 0$. Thus, it holds that \n\n$$\\lim_{x\\to 0}\\frac{\\sin x}{x}=\\lim_{x\\to 0}\\frac{\\cos x}{1}=1.$$\n\nWhich result has been used in the previous equation?
+"output": The result used in the equation 
+\[ \lim_{x \to 0} \frac{\sin x}{x} = \lim_{x \to 0} \frac{\cos x}{1} = 1 \]
+is known as **L'Hôpital's Rule**. L'Hôpital's Rule is a powerful tool in calculus for evaluating the limits of indeterminate forms like \( \frac{0}{0} \) or \( \frac{\infty}{\infty} \).
+
+### L'Hôpital's Rule
+L'Hôpital's Rule states that if you have a limit of the form
+\[ \lim_{x \to c} \frac{f(x)}{g(x)} \]
+where both \( f(x) \) and \( g(x) \) approach 0 or both approach infinity as \( x \) approaches \( c \), and the derivatives \( f'(x) \) and \( g'(x) \) are continuous near \( c \) and \( g'(x) \neq 0 \), then
+\[ \lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f'(x)}{g'(x)} \]
+provided the limit on the right-hand side exists.
+
+### Application to \( \frac{\sin x}{x} \)
+In the case of \( \frac{\sin x}{x} \) as \( x \) approaches 0, the direct evaluation gives \( \frac{0}{0} \), an indeterminate form. Applying L'Hôpital's Rule:
+- Let \( f(x) = \sin x \) and \( g(x) = x \).
+- Then \( f'(x) = \cos x \) and \( g'(x) = 1 \).
+
+According to L'Hôpital's Rule:
+\[ \lim_{x \to 0} \frac{\sin x}{x} = \lim_{x \to 0} \frac{\cos x}{1} = \cos(0) = 1. \]
+
+### Additional Note
+It's worth noting that although L'Hôpital's Rule provides a simple computational technique here, the limit \( \lim_{x \to 0} \frac{\sin x}{x} = 1 \) can also be proven geometrically or using Taylor series expansion. These methods give a deeper insight into why this limit holds true, especially in terms of the behavior of the sine function around 0.
+"rating": 5
+"error_codes": 
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": Let $$f_n(x) = \\frac{x^2}{x^2 + (1-nx)^2} \\quad (0\\le x \\le 1, n=1,2,3,\\dots).$$\n\nThen $|f_n(x)|\\le 1$, so that $\\{ f_n \\}$ is uniformly bounded on $[0,1]$. Also \n\n$$\n\\lim_{n\\to \\infty} f_n(x)=0 \\quad (0\\le x\\le 1),\n$$\n\nbut there is a sequence $\\{ x_n \\}$ with\n\n$$\nf_n(x_n) = 1 \\quad (n=1,2,3,\\dots),\n$$\n\nso that no subsequence of $\\{ f_n \\}$ can converge uniformly on $[0,1]$. Can you define a suitable sequence $\\{ x_n \\}$?
+"output": Certainly! To define a suitable sequence \( \{x_n\} \) such that \( f_n(x_n) = 1 \) for all \( n \), we start by analyzing the expression for \( f_n(x) \):
+
+\[ f_n(x) = \frac{x^2}{x^2 + (1-nx)^2}. \]
+
+We want to find a sequence of \( x \) values, say \( \{x_n\} \), for each \( n \) such that \( f_n(x_n) = 1 \). This occurs when the denominator's additive term, \( (1-nx)^2 \), becomes zero because:
+
+\[ f_n(x) = \frac{x^2}{x^2 + 0} = 1. \]
+
+For this to happen, we require:
+\[ 1 - nx = 0, \]
+which simplifies to:
+\[ x = \frac{1}{n}. \]
+
+Thus, if we choose \( x_n = \frac{1}{n} \), then:
+\[ (1 - nx_n)^2 = (1 - n \cdot \frac{1}{n})^2 = 0^2 = 0. \]
+
+Plugging \( x_n \) back into \( f_n(x) \), we have:
+\[ f_n(x_n) = \frac{\left(\frac{1}{n}\right)^2}{\left(\frac{1}{n}\right)^2 + 0} = 1. \]
+
+### Verification of Conditions
+- \( |f_n(x)| \leq 1 \) is clearly satisfied as the function \( f_n(x) \) is a ratio of squares.
+- The limit \( \lim_{n \to \infty} f_n(x) = 0 \) for all \( x \in [0, 1] \) with \( x \neq 0 \). This is evident since \( x^2 \) remains fixed and \( (1-nx)^2 \) increases without bounds as \( n \) increases, except when \( x = 0 \), which makes \( f_n(0) = 0 \) outright.
+- The sequence \( x_n = \frac{1}{n} \) indeed shows that \( f_n(x_n) = 1 \), providing a specific counterexample where each \( f_n \) attains its maximum value, regardless of the value tending towards zero elsewhere in the interval. 
+
+### Conclusion on Uniform Convergence
+The existence of \( x_n = \frac{1}{n} \) where \( f_n(x_n) = 1 \) while \( \lim_{n \to \infty} f_n(x) = 0 \) almost everywhere else on \([0, 1]\) shows that no subsequence of \( \{f_n\} \) can converge uniformly on \([0, 1]\). This is because the supremum norm \( \sup_{x \in [0, 1]} |f_n(x) - 0| \) does not go to zero due to the point \( x_n \) where each function \( f_n \) takes a value of 1. Thus, the supremum norm remains 1 for all \( n \), preventing uniform convergence.
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": Let $f : \\mathbb{R} \\to \\mathbb{R}$ be a differentiable function such that $f(0) = 1$ and $f'(x) = f(x)$. Then it must be the case that $f = e^x$. We will prove this statement in the following. \nLet $g(x) = f(x) e^{-x}$. Then $g$ is constant. But $g(0) = 1$, so $g(x) = 1$ identically. Can you show why $g$ is constant?
+"output":To demonstrate why the function \( g(x) = f(x) e^{-x} \) is constant, we can use properties of derivatives and the given condition that \( f'(x) = f(x) \). Here's how to prove it:
+
+### Step 1: Define \( g(x) \)
+We start by defining \( g(x) \) as:
+\[ g(x) = f(x) e^{-x}. \]
+
+### Step 2: Differentiate \( g(x) \)
+Using the product rule for differentiation, where the product rule states that \((uv)' = u'v + uv'\) for functions \( u(x) \) and \( v(x) \), we differentiate \( g(x) \):
+\[ g'(x) = \left( f(x) e^{-x} \right)' = f'(x) e^{-x} + f(x) \left( e^{-x} \right)'. \]
+
+We know from the problem statement that \( f'(x) = f(x) \), and the derivative of \( e^{-x} \) is \( -e^{-x} \), so substituting these in gives:
+\[ g'(x) = f(x) e^{-x} - f(x) e^{-x} = 0. \]
+
+### Step 3: Conclusion from \( g'(x) \)
+Since \( g'(x) = 0 \) for all \( x \in \mathbb{R} \), by one of the fundamental theorems of calculus, if a function's derivative is zero across its entire domain, the function must be constant. Therefore, \( g(x) \) is constant throughout its domain.
+
+### Step 4: Determine the Constant Value of \( g(x) \)
+Given that \( g(x) \) is constant and knowing that \( g(0) = f(0) e^{-0} = 1 \cdot 1 = 1 \), we conclude that \( g(x) = 1 \) for all \( x \in \mathbb{R} \).
+
+### Step 5: Relate Back to \( f(x) \)
+Since \( g(x) = 1 \) and \( g(x) = f(x) e^{-x} \), we can solve for \( f(x) \):
+\[ f(x) e^{-x} = 1 \implies f(x) = e^x. \]
+
+Therefore, \( f(x) = e^x \) for all \( x \in \mathbb{R} \). This is the only function that satisfies the initial conditions \( f(0) = 1 \) and \( f'(x) = f(x) \), completing the proof.
+"rating": 5
+"error_codes": 
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": We are given a linear operator $T$ over a finite dimensional vector space $V$. We want to show that $T$ is a scalar multiple of the identity if $\\forall S \\in {\\cal L}(V), TS = ST$. Here, ${\\cal L}(V)$ denotes the set of all linear operators over $V$. We consider $S \\in L(V)$ given by $S x = f(x) v$ for some vector $v$ and some linear functional $f$ on V.\nIn particular, as long as a nontrivial linear functional $f$ on $V$ exists, there is $x$\nsuch that $f(x) \\ne 0$, and then $T v = \\alpha v$ for all $v$, where $\\alpha = f(T x)/f(x)$. Can you explain why it holds that $T v = \\alpha v$ for all $v$?
+"output":To show that \(T\) is a scalar multiple of the identity, we start by considering the given condition that \(TS = ST\) for all \(S \in \mathcal{L}(V)\), the set of all linear operators on \(V\). We focus on a particular type of operator \(S\) defined by \(Sx = f(x)v\) where \(f\) is a linear functional on \(V\) and \(v\) is a vector in \(V\).
+
+### Step 1: Definition of Operator \(S\)
+For a fixed linear functional \(f\) and a fixed vector \(v\), define the operator \(S\) by \(Sx = f(x)v\). This operator is linear because \(f(x)\) is a linear functional, and linear combinations of \(x\) map to linear combinations of outputs due to the properties of \(f\) and scalar multiplication.
+
+### Step 2: Commutativity of \(T\) and \(S\)
+Given that \(TS = ST\) for all such \(S\), we specifically have
+\[ TSx = STx. \]
+Substituting the definition of \(S\), we get
+\[ T(f(x)v) = f(Tx)v. \]
+
+### Step 3: Simplify Both Sides
+Using linearity of \(T\), the left side simplifies to:
+\[ f(x)Tv. \]
+So the equation becomes:
+\[ f(x)Tv = f(Tx)v. \]
+
+### Step 4: Implication for Any \(x\)
+Assuming \(f(x) \neq 0\) (which can always be achieved for some \(x\) since \(f\) is a nontrivial functional), we can divide both sides by \(f(x)\):
+\[ Tv = \frac{f(Tx)}{f(x)}v. \]
+
+### Step 5: Scalar Multiple of Identity
+Define \(\alpha = \frac{f(Tx)}{f(x)}\), noting that \(\alpha\) does not depend on \(v\) but depends only on \(x\). As \(Tv = \alpha v\) holds for arbitrary \(v\) due to our initial arbitrary choice of \(v\), we can conclude that \(T\) acts as multiplication by \(\alpha\) on any vector \(v\). 
+
+### Step 6: Constancy of \(\alpha\)
+To see that \(\alpha\) is constant across \(V\), consider the effect of \(T\) on two arbitrary basis vectors \(v\) and \(w\). Since \(T\) commutes with all linear operators \(S\), it must be that \(\alpha\) computed as above for any \(v\) must be the same for any other vector, say \(w\), else the commutation \(TS = ST\) would fail for operators constructed as \(Sx = f(x)w\) with the same functional \(f\). Therefore, \(\alpha\) must be constant, independent of \(x\) and \(v\).
+
+### Conclusion
+\(T\) acts on any vector \(v \in V\) as \(Tv = \alpha v\) where \(\alpha\) is a constant scalar. Hence, \(T = \alpha I\) where \(I\) is the identity operator. Thus, \(T\) is a scalar multiple of the identity operator.
+
+"rating": 5
+"error_codes": 
+"warning_codes": 
+"comment": 
+"msc":Complement
+    
+  
+
+"prompt": Let $F$ be $\\mathbb{R}$ or $\\mathbb{C}$. Suppose $a_0,\\dots,a_m\\in F$. If\n$$\na_0 + a_1z + \\dots + a_m z^m = 0\n$$\nfor every $z\\in F$, then $a_0=\\dots=a_m=0.$\n\nWe will prove the contrapositive. If not all the coefficients are $0$, then by changing $m$ we can assume $a_m \\neq 0$. Let\n$$\nz=\\frac{|a_0|+|a_1|+ \\dots + |a_{m-1}|}{|a_m|} + 1.\n$$\nNote that $z\\ge 1$, and thus $z^j \\le z^{m-1}$ for $j=0,1,\\dots,m-1$. Can you finish the proof?
+"output": Certainly! To complete the proof by contrapositive, we assume that not all coefficients \(a_0, a_1, \dots, a_m\) are zero, and specifically that \(a_m \neq 0\). We need to show that the polynomial \(P(z) = a_0 + a_1z + \dots + a_m z^m\) does not vanish for all \(z \in F\), where \(F\) is either \(\mathbb{R}\) or \(\mathbb{C}\). We then need to find a specific \(z\) where \(P(z) \neq 0\).
+
+### Step 1: Choice of \(z\)
+We've defined \(z\) as
+\[ z = \frac{|a_0| + |a_1| + \dots + |a_{m-1}|}{|a_m|} + 1. \]
+Notice that \(z \geq 1\), and this construction ensures that \(z\) is chosen to be large enough such that the term involving \(a_m\) dominates the polynomial.
+
+### Step 2: Estimating \(P(z)\)
+We will estimate the magnitude of \(P(z)\) using the triangle inequality:
+\[ |P(z)| = \left|a_0 + a_1z + \dots + a_m z^m\right| \]
+\[ \geq |a_m z^m| - |a_0| - |a_1z| - \dots - |a_{m-1}z^{m-1}|. \]
+
+### Step 3: Analysis of the Terms
+Each term \(|a_jz^j|\) for \(j = 0, 1, \dots, m-1\) can be bounded by \(|a_j|z^{m-1}\) since \(z \geq 1\) and hence \(z^j \leq z^{m-1}\). Therefore, we have:
+\[ |a_0| + |a_1z| + \dots + |a_{m-1}z^{m-1}| \leq (|a_0| + |a_1| + \dots + |a_{m-1}|)z^{m-1}. \]
+
+### Step 4: Substitution from \(z\)'s Definition
+Using the definition of \(z\), notice:
+\[ |a_0| + |a_1| + \dots + |a_{m-1}| = |a_m|(z - 1). \]
+So,
+\[ (|a_0| + |a_1| + \dots + |a_{m-1}|)z^{m-1} = |a_m|(z - 1)z^{m-1} \]
+\[ = |a_m|z^m - |a_m|z^{m-1}. \]
+
+### Step 5: Conclusion
+Returning to our estimate for \(|P(z)|\),
+\[ |P(z)| \geq |a_m z^m| - (|a_m|z^m - |a_m|z^{m-1}) \]
+\[ = |a_m z^m| - |a_m|z^m + |a_m|z^{m-1} \]
+\[ = |a_m|z^{m-1}. \]
+Since \(z \geq 1\) and \(a_m \neq 0\), it follows that \(|P(z)| > 0\).
+
+### Final Proof
+This calculation shows that \(P(z) \neq 0\) for the chosen \(z\), disproving the assumption that \(P(z) = 0\) for all \(z\). Thus, by contrapositive, if \(P(z) = 0\) for every \(z \in F\), then all coefficients \(a_0, a_1, \dots, a_m\) must be zero. This completes the proof.
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": We want to proof that the trace of a matrix is the sum of its eigenvalues. For a $n\\times n$ matrix $A$ we define the polynomial\n$$p(t) = \\det(A-tI) = (-1)^n \\big(t^n - (\\text{tr} A) \\,t^{n-1} + \\dots + (-1)^n \\det A\\big)\\,.$$\nOn the other hand, $p(t) = (-1)^n(t-\\lambda_1)\\dots (t-\\lambda_n)$, where the $\\lambda_j$ are the eigenvalues of $A$. So, comparing coefficients,  we have $\\text{tr}A = \\lambda_1 + \\dots + \\lambda_n$.\n\nWhat is the name of the polynomial $p$?
+"output":It is called the characteristic polynomial of the n x n matrix A..
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": Let $f$ have a continuous derivative on $[a,b]$. We want to show that $f$ satisfies a Lipschitz condition on $[a,b]$. By the mean value theorem, \n\n$$f(x) - f(y) = f'(\\xi)(x-y)$$ \nfor some $\\xi \\in (y,x)$. But since [MISSING], then $f'$ is bounded in that interval, say by $C$. Thus taking absolute values yields \n\n$$\\lvert f(x) - f(y)\\rvert \\le C \\lvert x-y\\rvert$$ \n\nCan you state the condition in [MISSING]?
+"output":
+Certainly! The condition that was missing in the given proof, which allows us to apply the conclusion effectively, is that the derivative of \( f \), denoted as \( f' \), is **bounded** on the interval \([a, b]\).
+
+### Full Explanation of the Missing Condition
+
+To demonstrate that \( f \) satisfies a Lipschitz condition on \([a, b]\), we require that:
+
+**[MISSING]: \( f' \) is bounded on \([a, b]\).**
+
+This is crucial because the mean value theorem states that for any \( x, y \in [a, b] \) with \( x > y \) (without loss of generality), there exists a \( \xi \) in the open interval \((y, x)\) such that:
+\[ f(x) - f(y) = f'(\xi)(x - y). \]
+
+To use this relationship to establish a Lipschitz condition, we need to show that the difference \( |f(x) - f(y)| \) can be bounded by a constant multiple of \( |x - y| \). The formula from the mean value theorem introduces \( f'(\xi) \), which is a value of the derivative at some point between \( x \) and \( y \). For this to provide a useful bound, the absolute value of \( f'(\xi) \) must be uniformly bounded by some constant \( C \) over the entire interval \([a, b]\).
+
+### Why \( f' \) Needs to Be Bounded
+
+If \( f' \) is not bounded, the product \( f'(\xi)(x - y) \) could become arbitrarily large as \( \xi \) varies within \((y, x)\), even for small values of \( |x - y| \), thus failing to satisfy the Lipschitz condition. Hence, the boundedness of \( f' \) ensures that:
+\[ |f'(\xi)| \leq C \quad \text{for all } \xi \in [a, b], \]
+where \( C \) is some positive real number.
+
+### Conclusion with the Bounded Derivative
+
+Given that \( f' \) is continuous on \([a, b]\) (as stated in the problem) and that \([a, b]\) is a closed interval, the extreme value theorem guarantees that \( f' \) attains its maximum and minimum on \([a, b]\). Therefore, \( f' \) is indeed bounded on this interval. With this assurance, we can now state:
+\[ |f(x) - f(y)| = |f'(\xi)||x - y| \leq C|x - y|, \]
+proving that \( f \) satisfies the Lipschitz condition on \([a, b]\) with Lipschitz constant \( C \).
+
+This final condition of boundedness of \( f' \) completes the missing link in your argument, confirming why \( f \) is Lipschitz on \([a, b]\).
+
+"rating": 1
+"error_codes":2b
+"warning_codes": 
+"comment":The name of the result used in [MISSING] is the mean value theorem.
+"msc":Complement
+    
+  
+
+"prompt": Let $f\\colon\\mathbb{R}\\to\\mathbb{R}$ and suppose that\n\n$$|f(x)-f(y)|\\le (x-y)^2$$\n\nfor all $x,y\\in\\mathbb{R}$. We want to prove that $f$ is constant. Let $c=f(0)$, then we have to prove that $f(x)=c$ whenever $x\\neq0$. Supposing that $n$ is an arbitrary positive integer, we have\n$$\\left|f\\left(\\frac{m+1}nx\\right)-f\\left(\\frac mnx\\right)\\right|\\le\\left(\\frac{m+1}nx-\\frac mnx\\right)^2=\\frac{x^2}{n^2}$$\nCan you finish the proof?
+"output": Certainly! To complete the proof that the function \( f \) is constant, we will use the given inequality and the process of taking an infinite sequence of steps between two arbitrary points, as initiated in the problem statement.
+
+### Strategy:
+We will show that for any \( x \in \mathbb{R} \), \( f(x) = c \) where \( c = f(0) \). Given the inequality:
+\[ |f(x) - f(y)| \leq (x-y)^2, \]
+we can use it to estimate \( f(x) \) by considering \( x \) broken into \( n \) intervals from 0 to \( x \).
+
+### Applying the Inequality on the Series:
+For any \( x \in \mathbb{R} \) and any positive integer \( n \), consider the sequence of points \( 0, \frac{x}{n}, \frac{2x}{n}, \dots, x \). We apply the given inequality on consecutive points in this sequence:
+\[ \left|f\left(\frac{(m+1)x}{n}\right) - f\left(\frac{mx}{n}\right)\right| \leq \left(\frac{x}{n}\right)^2. \]
+
+### Summing the Differences:
+Using the triangle inequality over the chain of inequalities from 0 to \( x \), summing over \( m = 0 \) to \( n-1 \), we get:
+\[ \left|f(x) - f(0)\right| \leq \sum_{m=0}^{n-1} \left|f\left(\frac{(m+1)x}{n}\right) - f\left(\frac{mx}{n}\right)\right| \leq \sum_{m=0}^{n-1} \frac{x^2}{n^2} = n \cdot \frac{x^2}{n^2} = \frac{x^2}{n}. \]
+
+### Taking the Limit as \( n \) Goes to Infinity:
+As \( n \) approaches infinity, \( \frac{x^2}{n} \) approaches 0. Therefore:
+\[ \lim_{n \to \infty} \left|f(x) - f(0)\right| = 0, \]
+which implies that \( f(x) = f(0) \) for all \( x \).
+
+### Conclusion:
+Since \( x \) was arbitrary, this shows that \( f(x) \) is the same for any \( x \), which means \( f \) is constant over \( \mathbb{R} \). Therefore, \( f(x) = c \) for all \( x \in \mathbb{R} \), where \( c = f(0) \). This concludes the proof that \( f \) is a constant function.
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": We want to show that a finite dimensional vector space $V$ over a countable field $F$ is necessarily countable: if $v_1,\\ldots,v_n \\in V$ is a basis, then every vector in $V$ can be written uniquely as $\\alpha_1 v_1+\\cdots+\\alpha_n v_n$ for some scalars $\\alpha_1,\\ldots,\\alpha_n\\in F$. Can you finish the proof?
+"output":To prove that a finite dimensional vector space \(V\) over a countable field \(F\) is countable, we'll use the fact that every vector in \(V\) can be uniquely expressed as a linear combination of basis vectors with coefficients from \(F\). Here’s the step-by-step argument:
+
+### Step 1: Basis of \(V\)
+Given that \(v_1, \ldots, v_n\) is a basis for \(V\), every vector \(v\) in \(V\) can be uniquely represented as:
+\[ v = \alpha_1 v_1 + \alpha_2 v_2 + \ldots + \alpha_n v_n, \]
+where \(\alpha_1, \ldots, \alpha_n \in F\).
+
+### Step 2: Finite Dimension and Countable Field
+Since \(F\) is countable, the set of all elements of \(F\) is countable. We need to consider the set of all possible \(n\)-tuples of elements from \(F\) (since each vector in \(V\) corresponds to such an \(n\)-tuple of coefficients).
+
+### Step 3: Countability of the Set of \(n\)-tuples
+The Cartesian product of countably many countable sets is countable. This result applies even if the number of sets in the product is finite but greater than 1. Hence, the set of all \(n\)-tuples \((\alpha_1, \alpha_2, \ldots, \alpha_n)\) where each \(\alpha_i \in F\) is countable.
+
+### Step 4: Correspondence Between \(n\)-tuples and Vectors in \(V\)
+Each \(n\)-tuple \((\alpha_1, \alpha_2, \ldots, \alpha_n)\) uniquely determines a vector in \(V\) via the linear combination \(\alpha_1 v_1 + \alpha_2 v_2 + \ldots + \alpha_n v_n\). Conversely, each vector in \(V\) corresponds to exactly one such \(n\)-tuple by the definition of a basis. This establishes a bijection between the set of all \(n\)-tuples of elements of \(F\) and the set of all vectors in \(V\).
+
+### Step 5: Conclusion
+Since the set of all \(n\)-tuples from a countable set \(F\) is countable, and there is a bijection between this set and \(V\), it follows that \(V\) itself is countable.
+
+### Final Remark
+This proof leverages the properties of countability, Cartesian product of countable sets, and the finite dimensional nature of the vector space. As a result, the finite dimensionality and the structure of \(V\) (being spanned by a finite basis over a countable field) ensure that \(V\) is countable.
+
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": Suppose $u, v\\in V$, where $V$ is an inner product space over $\\mathbb{R}$ or $\\mathbb{C}$. We want to proof that\n$$|\\langle u, v\\rangle| \\le \\|u\\| \\|v\\|.$$\nLet us assume that $v\\neq 0 $ and consider the orthogonal decomposition\n$$\nu = \\frac{\\langle u, v\\rangle}{\\|v\\|^2}v + w,\n$$\nwhere $w$ is orthogonal to $v$. Then it holds that\n$$ \\|u\\|^2 =  \\left\\|\\frac{\\langle u, v\\rangle}{\\|v\\|^2}v\\right\\|^2+ \\|w\\|^2. $$\nWhat is the name of the result used in this equality?
+"output": The result used in the equality is the Pythagorean Theorem for inner product spaces.
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": Suppose $V$ is a finite-dimensional complex vector space and let $T\\in\\mathcal{L}(V)$ be a normal operator. We want to show that $T$ has a diagonal matrix with respect to some orthonormal basis of $V$.\nWe first note that there is an orthonormal basis $e_1,\\dots,e_n$ of $V$ with respect to which $T$ has an upper-triangular matrix. What is the name of this result?\n
+"output":The result you are referring to is the **Schur Decomposition Theorem**. This theorem states that for any operator \( T \) on a finite-dimensional complex vector space \( V \), there exists an orthonormal basis with respect to which the matrix of \( T \) is upper triangular. This result applies to all linear operators on complex vector spaces, not just normal operators.
+
+### Detailed Explanation of Schur Decomposition:
+- **Schur's Theorem**: For every linear operator \( T \) on a complex finite-dimensional vector space \( V \), there exists an orthonormal basis of \( V \) such that the matrix representing \( T \) in this basis is upper triangular. This basis is obtained by first finding an eigenvector of \( T \), normalizing it, and extending it to an orthonormal basis of \( V \) using the Gram-Schmidt process. The process is then applied inductively to the orthogonal complement of the span of this eigenvector.
+
+### Application to Normal Operators:
+For normal operators, Schur's theorem can be strengthened to say that the operator not only has an upper-triangular matrix but actually has a diagonal matrix when represented with respect to an orthonormal basis of \( V \). This is because, for normal operators, all the off-diagonal entries in the upper triangular matrix from Schur's theorem are actually zero. This enhancement relies on the additional properties of normal operators.
+
+### Why Normal Operators are Diagonalizable:
+- **Normal Operator Definition**: An operator \( T \) is normal if it commutes with its adjoint, i.e., \( TT^* = T^*T \).
+- **Diagonalization of Normal Operators**: For normal operators, the eigenvectors corresponding to different eigenvalues are orthogonal. This property stems from the fact that normal operators preserve the inner product structure. Hence, when you apply Schur's theorem to a normal operator, the orthogonal eigenvectors obtained form an orthonormal basis, and since the operator is normal, the matrix representation in this basis is diagonal rather than merely upper triangular.
+
+### Conclusion:
+Thus, Schur's theorem not only guarantees the existence of an orthonormal basis for which a matrix representation of any linear operator is upper triangular but also implies that for normal operators, such as self-adjoint, unitary, and more generally, any operator satisfying \( TT^* = T^*T \), the matrix representation is diagonal. This is a critical point in proving spectral theorems in functional analysis and quantum mechanics, where normal operators have profound implications.
+
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": We want to compute the following limit:\n\n$$\\lim_{k\\to\\infty}\\sum\\limits_{n=k+1}^{2k}{\\frac{1}{n}}$$\n\nRewriting the sum as\n[MISSING]\nallows us to identify this as a Riemann sum related to the definite integral \n$$\\int_1^2\\frac1x\\,dx=\\ln 2.$$\nTo see that, divide the interval $[1,2]$ to $k$ equal length subintervals, and evaluate the function $f(x)=1/x$ at the right end of each subinterval. When $k\\to\\infty$, the Riemann sums will then tend to the value of this definite integral. Can you fill in the missing equation?
+"output": To understand the limit of the sum \(\sum_{n=k+1}^{2k} \frac{1}{n}\) as \(k\) approaches infinity, we can indeed relate this sum to a Riemann sum for the integral of \( \frac{1}{x} \) over an interval, as suggested. Let's go through the steps and fill in the missing equation that relates the sum to the Riemann sum.
+
+### Rewriting the Sum
+The sum can be re-expressed to better reflect its structure as a Riemann sum:
+\[ \sum_{n=k+1}^{2k} \frac{1}{n} \]
+
+### Changing the Index of Summation
+We rewrite the sum using a change of index, setting \( m = n - k \). Then, when \( n = k+1 \), \( m = 1 \); and when \( n = 2k \), \( m = k \). Therefore, the sum becomes:
+\[ \sum_{m=1}^k \frac{1}{k+m} \]
+
+### Relating to a Riemann Sum
+This expression can be related to a Riemann sum. Notice that \( \frac{1}{k+m} \) can be seen as evaluating \( \frac{1}{x} \) at certain points. We write \( \frac{k+m}{k} = 1 + \frac{m}{k} \), and so:
+\[ \frac{1}{k+m} = \frac{1}{k(1 + \frac{m}{k})} = \frac{1}{k} \frac{1}{1 + \frac{m}{k}} \]
+This can be interpreted as the value of the function \( \frac{1}{x} \) at points \( 1 + \frac{m}{k} \), where \( \frac{m}{k} \) represents a partition of the interval [1, 2] into \( k \) equal parts, and \( \frac{1}{k} \) is the width of each subinterval.
+
+### Riemann Sum Expression
+So, the sum can be written as:
+\[ \sum_{m=1}^k \frac{1}{k+m} = \sum_{m=1}^k \frac{1}{k} \frac{1}{1 + \frac{m}{k}} \]
+This is precisely a Riemann sum for the integral of \( \frac{1}{x} \) from 1 to 2, using the right endpoints of the subintervals:
+\[ \int_1^2 \frac{1}{x} \, dx \]
+
+### Limit as \( k \to \infty \)
+As \( k \) tends to infinity, the Riemann sum:
+\[ \sum_{m=1}^k \frac{1}{k} \frac{1}{1 + \frac{m}{k}} \]
+converges to the integral:
+\[ \int_1^2 \frac{1}{x} \, dx = \ln(2) - \ln(1) = \ln(2) \]
+
+### Conclusion
+Thus, the limit of the original sum is:
+\[ \lim_{k\to\infty} \sum_{n=k+1}^{2k} \frac{1}{n} = \ln 2 \]
+This establishes the missing equation and shows how the sum relates to a definite integral using Riemann sums, thereby completing the computation of the limit.
+
+"rating": 4
+"error_codes":
+"warning_codes": 
+"comment":回答正确，但未完成填空。
+"msc":Complement
+    
+  
+
+"prompt": Given a set of vectors $v_1 \\cdots v_n$, the $n\\times n$ Gram matrix $G$ is defined as\n$G_{i,j}=v_i \\cdot v_j$. We want to show that $|G|=0$ iff the vectors $v_i$ are not linearly independent.\n\nLet $A$ be the matrix whose columns are the vectors $v_1, v_2, ... v_n$, such that $G=A^TA$. If $G$ is not invertible, there exists a vector $v \\neq 0$ such that\n$$\n  G v = 0.\n$$\nIt follows that\n$$\n  0 = v^T G v = v^T A^T A v = (A v)^T A v\n    = \\lVert A v\\rVert^2\n$$\nand therefore that\n$$\n   A v = 0.\n$$\nSince $v \\neq 0$, the column vectors of $A$ are linearly dependent.\n\nCan you finish the proof?
+"output": To complete the proof, we need to establish the full bi-directional implication: not only must we show that if the vectors \(v_1, \ldots, v_n\) are linearly dependent then the determinant of the Gram matrix \(G\) is zero (\(|G| = 0\)), but also that if \(|G| = 0\), then the vectors \(v_1, \ldots, v_n\) are not linearly independent. We have already shown the first direction; let's now verify the reverse.
+
+### Proof:
+#### From \(|G| = 0\) to Linear Dependence:
+1. **Assumption**: Assume that the determinant of the Gram matrix \(G = A^T A\) is zero, \(|G| = 0\). Since \(G\) is a symmetric positive semidefinite matrix, \(|G| = 0\) implies that \(G\) is not invertible.
+
+2. **Existence of Nonzero Kernel**: Because \(G\) is not invertible, there exists a nonzero vector \(v \in \mathbb{R}^n\) such that:
+   \[ Gv = A^TAv = 0. \]
+   As shown earlier, multiplying both sides of this equation by \(v^T\) from the left, we get:
+   \[ v^TGv = (Av)^T(Av) = \|Av\|^2 = 0. \]
+   Since \(\|Av\|^2 = 0\), it follows that \(Av = 0\).
+
+3. **Implication for Column Vectors of \(A\)**: The equation \(Av = 0\) where \(v \neq 0\) means that the linear transformation represented by matrix \(A\) (which has columns \(v_1, v_2, \ldots, v_n\)) maps the nonzero vector \(v\) to the zero vector. Therefore, the columns of \(A\) are linearly dependent because there exists a non-trivial linear combination (given by the components of \(v\)) that results in the zero vector.
+
+### Conclusion:
+Thus, we have established that if \(|G| = 0\), then the vectors \(v_1, v_2, \ldots, v_n\) must be linearly dependent. This completes the proof of the statement:
+
+**The determinant of the Gram matrix \(G\) is zero if and only if the vectors \(v_1, \ldots, v_n\) are linearly dependent.**
+
+This proof utilizes the relationship between the invertibility of the Gram matrix (which encodes the dot products of vectors, hence their linear independence or dependence) and the linear dependence of the vectors themselves.
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": We want to proof Lebesgue's dominated convergence theorem. Let $E$ be a measurable set and let $\\{f_n\\}$ be a sequence of measurable functions such that\n$$ f_n(x) \\to f(x) \\quad (x \\in E)$$\nas $ n\\to\\infty$. Further assume there is a function $g\\in\\mathcal{L}(\\mu)$ on $E$, such that\n$$|f_n(x)| \\le g(x) \\quad (n=1,2,3,\\dots, x\\in E).$$\n\nFirst we observe that $f_n\\in\\mathcal{L}(\\mu)$ and $f\\in\\mathcal{L}(\\mu)$ on $E$. Since, $f_n+g \\ge 0$, Fatou's lemma shows that\n\n$$ \\int_E (f+g) d\\mu \\le \\liminf_{n\\to \\infty} \\int_E (f_n+g) d\\mu.$$\n\nor\n\n$$ \\int_E f d\\mu \\le \\liminf_{n\\to \\infty} \\int_E f_n d\\mu.$$\n\nCan you finish the proof?
+"output": Certainly! To complete the proof of Lebesgue's Dominated Convergence Theorem, we will continue from the step where we established:
+\[ \int_E f \, d\mu \leq \liminf_{n \to \infty} \int_E f_n \, d\mu. \]
+
+Next, we need to establish the reverse inequality:
+\[ \int_E f \, d\mu \geq \limsup_{n \to \infty} \int_E f_n \, d\mu, \]
+and then show that these two results imply:
+\[ \lim_{n \to \infty} \int_E f_n \, d\mu = \int_E f \, d\mu. \]
+
+### Establishing the Reverse Inequality
+To achieve the reverse inequality, we use a similar argument involving Fatou's lemma, but apply it to the sequence \(-f_n\). Notice that \( |f_n(x)| \le g(x) \) implies \( |-f_n(x)| \le g(x) \) as well, so the dominated condition still holds.
+
+1. **Applying Fatou's Lemma**:
+   - Since \( -f_n(x) \to -f(x) \) almost everywhere as \( n \to \infty \), and \( |-f_n(x)| \le g(x) \),
+   - Applying Fatou’s lemma to the sequence \(-f_n\), we have:
+     \[
+     \int_E (-f) \, d\mu \leq \liminf_{n \to \infty} \int_E (-f_n) \, d\mu,
+     \]
+     which simplifies to:
+     \[
+     -\int_E f \, d\mu \leq -\limsup_{n \to \infty} \int_E f_n \, d\mu.
+     \]
+   - Multiplying both sides by \(-1\), we obtain:
+     \[
+     \int_E f \, d\mu \geq \limsup_{n \to \infty} \int_E f_n \, d\mu.
+     \]
+
+### Conclusion by Combining Inequalities
+With both parts established:
+\[ \int_E f \, d\mu \leq \liminf_{n \to \infty} \int_E f_n \, d\mu, \]
+\[ \int_E f \, d\mu \geq \limsup_{n \to \infty} \int_E f_n \, d\mu, \]
+it follows that:
+\[ \liminf_{n \to \infty} \int_E f_n \, d\mu \geq \limsup_{n \to \infty} \int_E f_n \, d\mu. \]
+But since the \(\liminf\) is always less than or equal to the \(\limsup\), these must be equal, which implies:
+\[ \lim_{n \to \infty} \int_E f_n \, d\mu = \int_E f \, d\mu. \]
+
+### Finalizing the Proof
+This result shows that under the conditions given—\(f_n(x) \to f(x)\) almost everywhere, and all \(f_n\) being dominated by an integrable function \(g\)—the integral of \(f_n\) converges to the integral of \(f\). This is the statement of Lebesgue's Dominated Convergence Theorem, which is a powerful tool for handling the limits of sequences of functions in the context of integration.
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": Let $f$ be defined on $[a,b]$. We want to proof the following result: if $f$ has a local maximum at a point $x\\in(a,b)$, and if $f'(x)$ exists, then $f'(x)=0$. We choose $\\delta >0$ with\n$$ a < x-\\delta < x < x+\\delta < b $$ such that $f(y) \\le f(x)$ for all $y\\in[a,b]$ with $|x-y| < \\delta$. If $x-\\delta < t <x$, then\n$$\\frac{f(t)-f(x)}{t-x} \\ge 0.$$\nLetting $t\\to x$, we see that $f'(x) \\ge 0$. Can you finish the proof?
+"output": Certainly! To complete the proof that if \( f \) has a local maximum at \( x \) within \( (a, b) \) and \( f'(x) \) exists, then \( f'(x) = 0 \), we need to handle both the cases when \( t \) approaches \( x \) from the left and from the right. Let's go through these cases:
+
+### Case 1: \( t \) Approaching \( x \) from the Left
+As outlined, if \( t \) is approaching \( x \) from the left (\( t < x \)), then:
+\[ \frac{f(t) - f(x)}{t - x} \geq 0. \]
+This inequality holds because \( f(t) \leq f(x) \) for all \( t \) within the interval \( [x-\delta, x] \), and since \( t < x \), the denominator \( t - x \) is negative, thus making the quotient non-positive unless the numerator is also zero or negative. Taking the limit as \( t \) approaches \( x \) from the left gives:
+\[ \lim_{t \to x^-} \frac{f(t) - f(x)}{t - x} = f'_-(x) \geq 0, \]
+where \( f'_-(x) \) denotes the left-hand derivative of \( f \) at \( x \).
+
+### Case 2: \( t \) Approaching \( x \) from the Right
+Similarly, if \( t \) is approaching \( x \) from the right (\( t > x \)), then:
+\[ \frac{f(t) - f(x)}{t - x} \leq 0. \]
+Here, the inequality follows because \( f(t) \leq f(x) \) within the interval \( [x, x+\delta] \), and the denominator \( t - x \) is positive, which means the quotient remains non-positive unless \( f(t) = f(x) \). Taking the limit as \( t \) approaches \( x \) from the right, we have:
+\[ \lim_{t \to x^+} \frac{f(t) - f(x)}{t - x} = f'_+(x) \leq 0, \]
+where \( f'_+(x) \) is the right-hand derivative of \( f \) at \( x \).
+
+### Conclusion
+Given \( f \) is differentiable at \( x \) and \( f'(x) \) exists, the left-hand and right-hand derivatives must be equal and finite:
+\[ f'(x) = f'_-(x) = f'_+(x). \]
+With \( f'_-(x) \geq 0 \) and \( f'_+(x) \leq 0 \), it must be that:
+\[ f'(x) = 0. \]
+
+Thus, we conclude that if \( f \) has a local maximum at \( x \) and is differentiable at \( x \), then \( f'(x) \) must be zero. This proof uses fundamental calculus concepts including the behavior of functions near local extrema and the implications of derivatives at those points.
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": Let $f$ be monotonic on $(a,b)$. Then the set of points of $(a,b)$ at which $f$ is discontinuous is at most countable. Let us proof this result. Suppose, for the sake of definiteness, that $f$ is increasing, and let $E$ be the set of points at which $f$ is discontinuous. With every point $x$ of $E$ we associate a rational number $r(x)$ such that\n$$f(x-) = \\sup_{a < t <x} f(t) < r(x) < \\inf_{x < t <b} f(t) = f(x+).$$\nSince $x_1 < x_2$ implies $f(x_1+) \\le f(x_2-)$, we see that $r(x_1)\\neq r(x_2)$ if $x_1 \\neq x_2$. Can you finish the proof?
+"output": To complete the proof that the set of points at which a monotonic function \( f \) is discontinuous is at most countable, we begin by noting that for each point \( x \) in \( E \) (the set of discontinuity points), we've associated a unique rational number \( r(x) \) between \( f(x-) \) and \( f(x+) \). Here's the step-by-step argument to conclude the proof:
+
+### Step 1: Establishing Unique Association of Rationals
+Given that \( f \) is increasing and discontinuous at each point \( x \in E \), we have that \( f(x-) < f(x+) \), where \( f(x-) \) and \( f(x+) \) represent the left-hand limit and right-hand limit of \( f \) at \( x \), respectively. For each such \( x \), we can find a rational number \( r(x) \) such that
+\[ f(x-) < r(x) < f(x+). \]
+
+### Step 2: Injectivity of the Association
+If \( x_1, x_2 \in E \) and \( x_1 < x_2 \), then because \( f \) is increasing, it follows that
+\[ f(x_1+) \leq f(x_2-). \]
+Since \( f(x_1+) = \inf_{x_1 < t < b} f(t) \) and \( f(x_2-) = \sup_{a < t < x_2} f(t) \), and \( f(x_1+) < r(x_1) \) and \( r(x_2) < f(x_2-) \), it is clear that
+\[ r(x_1) < r(x_2). \]
+Therefore, the rational \( r(x) \) associated with \( x \) in \( E \) is uniquely determined by \( x \) and different \( x \) values will have different \( r(x) \) values.
+
+### Step 3: Countability of Rationals
+The set of rational numbers \( \mathbb{Q} \) is countable. Since we have established an injective function from \( E \) into \( \mathbb{Q} \) (each \( x \in E \) is uniquely associated with a rational number \( r(x) \)), and \( \mathbb{Q} \) is countable, the set \( E \) must also be countable. This is because a subset of a countable set is countable, and an injective map from a set to a countable set implies the original set is at most countable.
+
+### Conclusion
+Thus, the set of points of discontinuity \( E \) of a monotonic function \( f \) on an interval \( (a, b) \) is at most countable. This conclusion follows from the ability to uniquely associate each discontinuity with a distinct rational number and the countability of the rational numbers.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": Given the power series $\\sum c_n z^n$, put\n\n$$ \\alpha = \\limsup_{n\\to \\infty} \\sqrt[n]{|c_n|}, \\quad R=\\frac{1}{\\alpha}.$$\n\n(If $\\alpha=0, $R=$+\\infty$; if $\\alpha=+\\infty$, $R=0$.) Then $\\sum c_n z^n$ converges if $|z| < R$, and diverges if $|z| > R$. Let us prove the result. Put $a_n=c_n z^n$, and apply the root test.\nCan you finish the proof?
+"output": 
+Certainly! Let's proceed with the proof using the root test on the power series \( \sum c_n z^n \). We will establish conditions for convergence and divergence based on the radius \( R \) determined by the given \( \alpha \).
+
+### Step 1: Apply the Root Test
+The root test examines the limit:
+\[ L = \limsup_{n \to \infty} \sqrt[n]{|a_n|} = \limsup_{n \to \infty} \sqrt[n]{|c_n z^n|} = \limsup_{n \to \infty} \left( \sqrt[n]{|c_n|} |z| \right). \]
+
+Since the \( n \)-th root of \( |z|^n \) is \( |z| \), we have:
+\[ L = \limsup_{n \to \infty} \sqrt[n]{|c_n|} |z| = \alpha |z|. \]
+
+### Step 2: Determine Convergence and Divergence
+By the root test:
+- The series \( \sum c_n z^n \) converges if \( L < 1 \).
+- The series \( \sum c_n z^n \) diverges if \( L > 1 \).
+
+### Step 3: Relate to the Given \( \alpha \) and \( R \)
+We are given:
+\[ R = \frac{1}{\alpha}, \quad \text{and hence} \quad \alpha = \frac{1}{R}. \]
+
+From the root test result:
+- The series converges if \( \alpha |z| < 1 \), or equivalently \( |z| < \frac{1}{\alpha} = R \).
+- The series diverges if \( \alpha |z| > 1 \), or equivalently \( |z| > \frac{1}{\alpha} = R \).
+
+### Step 4: Special Cases
+- If \( \alpha = 0 \), then \( R = \frac{1}{0} = +\infty \), and the series converges for all \( z \in \mathbb{C} \).
+- If \( \alpha = +\infty \), then \( R = \frac{1}{\infty} = 0 \), and the series converges only at \( z = 0 \).
+
+### Conclusion
+Thus, we've proved that:
+- The power series \( \sum c_n z^n \) converges absolutely for \( |z| < R \) and diverges for \( |z| > R \) based on the root test, which assesses the limit of the \( n \)-th root of the terms' absolute values.
+- The radius of convergence \( R \) of the series is exactly \( \frac{1}{\alpha} \), where \( \alpha \) is the limit superior of the \( n \)-th roots of the absolute values of the coefficients.
+
+This result encapsulates the essential connection between the coefficients of a power series and its radius of convergence, providing a powerful method to determine the domain of convergence of series in complex analysis.
+
+"rating": 2
+"error_codes":2b,5e
+"warning_codes": 
+"comment":对根式判别法陈述不准确
+"msc":Complement
+    
+  
+
+"prompt": For $0<x<\\infty$,\n$$ \\Gamma(x) = \\int_{0}^\\infty t^{x-1} e^{-t} dt. $$\n\nThe integral converges for these $x$. We want to show that $\\log \\Gamma$ is convex on $(0,\\infty)$. If $1 < t < \\infty$ and $(1/t)+(1/s)=1$, one can show that\n$$\n\\Gamma\\left(\\frac{x}{t}+\\frac{y}{s}\\right) \\le \\Gamma(x)^{1/t}\\Gamma(y)^{1/s}.\n$$\nWhat is the name of the result that was used to prove this equation?
+"output": The result used to prove the inequality 
+
+\[ \Gamma\left(\frac{x}{t} + \frac{y}{s}\right) \leq \Gamma(x)^{1/t} \Gamma(y)^{1/s} \]
+
+is known as the **weighted arithmetic-geometric mean inequality** or **Hölder's inequality** applied in the context of the gamma function. Here's a brief explanation:
+
+### Hölder's Inequality:
+Hölder's inequality is a fundamental inequality in measure theory and is particularly useful in the theory of \(L^p\) spaces. For positive real numbers \(p\) and \(q\) such that \( \frac{1}{p} + \frac{1}{q} = 1 \) (Hölder conjugates), and for functions \(f\) and \(g\), the inequality states:
+
+\[ \int |fg| \, d\mu \leq \left(\int |f|^p \, d\mu\right)^{1/p} \left(\int |g|^q \, d\mu\right)^{1/q}. \]
+
+### Application to the Gamma Function:
+For the gamma function, the application of Hölder's inequality uses an integral representation of \( \Gamma(x) \) and considers suitable functions and powers that align with the parameters \(x, y, t,\) and \(s\). The inequality
+
+\[ \Gamma\left(\frac{x}{t} + \frac{y}{s}\right) \leq \Gamma(x)^{1/t} \Gamma(y)^{1/s} \]
+
+can be derived by selecting appropriate functions and applying Hölder's inequality to the integral representation of the gamma function. The functions involved and their exponents are chosen to match the properties of the gamma function and to satisfy the condition \( (1/t) + (1/s) = 1 \).
+
+### Derivation via Hölder's Inequality:
+The gamma function for any \( z > 0 \) is given by:
+
+\[ \Gamma(z) = \int_0^\infty t^{z-1} e^{-t} dt. \]
+
+To apply Hölder's inequality:
+
+1. **Choose appropriate functions and exponents**: Define functions such that their product and exponents in the integrals correspond to the gamma function representations needed for \(x/t\), \(y/s\), and \((x/t)+(y/s)\).
+2. **Apply Hölder's Inequality**: Implement the inequality to show the relationship between these integrals and thereby derive the desired inequality for gamma functions.
+
+### Conclusion:
+The use of Hölder's inequality in proving properties of the gamma function underscores the deep connections between integral inequalities, special functions, and convex analysis. The derived inequality indicates a form of log-convexity of the gamma function, which can further be shown to imply that \( \log \Gamma(x) \) is a convex function on \((0, \infty)\). This convexity has significant implications in various areas of mathematics and statistics, particularly in results relating to distributions and estimations in statistics.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": We want to prove that $$\\lim_{x\\to 0}\\frac{\\sin x}{x}=1.$$\n\nIt is easy to show that $\\lim_{x\\to 0} \\sin x = 0$ and $\\lim_{x\\to 0}  x = 0$. Thus, by l'Hôpital's rule it holds that [MISSING] which finishes the proof.\n\nCan you provide the missing equation?
+"output": Certainly! The missing step involves applying l'Hôpital's Rule to the limit expression \(\lim_{x \to 0} \frac{\sin x}{x}\). According to l'Hôpital's Rule, if the limit of the ratio of the derivatives of the numerator and the denominator exists as \(x\) approaches a point (in this case 0), and if both the numerator and denominator approach 0 or \(\pm\infty\) as \(x\) approaches this point, then the limit of the ratio of the functions is equal to the limit of the ratio of their derivatives. Here's how it applies:
+
+1. **Original Function**:
+   \[
+   \lim_{x \to 0} \frac{\sin x}{x}
+   \]
+
+   As \(x\) approaches 0, both \(\sin x\) and \(x\) approach 0. Hence, the limit is of the indeterminate form \(\frac{0}{0}\).
+
+2. **Apply l'Hôpital's Rule**:
+   To apply l'Hôpital's Rule, we differentiate the numerator and the denominator separately:
+   - The derivative of the numerator, \(\sin x\), is \(\cos x\).
+   - The derivative of the denominator, \(x\), is 1.
+
+   Therefore, by l'Hôpital's Rule, the limit can be rewritten as:
+   \[
+   \lim_{x \to 0} \frac{\sin x}{x} = \lim_{x \to 0} \frac{\cos x}{1}
+   \]
+
+3. **Compute the Limit**:
+   Now, evaluating the new limit, we have:
+   \[
+   \lim_{x \to 0} \cos x = \cos(0) = 1
+   \]
+
+4. **Conclusion**:
+   Hence, the limit of the original expression as \(x\) approaches 0 is:
+   \[
+   \lim_{x \to 0} \frac{\sin x}{x} = 1
+   \]
+
+This completes the proof that \(\lim_{x \to 0} \frac{\sin x}{x} = 1\) using l'Hôpital's Rule.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": Let $f : \\mathbb{R} \\to \\mathbb{R}$ be a differentiable function such that $f(0) = 1$ and $f'(x) = f(x)$. Then it must be the case that $f = e^x$. We will prove this statement in the following.\nLet $g(x) = f(x) e^{-x}$. Then\n$$g'(x) = -f(x) e^{-x} + f'(x) e^{-x} = (f'(x) - f(x)) e^{-x} = 0$$\nby assumption. Can you finish the proof?
+"output": Absolutely! Let's finish the proof that \( f(x) = e^x \) based on the given conditions and the defined function \( g(x) = f(x) e^{-x} \).
+
+### Step 1: Derivative of \( g(x) \)
+We've already shown that
+\[ g'(x) = (f'(x) - f(x)) e^{-x} = 0. \]
+Since \( g'(x) = 0 \) for all \( x \in \mathbb{R} \), it implies that \( g(x) \) is a constant function.
+
+### Step 2: Evaluating \( g(x) \) at \( x = 0 \)
+Since \( g \) is constant and we know \( f(0) = 1 \), evaluate \( g(x) \) at \( x = 0 \):
+\[ g(0) = f(0) e^{-0} = 1 \cdot 1 = 1. \]
+Since \( g(x) \) is constant and \( g(0) = 1 \), it follows that \( g(x) = 1 \) for all \( x \).
+
+### Step 3: Relating \( g(x) \) to \( f(x) \)
+We have \( g(x) = 1 \) for all \( x \), where \( g(x) = f(x) e^{-x} \). Thus,
+\[ f(x) e^{-x} = 1. \]
+Rearranging gives:
+\[ f(x) = e^x. \]
+
+### Conclusion
+We have shown that \( f(x) = e^x \) for all \( x \in \mathbb{R} \). This proof is based on the differential equation \( f'(x) = f(x) \), initial condition \( f(0) = 1 \), and leveraging the properties of exponential functions and constants derived from the derivatives. This validates \( f \) as the exponential function \( e^x \), confirming the uniqueness of solutions to this kind of differential equation with the specified initial condition.
+
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": We are given a linear operator $T$ over a vector space $V$. We want to show that $T$ is a scalar multiple of the identity if $\\forall S \\in {\\cal L}(V), TS = ST$. Here, ${\\cal L}(V)$ denotes the set of all linear operators over $V$. We consider $S \\in L(V)$ given by $S x = f(x) v$ for some vector $v$ and some linear functional $f$ on V. Then $T S x = f(x) T v = S T x = f(T x) v$ for any x. In particular, as long as a nontrivial linear functional $f$ on $V$ exists, there is $x$ such that $f(x) \\ne 0$, and then $T v = \\alpha v$ for all $v$, where $\\alpha = f(T x)/f(x)$.\n\nFor an infinite-dimensional vector space $V$, the existence of a nontrivial linear function requires [MISSING]?\n\nCan you provide the name in [MISSING]?
+"output": The name in [MISSING] is the Hahn-Banach theorem.
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": Suppose $V$ is an inner product space and $T\\in\\mathcal{L}(V)$. We want to prove that\n$$ |\\det(T)|=\\det \\sqrt{T^* T}, $$\nwhere $\\sqrt{T^*T}$ denotes the unique positive square root of the positive operator $T^*T$.\nBy [MISSING] there is an isometry $S\\in\\mathcal{L}(V)$ such that\n$$ T = S \\sqrt{T^* T}. $$\nThus\n$$\n    |\\det T| = |\\det S| \\det \\sqrt{T^* T} = \\det \\sqrt{T^* T}.\n$$\nWhat is the name of the result used in [MISSING]?
+"output": The result used in [MISSING] is the Polar Decomposition Theorem.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": Suppose $u, v\\in V$, where $V$ is an inner product space over $\\mathbb{R}$ or $\\mathbb{C}$. We want to proof that\n$$|\\langle u, v\\rangle| \\le \\|u\\| \\|v\\|.$$\nLet us assume that $v\\neq 0 $. By [MISSING] we can write\n$$\nu = \\frac{\\langle u, v\\rangle}{\\|v\\|^2}v + w,\n$$\nwhere $w$ is orthogonal to $v$. By the Pythagorean Theorem,\n$$ \\|u\\|^2 =  \\left\\|\\frac{\\langle u, v\\rangle}{\\|v\\|^2}v\\right\\|^2+ \\|w\\|^2 \\ge  \\frac{|\\langle u, v\\rangle|^2}{\\|v\\|^2}. $$\nWhat is the name of the result used in [MISSING]?
+"output": The result used in [MISSING] to express \( u \) in terms of \( v \) and a component orthogonal to \( v \) is the **projection formula** or specifically the **projection of \( u \) onto \( v \)**. This result is crucial in decomposing a vector into components parallel and orthogonal to another vector in an inner product space.
+
+### Explanation of the Projection Formula:
+The projection formula allows you to write any vector \( u \) in the inner product space as the sum of two vectors: one that is a scalar multiple of \( v \) (specifically the projection of \( u \) onto \( v \)), and another vector that is orthogonal to \( v \). Mathematically, it's expressed as:
+\[ u = \text{proj}_v(u) + w, \]
+where 
+\[ \text{proj}_v(u) = \frac{\langle u, v \rangle}{\|v\|^2}v, \]
+and \( w \) is orthogonal to \( v \). Here, \( w = u - \text{proj}_v(u) \).
+
+### Pythagorean Theorem Application:
+The Pythagorean Theorem in inner product spaces states that if two vectors \( a \) and \( b \) are orthogonal, then the square of the norm of their sum is the sum of the squares of their norms:
+\[ \|a + b\|^2 = \|a\|^2 + \|b\|^2. \]
+In the context of the projection formula, where \( u = \text{proj}_v(u) + w \) and \( w \) is orthogonal to \( \text{proj}_v(u) \), the Pythagorean Theorem gives:
+\[ \|u\|^2 = \left\|\frac{\langle u, v \rangle}{\|v\|^2}v\right\|^2 + \|w\|^2. \]
+
+### Applying the Proof to the Cauchy-Schwarz Inequality:
+By substituting the expressions and manipulating them:
+1. The squared norm of the projection part is:
+   \[ \left\|\frac{\langle u, v \rangle}{\|v\|^2}v\right\|^2 = \left(\frac{|\langle u, v \rangle|}{\|v\|}\right)^2. \]
+2. Therefore, from the Pythagorean Theorem:
+   \[ \|u\|^2 = \left(\frac{|\langle u, v \rangle|}{\|v\|}\right)^2 + \|w\|^2 \geq \left(\frac{|\langle u, v \rangle|}{\|v\|}\right)^2. \]
+3. Rearranging gives:
+   \[ \|u\|^2 \|v\|^2 \geq |\langle u, v \rangle|^2, \]
+   which implies
+   \[ \|u\| \|v\| \geq |\langle u, v \rangle|, \]
+   hence proving the Cauchy-Schwarz inequality.
+
+This derivation not only shows the inequality but also highlights the deep geometric relationship between the angle (or orthogonality) of vectors and their inner product in an inner product space.
+"rating": 2
+"error_codes":2a
+"warning_codes": 
+"comment": The result used in [MISSING] is the Pythagorean Theorem 
+"msc":Complement
+    
+  
+
+"prompt": Suppose $T\\in \\mathcal{L}(V,W)$, where $V$ and $W$ denote finite-dimensional inner product spaces over $\\mathbb{R}$ or $\\mathbb{C}$. Fix $w \\in W$. Consider the linear functional on $V$ that maps $v\\in V$ to $\\langle Tv, w\\rangle$; this linear functional depends on $T$ and $w$. By the Riesz Representation Theorem, there exists a unique vector a unique vector in $V$ such that this functional is given by taking the inner product with it. We call this unique vector $u_w$. In other words,  $u_w$ is the unique vector in $V$ such that $ \\langle Tv, w\\rangle = \\langle v, u_w \\rangle$ for every $v\\in V$. What is the name of the mapping $w \\mapsto u_w$?
+"output": The mapping \( w \mapsto u_w \), where \( u_w \) is defined such that \( \langle Tv, w \rangle = \langle v, u_w \rangle \) for every \( v \in V \), is known as the **adjoint** of the operator \( T \). The mapping itself is often denoted as \( T^* \), and \( T^* \) is called the **adjoint operator** of \( T \).
+
+### Explanation of the Adjoint Operator:
+
+1. **Adjoint Definition**: 
+   If \( T: V \rightarrow W \) is a linear operator between inner product spaces, the adjoint of \( T \), denoted \( T^* \), is a map \( T^*: W \rightarrow V \) such that:
+   \[
+   \langle Tv, w \rangle = \langle v, T^*w \rangle
+   \]
+   for all \( v \in V \) and \( w \in W \).
+
+2. **Uniqueness and Existence**:
+   The existence and uniqueness of \( T^*w \) for each \( w \in W \) is guaranteed by the Riesz Representation Theorem. This theorem states that for every continuous linear functional on an inner product space, there exists a unique vector such that the functional can be represented as an inner product with this vector.
+
+3. **Properties**:
+   - If \( T \) is a linear operator, so is \( T^* \).
+   - The adjoint operation reverses the order of composition, meaning \( (ST)^* = T^*S^* \) for linear operators \( S \) and \( T \).
+   - For real inner product spaces, the adjoint operator corresponds to the transpose of the matrix representing \( T \) when the matrix is viewed in orthonormal bases. For complex spaces, it corresponds to the conjugate transpose.
+
+4. **Physical and Geometric Interpretation**:
+   The adjoint operator can be thought of as "reversing" the action of \( T \) in a sense that aligns with the underlying inner product structure. It is particularly significant in physics and engineering, where it often represents system dynamics in reverse time or conjugate relations in complex vector spaces.
+
+The concept of the adjoint is foundational in functional analysis, quantum mechanics, and many areas of applied mathematics, where operators and their adjoints describe system behaviors and their respective inverse or conjugate behaviors.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": We want to show that very operator on a finite-dimensional, nonzero, complex vector space has an eigenvalue. Suppose $V$ is a complex vector space with dimension $n>0$ and $T\\in\\mathcal{L}$. Choose $v\\in V$ with $v\\neq 0$. Then\n$$v,Tv,T^2v,\\dots,T^nv$$\nis not linearly independent, because $V$ has dimension $n$ and we have $n+1$ vectors. Thus there exist complex numbers $a_0,\\dots,a_n$, not all $0$, such that\n$$\n0 = a_0v + a_1Tv + \\dots + a_nT^nv.\n$$\nNote that $a_1,\\dots,a_n$ cannot alle be $0$, because otherwise the equation above would become $0=a_0v$, which would force $a_0$ to also be $0$.\nMake the $a$'s the coefficients of a polynomial, which has a factorization\n$$a_0 + a_1z + \\dots + a_nz^n = c(z-\\lambda_1)\\dots(z-\\lambda_m),$$\nwhere $c$ is a nonzero complex number, each $\\lambda_j$ is in $\\mathbb{C}$, and the equations holds for all $z\\in\\mathbb{C}$ (here $m$ is not necessarily equal to $n$, because $a_n$ may equal $0$).\nWe then have\n\\begin{align}\n0 &= a_0v + a_1Tv + \\dots + a_nT^nv \\\\\n  &= \\big(a_0I + a_1T + \\dots + a_nT^n\\big)v \\\\\n  &=c(T-\\lambda_1I) \\dots (T-\\lambda_mI)v.\n\\end{align}\nThus $T-\\lambda_jI$ is not injective for at least one $j$. In other words, $T$ has an eigenvalue.\n\nWhat is the name of the result that guarantees the factorization\n$$a_0 + a_1z + \\dots + a_nz^n = c(z-\\lambda_1)\\dots(z-\\lambda_m)$$\nin the proof above?
+"output": The result that guarantees the factorization is the Fundamental Theorem of Algebra.
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
+  
+
+"prompt": Let $F$ be $\\mathbb{R}$ or $\\mathbb{C}$. Suppose $a_0,\\dots,a_m\\in F$. If\n$$\na_0 + a_1z + \\dots + a_m z^m = 0\n$$\nfor every $z\\in F$, then $a_0=\\dots=a_m=0.$\n\nWe will prove the contrapositive. If not all the coefficients are $0$, then by changing $m$ we can assume $a_m \\neq 0$. Let\n$$\nz=\\frac{|a_0|+|a_1|+ \\dots + |a_{m-1}|}{|a_m|} + 1.\n$$\nNote that $z\\ge 1$, and thus $z^j \\le z^{m-1}$ for $j=0,1,\\dots,m-1$. Using [MISSING], we have\n$$\n|a_0 + a_1z + \\dots + a_{m-1} z^{m-1}|  \\le \\big(|a_0| + |a_1| + \\dots + |a_{m-1}| \\big)z^{m-1} < |a_mz^m|.\n$$\nThus $a_0 + a_1z + \\dots + a_{m-1} z^{m-1} \\neq -a_mz^m$. Hence we conclude that $a_0 + a_1z + \\dots + a_{m-1} z^{m-1} + a_mz^m\\neq 0$\n\nCan you give the name of the result in [MISSING]?
+"output": The result used in [MISSING] is the Triangle Inequality for absolute values/norms in the field F.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+    
