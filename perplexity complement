@@ -1,0 +1,386 @@
+"prompt": We want to proof that the trace of a matrix is the sum of its eigenvalues. By definition, the characteristic polynomial of an $n\\times n$ matrix $A$ is given by \n$$p(t) = \\det(A-tI) = (-1)^n \\big(t^n - (\\text{tr} A) \\,t^{n-1} + \\dots + (-1)^n \\det A\\big)\\,.$$\nCan you finish the proof?
+"output": We have:
+p(t) = det(A - tI) = (-1)^n (t^n - (tr A) t^(n-1) + ... + (-1)^n det A)We know that the eigenvalues λ1, λ2, ..., λn of A are the roots of the characteristic polynomial p(t). So we can write:p(t) = (-1)^n (t - λ1)(t - λ2)...(t - λn)Expanding the product on the right side, we get:p(t) = (-1)^n [t^n - (λ1 + λ2 + ... + λn)t^(n-1) + ...]Comparing the coefficients of t^(n-1) on both sides, we get:-tr A = -(λ1 + λ2 + ... + λn)Therefore, tr A = λ1 + λ2 + ... + λnThis proves that the trace of a matrix A is equal to the sum of its eigenvalues λ1, λ2, ..., λn.
+"rating":5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": Let $f$ be a real-valued function continuous on $[a,b]$ and differentiable on $(a,b)$. Suppose that $\\lim_{x\\rightarrow a}f'(x)$ exists. Then, we want to prove that $f$ is differentiable at $a$ and $f'(a)=\\lim_{x\\rightarrow a}f'(x)$. Using the definition of derivative, we need to show that\n$$\n\\lim_{h\\rightarrow 0^+} {f(a+h)-f(a)\\over h }\n$$\nexists and is equal to $\\lim\\limits_{x\\rightarrow a^+} f'(x)$.\n\nNote that for $h>0$ the Mean Value Theorem provides a point $c_h$ with $a<c_h<a+h$ such that [MISSING]\n\nFinally, note that $c_h\\rightarrow a^+$ as $h\\rightarrow0^+$. Can you fill in the missing equation?
+"output":To fill in the missing equation, we can use the Mean Value Theorem (MVT) for the function f on the interval [a, a+h], where h > 0.The MVT states that if f is continuous on [a, a+h] and differentiable on (a, a+h), then there exists a point c_h in (a, a+h) such that:f(a+h) - f(a) = f'(c_h)(a+h - a)Substituting h for (a+h - a), we get:[MISSING] = f(a+h) - f(a) = f'(c_h)hSince we are given that lim_{x→a^+} f'(x) exists, and c_h → a^+ as h → 0^+, we can take the limit as h → 0^+ on both sides:lim_{h→0^+} (f(a+h) - f(a))/h = lim_{h→0^+} f'(c_h) = lim_{x→a^+} f'(x)Therefore, the missing equation is:[MISSING] = f'(c_h)h
+"rating": 4
+"error_codes":1c
+"warning_codes": 
+"comment":填在空里的算式不完整
+"msc":Complement
+ 
+"prompt": Let $f$ have a continuous derivative on $[a,b]$. We want to show that $f$ satisfies a Lipschitz condition on $[a,b]$. By [MISSING], \n\n$$f(x) - f(y) = f'(\\xi)(x-y)$$ \n\nfor some $\\xi \\in (y,x)$. But since $f'$ is continuous and $[a,b]$ is compact, then $f'$ is bounded in that interval, say by $C$. Thus taking absolute values yields \n\n$$\\lvert f(x) - f(y)\\rvert \\le C \\lvert x-y\\rvert$$ \n\nCan you name the result used in [MISSING]?
+"output": The result used in [MISSING] is the Mean Value Theorem for Integrals.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": We want to show that the vector space of $\\mathbb{R}$ over $\\mathbb{Q}$ is infinite-dimensional. We use an explicit example of an infinite $\\, \\mathbb Q$-independent set of reals. Consider the set consisting of the logs of all primes $\\, p_i.\\,$ If $ \\, c_1 \\log p_1 +\\,\\cdots\\, + c_n\\log p_n =\\, 0,\\  c_i\\in\\mathbb Q,\\,$ multiplying by a common denominator we can assume that all $\\ c_i \\in \\mathbb Z\\,$. Can you finish the proof?
+"output": Yes, I can finish the proof that the vector space of $\mathbb{R}$ over $\mathbb{Q}$ is infinite-dimensional using the given example of the set ${\log p_i}$ consisting of the logarithms of all prime numbers $p_i$.The key idea is to show that the set ${\log p_i}$ is linearly independent over $\mathbb{Q}$, which implies that it is an infinite $\mathbb{Q}$-linearly independent set in $\mathbb{R}$. This would mean that $\mathbb{R}$ cannot be finite-dimensional over $\mathbb{Q}$.Suppose we have a finite linear combination of the form:
+$c_1 \log p_1 + c_2 \log p_2 + ... + c_n \log p_n = 0$, where $c_i \in \mathbb{Z}$.We can multiply through by a common denominator to assume the $c_i$'s are integers.If this linear combination is equal to 0, then by the fundamental theorem of arithmetic, the product $p_1^{c_1} p_2^{c_2} ... p_n^{c_n}$ must be equal to 1.However, this can only happen if each exponent $c_i$ is 0. Otherwise, the product will contain at least one prime factor raised to a non-zero power, which cannot equal 1.Therefore, the only way the linear combination can be 0 is if all coefficients $c_i$ are 0. This shows that the set ${\log p_i}$ is linearly independent over $\mathbb{Q}$.Since there are infinitely many primes, the set ${\log p_i}$ is an infinite $\mathbb{Q}$-linearly independent subset of $\mathbb{R}$.Hence, we have proven that the vector space $\mathbb{R}$ over $\mathbb{Q}$ cannot be finite-dimensional, as it contains an infinite linearly independent set. Therefore, $\mathbb{R}$ is an infinite-dimensional vector space over $\mathbb{Q}$.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": $F$ is a finite field of order $q$. We want to compute the size of $\\operatorname{GL}_n(F)$. In order for an $n \\times n$ matrix to be invertible, we need the rows to be linearly independent. We have $q^n - 1$ choices for the first row; now, there are $q$ vectors in the span of the first row, so we have $q^n - q$ choices for the second row. Can you finish the proof?
+"output": TYou are correct that for an $n \times n$ matrix to be invertible over $F$, its rows must be linearly independent. We can use this observation to count the number of invertible matrices.As you stated, we have $q^n - 1$ choices for the first row, since we exclude the zero row.For the second row, we need to exclude the $q$ scalar multiples of the first row, so we have $q^n - q$ choices.Continuing this way:
+For the third row, we need to exclude the $q^2$ vectors in the span of the first two rows, so we have $q^n - q^2$ choices.For the fourth row, we exclude the $q^3$ vectors in the span of the first three rows, so we have $q^n - q^3$ choices.
+...
+For the (n-1)th row, we exclude the $q^{n-1}$ vectors in the span of the first (n-2) rows, so we have $q^n - q^{n-1}$ choices.Finally, for the nth row, we need it to be linearly independent from the previous (n-1) rows, so we have $q^n - q^{n-1}$ choices again.Therefore, the total number of invertible $n \times n$ matrices over $F$ is given by the product:$(q^n - 1)(q^n - q)(q^n - q^2)...(q^n - q^{n-1})
+"rating": 3
+"error_codes": 3b
+"warning_codes": 
+"comment": 第（n-1）行计算错误，答案正确
+"msc":Complement
+ 
+"prompt": Let $A$ and $B$ be real matrices. We want to show that the eigenvalues of $AB$ are equal to the eigenvalues of $BA$. If $v$ is an eigenvector of $AB$ for some nonzero $\\lambda$, then $Bv\\ne0$\nand $$\\lambda Bv=B(ABv)=(BA)Bv,$$ so $Bv$ is an eigenvector for $BA$ with the same eigenvalue. Can you finish the proof?
+"output": The key steps provided show that if λ is a nonzero eigenvalue of AB with eigenvector v, then Bv ≠ 0 and λBv = (BA)Bv. This means Bv is an eigenvector of BA with the same eigenvalue λ.To complete the proof, we need to consider the case when λ = 0 is an eigenvalue.Suppose 0 is an eigenvalue of AB. Then there exists a nonzero vector v such that ABv = 0.Multiplying both sides by B, we get B(ABv) = 0 ⇒ (BA)Bv = 0.Since Bv ≠ 0 (otherwise v would be the zero vector), we have shown that 0 is also an eigenvalue of BA with eigenvector Bv.Conversely, if 0 is an eigenvalue of BA, then by a similar argument, 0 must also be an eigenvalue of AB.Therefore, we have proven that every nonzero eigenvalue of AB is an eigenvalue of BA with the same algebraic multiplicity (since the eigenvectors are mapped bijectively). Additionally, 0 is an eigenvalue of AB if and only if it is an eigenvalue of BA.Hence, we have shown that the matrices AB and BA have the same set of eigenvalues (counting algebraic multiplicities)
+"rating": 3
+"error_codes":5f
+"warning_codes": 
+"comment":只考虑了0的特殊情况，一般情况没有讨论
+"msc":Complement
+ 
+"prompt": Given a set of vectors $v_1 \\cdots v_n$, the $n\\times n$ Gram matrix $G$ is defined as\n$G_{i,j}=v_i \\cdot v_j$. We want to show that $|G|=0$ iff the vectors $v_i$ are not linearly independent.\n\nLet $A$ be the matrix whose columns are the vectors $v_1, v_2, ... v_n$, such that $G=A^TA$. If the vectors $v_i$ are linearly dependent, there exists a vector $u \\neq 0$ such that\n$$\n  A u = 0.\n$$\nIt follows that\n$$\n  0 = A^T A u = G u.\n$$\nSince $u \\neq 0$, $G$ is not invertible. Can you finish the proof?
+"output": To finish the proof, we need to show the converse - that if the Gram matrix G is not invertible (i.e. |G| = 0), then the vectors v1, v2, ..., vn must be linearly dependent.Given:
+G is the n x n Gram matrix defined as G(i,j) = vi · vj
+G = A^T A, where A is the matrix whose columns are the vectors v1, v2, ..., vn
+|G| = 0 implies G is not invertible
+We want to prove that if |G| = 0, then the vectors v1, v2, ..., vn are linearly dependent.Proof:
+Suppose |G| = 0. Then G is singular, which means there exists a non-zero vector u such that Gu = 0.Substituting G = A^T A, we get:
+A^T Au = 0
+⇒ A^T(Au) = 0 (since A^T is a matrix)
+⇒ (A^Tu)^T = 0 (by properties of transpose)
+⇒ A^Tu = 0 (since (A^Tu)^T = A^Tu for any vector)Let v = Au. Then v ≠ 0 (since u ≠ 0 and A has non-zero columns).But we have shown that A^Tv = 0. This means that the vector v is orthogonal to every column vector of A, which are precisely the vectors v1, v2, ..., vn.Therefore, we have found a non-zero vector v that is a linear combination of v1, v2, ..., vn with v = Σ ci vi, where all ci = 0 (since v is orthogonal to each vi).This shows that the vectors v1, v2, ..., vn are linearly dependent, completing the proof that |G| = 0 if and only if the vectors v1, v2, ..., vn are linearly dependent.
+"rating": 2
+"error_codes":2c
+"warning_codes": 
+"comment": 误用矩阵转置的性质
+"msc":Complement
+ 
+"prompt": We want to prove Lebesgue's dominated convergence theorem. Let $E$ be a measurable set and let $\\{f_n\\}$ be a sequence of measurable functions such that\n$$ f_n(x) \\to f(x) \\quad (x \\in E)$$\nas $ n\\to\\infty$. Further assume there is a function $g\\in\\mathcal{L}(\\mu)$ on $E$, such that\n$$|f_n(x)| \\le g(x) \\quad (n=1,2,3,\\dots, x\\in E).$$\n\nFirst we observe that $f_n\\in\\mathcal{L}(\\mu)$ and $f\\in\\mathcal{L}(\\mu)$ on $E$. Since, $f_n+g \\ge 0$, one can show that\n\n$$ \\int_E (f+g) d\\mu \\le \\liminf_{n\\to \\infty} \\int_E (f_n+g) d\\mu.$$\n\nWhat is the name of the result used in the previous equation?
+"output": The result used in the previous equation:
+\int_E (f+g)d\mu \leq \liminf_{n\to \infty}\int_E (f_n+g)d\mu∫E​(f+g)dμ≤liminfn→∞​∫E​(fn​+g)dμ
+is Fatou's Lemma
+"rating": 5
+"error_codes": 
+"warning_codes": 
+"comment": 
+"msc":Complement
+ 
+"prompt":  Let $f$ be defined on $[a,b]$. We want to proof the following result: if $f$ has a local maximum at a point $x\\in(a,b)$, and if $f'(x)$ exists, then $f'(x)=0$. We choose $\\delta >0$ with\n$$ a < x-\\delta < x < x+\\delta < b $$ such that $f(y) \\le f(x)$ for all $y\\in[a,b]$ with $|x-y| < \\delta$. If $x-\\delta < t <x$, then\n[MISSING].\nLetting $t\\to x$, we see that $f'(x) \\ge 0$. Can you fill in the missing equation?
+"output": The missing equation is:[MISSING] = (f(x) - f(t))/(x - t) ≥ 0
+To see why, let's go through the steps:We have a function f defined on [a, b] that has a local maximum at x in (a, b). We choose δ > 0 such that a < x - δ < x < x + δ < b and f(y) ≤ f(x) for all y in [a, b] with |x - y| < δ.Now consider x - δ < t < x. Since t < x and f has a local maximum at x, we know f(t) ≤ f(x).Rearranging, we get: f(x) - f(t) ≥ 0Dividing both sides by (x - t) > 0, we get:(f(x) - f(t))/(x - t) ≥ 0This is the missing equation, which shows that the difference quotient (f(x) - f(t))/(x - t) is non-negative when x - δ < t < x.By letting t → x, we can conclude that the limit of this difference quotient as t approaches x from the left is also non-negative, which implies f'(x) ≥ 0 (assuming f'(x) exists).The key steps are:
+1.Using the local maximum property to show f(t) ≤ f(x) for x - δ < t < x
+2.Rearranging to get f(x) - f(t) ≥ 0
+3.Dividing by (x - t) > 0 to get the missing inequality
+4.Taking the limit as t → x to conclude f'(x) ≥ 0
+This missing step is crucial in proving that if f has a local maximum at x and f'(x) exists, then f'(x) = 0, by showing f'(x) ≥ 0 and using a similar argument for f'(x) ≤ 0.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": We want to prove that $$\\lim_{x\\to 0}\\frac{\\sin x}{x}=1.$$\n\nIt is easy to show that $\\lim_{x\\to 0} \\sin x = 0$ and $\\lim_{x\\to 0}  x = 0$. Thus, it holds that \n\n$$\\lim_{x\\to 0}\\frac{\\sin x}{x}=\\lim_{x\\to 0}\\frac{\\cos x}{1}=1.$$\n\nWhich result has been used in the previous equation?
+"output": The result used in the previous equation:\lim_{x\to 0}\frac{\sin x}{x}=\lim_{x\to 0}\frac{\cos x}{1}=1limx→0​xsinx​=limx→0​1cosx​=1is the derivative of sin(x) with respect to x.Specifically, it uses the fact that the derivative of sin(x) is cos(x), and the derivative of x is 1.By applying the rule for the derivative of a ratio:\frac{d}{dx}\left(\frac{f(x)}{g(x)}\right)=\frac{f'(x)g(x)-f(x)g'(x)}{[g(x)]^2}dxd​(g(x)f(x)​)=[g(x)]2f′(x)g(x)−f(x)g′(x)​where f(x) = sin(x) and g(x) = x, we get:\frac{d}{dx}\left(\frac{\sin x}{x}\right)=\frac{\cos(x)x-\sin(x)\cdot 1}{x^2}dxd​(xsinx​)=x2cos(x)x−sin(x)⋅1​Taking the limit as x → 0, and using the facts that lim_{x→0} sin(x) = 0 and lim_{x→0} x = 0, we get:\lim_{x\to 0}\frac{d}{dx}\left(\frac{\sin x}{x}\right)=\lim_{x\to 0}\frac{\cos(x)}{1}=1limx→0​dxd​(xsinx​)=limx→0​1cos(x)​=1Since the derivative represents the instantaneous rate of change, this result shows that the ratio (sin(x))/x is changing at a rate of 1 as x approaches 0.
+"rating": 5
+"error_codes": 
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": Let $$f_n(x) = \\frac{x^2}{x^2 + (1-nx)^2} \\quad (0\\le x \\le 1, n=1,2,3,\\dots).$$\n\nThen $|f_n(x)|\\le 1$, so that $\\{ f_n \\}$ is uniformly bounded on $[0,1]$. Also \n\n$$\n\\lim_{n\\to \\infty} f_n(x)=0 \\quad (0\\le x\\le 1),\n$$\n\nbut there is a sequence $\\{ x_n \\}$ with\n\n$$\nf_n(x_n) = 1 \\quad (n=1,2,3,\\dots),\n$$\n\nso that no subsequence of $\\{ f_n \\}$ can converge uniformly on $[0,1]$. Can you define a suitable sequence $\\{ x_n \\}$?
+"output": Given the function:
+fn(x) = x^2 / (x^2 + (1 - nx)^2) for 0 ≤ x ≤ 1 and n = 1, 2, 3, ...We want to find xn such that fn(xn) = 1.Substituting fn(xn) = 1 in the given expression, we get:
+xn^2 / (xn^2 + (1 - nxn)^2) = 1Rearranging, we have:
+xn^2 = xn^2 + (1 - nxn)^2
+⇒ (1 - nxn)^2 = 0
+⇒ 1 - nxn = 0
+⇒ xn = 1/nTherefore, if we define the sequence {xn} as:
+xn = 1/n for n = 1, 2, 3, ...Then we have:
+fn(xn) = fn(1/n) = (1/n)^2 / ((1/n)^2 + (1 - n(1/n))^2)
+= 1 / (1 + 0)
+= 1
+So the sequence {xn = 1/n} satisfies fn(xn) = 1 for all n.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": Let $f : \\mathbb{R} \\to \\mathbb{R}$ be a differentiable function such that $f(0) = 1$ and $f'(x) = f(x)$. Then it must be the case that $f = e^x$. We will prove this statement in the following. \nLet $g(x) = f(x) e^{-x}$. Then $g$ is constant. But $g(0) = 1$, so $g(x) = 1$ identically. Can you show why $g$ is constant?
+"output": Yes, we can show that the function g(x) = f(x)e^(-x) is a constant function, given that f(x) is a differentiable function satisfying f(0) = 1 and f'(x) = f(x).To prove that g(x) is constant, we need to show that its derivative is zero for all x.Taking the derivative of g(x) with respect to x, we get:g'(x) = f'(x)e^(-x) - f(x)e^(-x) (Using the product rule)Substituting f'(x) = f(x) (given condition), we get:g'(x) = f(x)e^(-x) - f(x)e^(-x)
+= 0Therefore, g'(x) = 0 for all x, which means that g(x) is a constant function.
+"rating": 5
+"error_codes": 
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": We are given a linear operator $T$ over a finite dimensional vector space $V$. We want to show that $T$ is a scalar multiple of the identity if $\\forall S \\in {\\cal L}(V), TS = ST$. Here, ${\\cal L}(V)$ denotes the set of all linear operators over $V$. We consider $S \\in L(V)$ given by $S x = f(x) v$ for some vector $v$ and some linear functional $f$ on V.\nIn particular, as long as a nontrivial linear functional $f$ on $V$ exists, there is $x$\nsuch that $f(x) \\ne 0$, and then $T v = \\alpha v$ for all $v$, where $\\alpha = f(T x)/f(x)$. Can you explain why it holds that $T v = \\alpha v$ for all $v$?
+"output": Yes, I can explain why it holds that Tv = αv for all vectors v in V, given the conditions provided.We are considering a linear operator S on V defined by Sx = f(x)v for some fixed vector v and linear functional f on V.Since we assume there exists a non-trivial linear functional f and a vector x such that f(x) ≠ 0, we can define α = f(Tx)/f(x).Now, for any vector v in V, we have:T(Sv) = T(f(v)v) (By definition of S)
+= f(v)Tv (Since T commutes with all operators in L(V))On the other hand:(ST)v = S(Tv)
+= f(Tv)vSetting these two expressions equal and using the definition of α, we get:f(v)Tv = f(Tv)v
+= (f(Tx)/f(x))f(v)v (Substituting α)
+= αf(v)vSince f is a non-zero linear functional, f(v) ≠ 0 for some v in V. Canceling f(v) from both sides, we get:Tv = αvTherefore, we have shown that for any vector v in V, Tv = αv, where α is the constant f(Tx)/f(x).
+"rating": 5
+"error_codes": 
+"warning_codes": 
+"comment": 
+"msc":Complement
+ 
+"prompt": Let $F$ be $\\mathbb{R}$ or $\\mathbb{C}$. Suppose $a_0,\\dots,a_m\\in F$. If\n$$\na_0 + a_1z + \\dots + a_m z^m = 0\n$$\nfor every $z\\in F$, then $a_0=\\dots=a_m=0.$\n\nWe will prove the contrapositive. If not all the coefficients are $0$, then by changing $m$ we can assume $a_m \\neq 0$. Let\n$$\nz=\\frac{|a_0|+|a_1|+ \\dots + |a_{m-1}|}{|a_m|} + 1.\n$$\nNote that $z\\ge 1$, and thus $z^j \\le z^{m-1}$ for $j=0,1,\\dots,m-1$. Can you finish the proof?
+"output": Let F be either R or C, and suppose not all coefficients a0, a1, ..., am are 0. We can assume am ≠ 0 (otherwise we can decrease m).Define z = (|a0| + |a1| + ... + |am-1|)/|am| + 1. Note that z ≥ 1.Then for j = 0, 1, ..., m-1, we have |aj| ≤ (|a0| + ... + |am-1|) ≤ |am|z.This implies |ajz^j| ≤ |am|z^j ≤ |am|z^m, since z ≥ 1 and j ≤ m-1.Considering the polynomial a0 + a1z + ... + amz^m, we get:|a0 + a1z + ... + amz^m|
+≥ |amz^m| - |a0| - |a1z| - ... - |am-1z^(m-1)|
+≥ |amz^m| - (|a0| + ... + |am-1|)z^m (Using the bounds derived above)
+= |amz^m| - |am|z^m
+= (|am| - |am|)z^m
+= 0Since the absolute value is non-zero, this shows that a0 + a1z + ... + amz^m ≠ 0.Therefore, we have found a value of z in F such that the polynomial is non-zero, contradicting the initial assumption.
+This completes the proof by contrapositive - if not all coefficients ai are 0, then we can find a value of z that makes the polynomial non-zero. Hence, the only way for the polynomial to be identically 0 is if all coefficients are 0.
+"rating": 4
+"error_codes":1d
+"warning_codes": 
+"comment":am-1的格式不正确
+"msc":Complement
+ 
+"prompt": We want to proof that the trace of a matrix is the sum of its eigenvalues. For a $n\\times n$ matrix $A$ we define the polynomial\n$$p(t) = \\det(A-tI) = (-1)^n \\big(t^n - (\\text{tr} A) \\,t^{n-1} + \\dots + (-1)^n \\det A\\big)\\,.$$\nOn the other hand, $p(t) = (-1)^n(t-\\lambda_1)\\dots (t-\\lambda_n)$, where the $\\lambda_j$ are the eigenvalues of $A$. So, comparing coefficients,  we have $\\text{tr}A = \\lambda_1 + \\dots + \\lambda_n$.\n\nWhat is the name of the polynomial $p$?
+"output":The polynomial p(t) defined as:p(t) = det(A - tI) = (-1)^n (t^n - (tr A) t^(n-1) + ... + (-1)^n det A)is called the characteristic polynomial of the n x n matrix A.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": Let $f$ have a continuous derivative on $[a,b]$. We want to show that $f$ satisfies a Lipschitz condition on $[a,b]$. By the mean value theorem, \n\n$$f(x) - f(y) = f'(\\xi)(x-y)$$ \nfor some $\\xi \\in (y,x)$. But since [MISSING], then $f'$ is bounded in that interval, say by $C$. Thus taking absolute values yields \n\n$$\\lvert f(x) - f(y)\\rvert \\le C \\lvert x-y\\rvert$$ \n\nCan you state the condition in [MISSING]?
+"output": The condition missing in [MISSING] is:"$f'$ is continuous on $[a,b]$"The key steps are:
+1.We are given that f has a continuous derivative on the closed interval [a,b].
+2.By the Mean Value Theorem, we have:
+3.f(x) - f(y) = f'(ξ)(x-y) for some ξ in (y,x)
+4.Since f' is continuous on the closed and bounded interval [a,b], and continuity on a closed bounded interval implies boundedness.
+5.Therefore, f' is bounded on [a,b], say by some constant C.
+6.Taking absolute values, we get:
+7.|f(x) - f(y)| = |f'(ξ)(x-y)| ≤ C|x-y|
+This shows that f satisfies a Lipschitz condition on [a,b] with Lipschitz constant C, which is the bound on the derivative f' over [a,b].The key requirement used is that f' is continuous on the closed bounded interval [a,b], which by a well-known result in real analysis, implies that f' is bounded on [a,b]. This boundedness of the derivative allows bounding |f(x) - f(y)| by C|x-y|, proving the Lipschitz condition for f.
+"rating": 1
+"error_codes":2b
+"warning_codes": 
+"comment":The name of the result used in [MISSING] is the mean value theorem.
+"msc":Complement
+ 
+"prompt": Let $f\\colon\\mathbb{R}\\to\\mathbb{R}$ and suppose that\n\n$$|f(x)-f(y)|\\le (x-y)^2$$\n\nfor all $x,y\\in\\mathbb{R}$. We want to prove that $f$ is constant. Let $c=f(0)$, then we have to prove that $f(x)=c$ whenever $x\\neq0$. Supposing that $n$ is an arbitrary positive integer, we have\n$$\\left|f\\left(\\frac{m+1}nx\\right)-f\\left(\\frac mnx\\right)\\right|\\le\\left(\\frac{m+1}nx-\\frac mnx\\right)^2=\\frac{x^2}{n^2}$$\nCan you finish the proof?
+"output": 
+To finish the proof that f is a constant function, we need to show that f(x) = c for all x ≠ 0, where c = f(0).
+Given:
+- |f(x) - f(y)| ≤ (x - y)^2 for all x, y ∈ ℝ
+- c = f(0)
+- For any positive integer n, |f((m+1)/nx) - f(m/nx)| ≤ x^2/n^2
+We can use the triangle inequality and the given condition to derive:
+|f(x) - c| = |f(x) - f(0)| ≤ |x - 0|^2  (Using the given condition) = |x|^2
+Now, let x = (m+1)/n. Then,
+|f((m+1)/n) - c| ≤ ((m+1)/n)^2
+Similarly, let x = m/n. Then, 
+|f(m/n) - c| ≤ (m/n)^2
+Adding these two inequalities, we get:
+|f((m+1)/n) - c| + |f(m/n) - c| ≤ ((m+1)/n)^2 + (m/n)^2
+Using the triangle inequality again:
+|f((m+1)/n) - f(m/n)| ≤ |f((m+1)/n) - c| + |f(m/n) - c| ≤ ((m+1)/n)^2 + (m/n)^2
+But we are given that |f((m+1)/n) - f(m/n)| ≤ x^2/n^2 = ((m+1)^2 - m^2)/n^2
+Therefore, ((m+1)^2 - m^2)/n^2 ≥ ((m+1)/n)^2 + (m/n)^2
+Simplifying, we get:
+(2m+1)/n^2 ≥ 0
+Since this holds for any positive integer n, we can let n → ∞ to get:
+lim(n→∞) (2m+1)/n^2 = 0
+This implies that f((m+1)/n) = f(m/n) for any positive integer m and n.
+By letting n → ∞ again, we get f(x) = c for all x ≠ 0.
+Therefore, we have proven that f(x) = c for all x ∈ ℝ, where c = f(0). Hence, f is a constant function.
+"rating": 2
+"error_codes":1d,3a
+"warning_codes": 3
+"comment":(m+1)/nx格式错误，取x=1/n时计算错误
+"msc":Complement
+ 
+"prompt": We want to show that a finite dimensional vector space $V$ over a countable field $F$ is necessarily countable: if $v_1,\\ldots,v_n \\in V$ is a basis, then every vector in $V$ can be written uniquely as $\\alpha_1 v_1+\\cdots+\\alpha_n v_n$ for some scalars $\\alpha_1,\\ldots,\\alpha_n\\in F$. Can you finish the proof?
+"output":To show that a finite dimensional vector space V over a countable field F is necessarily countable, we can use the fact that every vector in V can be uniquely expressed as a finite linear combination of the basis vectors with scalars from F.Given:
+V is a finite dimensional vector space over the countable field F
+{v1, v2, ..., vn} is a basis for V
+Any vector v in V can be uniquely written as v = α1v1 + α2v2 + ... + αnvn, where αi are scalars in F
+Since F is countable, the set of all n-tuples (α1, α2, ..., αn) with αi in F is also countable (being the n-fold Cartesian product of countable sets).Each n-tuple (α1, α2, ..., αn) from this countable set uniquely determines a vector v = α1v1 + α2v2 + ... + αnvn in V.Conversely, every vector v in V can be uniquely expressed in this form with some n-tuple (α1, α2, ..., αn).Therefore, there is a one-to-one correspondence between the vectors in V and the n-tuples (α1, α2, ..., αn) with αi in F.Since the set of n-tuples is countable, and there is a bijection between this set and V, we can conclude that V is also a countable set.In other words, the finite dimensionality of V over the countable field F ensures that V can be "coordinatized" by n-tuples of scalars from F, and since F is countable, the set of all such n-tuples is countable. This countable set is in bijection with V, implying that V itself is countable.Therefore, we have proven that any finite dimensional vector space over a countable field must be a countable set.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": Suppose $u, v\\in V$, where $V$ is an inner product space over $\\mathbb{R}$ or $\\mathbb{C}$. We want to proof that\n$$|\\langle u, v\\rangle| \\le \\|u\\| \\|v\\|.$$\nLet us assume that $v\\neq 0 $ and consider the orthogonal decomposition\n$$\nu = \\frac{\\langle u, v\\rangle}{\\|v\\|^2}v + w,\n$$\nwhere $w$ is orthogonal to $v$. Then it holds that\n$$ \\|u\\|^2 =  \\left\\|\\frac{\\langle u, v\\rangle}{\\|v\\|^2}v\\right\\|^2+ \\|w\\|^2. $$\nWhat is the name of the result used in this equality?
+"output": The result used in the equality is the Pythagorean Theorem for inner product spaces.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": Suppose $V$ is a finite-dimensional complex vector space and let $T\\in\\mathcal{L}(V)$ be a normal operator. We want to show that $T$ has a diagonal matrix with respect to some orthonormal basis of $V$.\nWe first note that there is an orthonormal basis $e_1,\\dots,e_n$ of $V$ with respect to which $T$ has an upper-triangular matrix. What is the name of this result?\n
+"output": The result you are referring to is the Schur's Unitary Triangularization Theorem.Schur's Unitary Triangularization Theorem states that if T is a normal operator on a finite-dimensional complex vector space V, then there exists a unitary matrix U such that U^(-1)TU is an upper-triangular matrix.In other words, for any normal operator T on V, there is an orthonormal basis of V with respect to which the matrix representation of T is an upper-triangular matrix.This theorem is a key step in proving that normal operators on finite-dimensional complex vector spaces are unitarily diagonalizable, which means they have a diagonal matrix representation with respect to some orthonormal basis.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": We want to compute the following limit:\n\n$$\\lim_{k\\to\\infty}\\sum\\limits_{n=k+1}^{2k}{\\frac{1}{n}}$$\n\nRewriting the sum as\n[MISSING]\nallows us to identify this as a Riemann sum related to the definite integral \n$$\\int_1^2\\frac1x\\,dx=\\ln 2.$$\nTo see that, divide the interval $[1,2]$ to $k$ equal length subintervals, and evaluate the function $f(x)=1/x$ at the right end of each subinterval. When $k\\to\\infty$, the Riemann sums will then tend to the value of this definite integral. Can you fill in the missing equation?
+"output": The missing equation is:[MISSING] = \sum_{n=k+1}^{2k} \frac{1}{n} = \sum_{i=1}^k \frac{1}{i+k}To see why, let's consider the given sum:\sum_{n=k+1}^{2k} \frac{1}{n}We can make a change of variable by letting i = n - k. Then, the sum becomes:\sum_{i=1}^k \frac{1}{i+k}This is because when n = k+1, i = 1, and when n = 2k, i = k.By rewriting the sum in this form, we can identify it as a Riemann sum approximation for the definite integral \int_1^2 \frac{1}{x} dx = ln 2.
+"rating": 3
+"error_codes":3a
+"warning_codes": 
+"comment":式子变型漏掉了前面的极限符号
+"msc":Complement
+ 
+"prompt": Given a set of vectors $v_1 \\cdots v_n$, the $n\\times n$ Gram matrix $G$ is defined as\n$G_{i,j}=v_i \\cdot v_j$. We want to show that $|G|=0$ iff the vectors $v_i$ are not linearly independent.\n\nLet $A$ be the matrix whose columns are the vectors $v_1, v_2, ... v_n$, such that $G=A^TA$. If $G$ is not invertible, there exists a vector $v \\neq 0$ such that\n$$\n  G v = 0.\n$$\nIt follows that\n$$\n  0 = v^T G v = v^T A^T A v = (A v)^T A v\n    = \\lVert A v\\rVert^2\n$$\nand therefore that\n$$\n   A v = 0.\n$$\nSince $v \\neq 0$, the column vectors of $A$ are linearly dependent.\n\nCan you finish the proof?
+"output": Yes, I can finish the proof to show that |G| = 0 if and only if the vectors v1, v2, ..., vn are linearly dependent.We have already shown the forward direction: If G is not invertible (i.e., |G| = 0), then there exists a non-zero vector v such that Av = 0, which implies that the column vectors of A (which are v1, v2, ..., vn) are linearly dependent.For the converse, we need to show that if the vectors v1, v2, ..., vn are linearly dependent, then |G| = 0 (i.e., G is not invertible).Suppose the vectors v1, v2, ..., vn are linearly dependent. Then there exist scalars c1, c2, ..., cn, not all zero, such that:c1v1 + c2v2 + ... + cnvn = 0Multiplying both sides by (c1v1 + c2v2 + ... + cnvn)^T, we get:(c1v1 + c2v2 + ... + cnvn)^T(c1v1 + c2v2 + ... + cnvn) = 0Expanding the left-hand side, we have:c1^2(v1 · v1) + c2^2(v2 · v2) + ... + cn^2(vn · vn) + 2(c1c2(v1 · v2) + c1c3(v1 · v3) + ... + cn-1cn(vn-1 · vn)) = 0Using the definition of the Gram matrix G, we can rewrite this as:c^TGc = 0where c = (c1, c2, ..., cn)^T is a non-zero vector (since not all ci's are zero).This shows that Gc = 0 for some non-zero vector c, which means G is singular and hence not invertible. Therefore, |G| = 0.
+"rating": 3
+"error_codes":5e
+"warning_codes": 
+"comment":矩阵列相乘时应该取转置
+"msc":Complement
+ 
+"prompt": We want to proof Lebesgue's dominated convergence theorem. Let $E$ be a measurable set and let $\\{f_n\\}$ be a sequence of measurable functions such that\n$$ f_n(x) \\to f(x) \\quad (x \\in E)$$\nas $ n\\to\\infty$. Further assume there is a function $g\\in\\mathcal{L}(\\mu)$ on $E$, such that\n$$|f_n(x)| \\le g(x) \\quad (n=1,2,3,\\dots, x\\in E).$$\n\nFirst we observe that $f_n\\in\\mathcal{L}(\\mu)$ and $f\\in\\mathcal{L}(\\mu)$ on $E$. Since, $f_n+g \\ge 0$, Fatou's lemma shows that\n\n$$ \\int_E (f+g) d\\mu \\le \\liminf_{n\\to \\infty} \\int_E (f_n+g) d\\mu.$$\n\nor\n\n$$ \\int_E f d\\mu \\le \\liminf_{n\\to \\infty} \\int_E f_n d\\mu.$$\n\nCan you finish the proof?
+"output": We have already shown that:\int_E fd\mu \leq \liminf_{n\to \infty}\int_E f_nd\mu∫E​fdμ≤liminfn→∞​∫E​fn​dμTo complete the proof, we need to show the reverse inequality and then combine the two inequalities.Since |f_n(x)| ≤ g(x) for all n and x in E, we have -g(x) ≤ f_n(x) ≤ g(x).Taking negatives, we get: -f_n(x) ≤ g(x) for all n and x in E.Applying Fatou's lemma to the sequence of non-negative functions {g - (-f_n)}, we get:\int_E \liminf_{n\to\infty}(g-(-f_n))d\mu \leq \liminf_{n\to\infty}\int_E (g-(-f_n))d\mu∫E​liminfn→∞​(g−(−fn​))dμ≤liminfn→∞​∫E​(g−(−fn​))dμ
+\implies \int_E (\lim_{n\to\infty}g-\lim_{n\to\infty}(-f_n))d\mu \leq \liminf_{n\to\infty}\int_E (g+f_n)d\mu⟹∫E​(limn→∞​g−limn→∞​(−fn​))dμ≤liminfn→∞​∫E​(g+fn​)dμ
+\implies \int_E (g+f)d\mu \leq \liminf_{n\to\infty}\int_E (g+f_n)d\mu⟹∫E​(g+f)dμ≤liminfn→∞​∫E​(g+fn​)dμ
+\implies \int_E fd\mu \geq \limsup_{n\to\infty}\int_E f_nd\mu⟹∫E​fdμ≥limsupn→∞​∫E​fn​dμCombining this with the earlier inequality, we get:\limsup_{n\to\infty}\int_E f_nd\mu \leq \int_E fd\mu \leq \liminf_{n\to\infty}\int_E f_nd\mulimsupn→∞​∫E​fn​dμ≤∫E​fdμ≤liminfn→∞​∫E​fn​dμThis shows that the limit of the integrals exists and is equal to the integral of the limit function:\lim_{n\to\infty}\int_E f_nd\mu =\int_E fd\mulimn→∞​∫E​fn​dμ=∫E​fdμTherefore, under the assumptions that f_n(x) converges pointwise a.e. to f(x) on E, and |f_n(x)| ≤ g(x) for some integrable g, we have proven that f is integrable and the celebrated Lebesgue's dominated convergence theorem holds.
+"rating": 3
+"error_codes":4a
+"warning_codes": 
+"comment":法图引理得到的结果没有具体说明，跳步
+"msc":Complement
+ 
+"prompt": Let $f$ be defined on $[a,b]$. We want to proof the following result: if $f$ has a local maximum at a point $x\\in(a,b)$, and if $f'(x)$ exists, then $f'(x)=0$. We choose $\\delta >0$ with\n$$ a < x-\\delta < x < x+\\delta < b $$ such that $f(y) \\le f(x)$ for all $y\\in[a,b]$ with $|x-y| < \\delta$. If $x-\\delta < t <x$, then\n$$\\frac{f(t)-f(x)}{t-x} \\ge 0.$$\nLetting $t\\to x$, we see that $f'(x) \\ge 0$. Can you finish the proof?
+"output":Yes, I can finish the proof that if f has a local maximum at x in (a, b) and f'(x) exists, then f'(x) = 0.We have already shown that if x - δ < t < x, then (f(t) - f(x))/(t - x) ≥ 0. Taking the limit as t approaches x from the left, we get:f'(x) = lim_{t->x^-} (f(t) - f(x))/(t - x) ≥ 0Next, we consider x < t < x + δ. Since f has a local maximum at x, we have f(x) ≥ f(t). Rearranging, we get:f(t) - f(x) ≤ 0Dividing both sides by t - x > 0, we get:(f(t) - f(x))/(t - x) ≤ 0Taking the limit as t approaches x from the right, we get:f'(x) = lim_{t->x^+} (f(t) - f(x))/(t - x) ≤ 0Combining the two inequalities, we have shown that f'(x) ≥ 0 and f'(x) ≤ 0. Therefore, we can conclude that f'(x) = 0.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": Let $f$ be monotonic on $(a,b)$. Then the set of points of $(a,b)$ at which $f$ is discontinuous is at most countable. Let us proof this result. Suppose, for the sake of definiteness, that $f$ is increasing, and let $E$ be the set of points at which $f$ is discontinuous. With every point $x$ of $E$ we associate a rational number $r(x)$ such that\n$$f(x-) = \\sup_{a < t <x} f(t) < r(x) < \\inf_{x < t <b} f(t) = f(x+).$$\nSince $x_1 < x_2$ implies $f(x_1+) \\le f(x_2-)$, we see that $r(x_1)\\neq r(x_2)$ if $x_1 \\neq x_2$. Can you finish the proof?
+"output": Yes, I can finish the proof that the set of discontinuities E of a monotonic (increasing) function f on (a, b) is at most countable.Given:
+f is an increasing function on (a, b)
+E is the set of points in (a, b) where f is discontinuous
+For each x in E, we associate a rational number r(x) such that f(x-) < r(x) < f(x+)
+If x1 < x2, then f(x1+) ≤ f(x2-), which implies r(x1) ≠ r(x2) when x1 ≠ x2
+To complete the proof:Since r(x1) ≠ r(x2) for distinct x1, x2 in E, the mapping x → r(x) from E to the set of rational numbers Q is injective (one-to-one).As the set of rational numbers Q is countable, any injective image of a set in Q must also be countable.Therefore, the set E, being the injective pre-image of a subset of Q under the mapping r, is also a countable set.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": Given the power series $\\sum c_n z^n$, put\n\n$$ \\alpha = \\limsup_{n\\to \\infty} \\sqrt[n]{|c_n|}, \\quad R=\\frac{1}{\\alpha}.$$\n\n(If $\\alpha=0, $R=$+\\infty$; if $\\alpha=+\\infty$, $R=0$.) Then $\\sum c_n z^n$ converges if $|z| < R$, and diverges if $|z| > R$. Let us prove the result. Put $a_n=c_n z^n$, and apply the root test.\nCan you finish the proof?
+"output": Yes, I can finish the proof that the power series $\sum c_n z^n$ converges if |z| < R and diverges if |z| > R, where R = 1/α and α = limsup_{n→∞} √[n]{|c_n|}.Given:
+Let $\sum c_n z^n$ be a power series.
+Define α = limsup_{n→∞} √[n]{|c_n|} and R = 1/α (if α = 0, R = +∞; if α = +∞, R = 0).
+We want to show that the series converges if |z| < R and diverges if |z| > R.
+Proof:
+Let a_n = c_n z^n. Then the power series can be written as $\sum a_n$.We will apply the root test to this series.The root test states that if C = limsup_{n→∞} √[n]{|a_n|} < 1, then the series converges absolutely. If C > 1, then the series diverges.In our case, we have:
+C = limsup_{n→∞} √[n]{|a_n|}
+= limsup_{n→∞} √[n]{|c_n z^n|}
+= limsup_{n→∞} √[n]{|c_n| |z|^n}
+= limsup_{n→∞} (√[n]{|c_n|} |z|)
+= α |z|Therefore, C = α |z|.If |z| < R = 1/α, then C = α |z| < α × 1/α = 1.
+By the root test, this implies the series $\sum a_n = \sum c_n z^n$ converges absolutely.On the other hand, if |z| > R = 1/α, then C = α |z| > α × 1/α = 1.
+By the root test, this implies the series $\sum a_n = \sum c_n z^n$ diverges.Therefore, we have proven that the power series $\sum c_n z^n$ converges if |z| < R = 1/α, and diverges if |z| > R = 1/α, where α = limsup_{n→∞} √[n]{|c_n|}.
+"rating": 3
+"error_codes":3a
+"warning_codes": 
+"comment":对根式判别法陈述不准确
+"msc":Complement
+ 
+"prompt": For $0<x<\\infty$,\n$$ \\Gamma(x) = \\int_{0}^\\infty t^{x-1} e^{-t} dt. $$\n\nThe integral converges for these $x$. We want to show that $\\log \\Gamma$ is convex on $(0,\\infty)$. If $1 < t < \\infty$ and $(1/t)+(1/s)=1$, one can show that\n$$\n\\Gamma\\left(\\frac{x}{t}+\\frac{y}{s}\\right) \\le \\Gamma(x)^{1/t}\\Gamma(y)^{1/s}.\n$$\nWhat is the name of the result that was used to prove this equation?
+"output": The result used to prove the inequality:
+\Gamma\left(\frac{x}{t}+\frac{y}{s}\right)\leq \Gamma(x)^{1/t}\Gamma(y)^{1/s}Γ(tx​+sy​)≤Γ(x)1/tΓ(y)1/swhere $1 < t < \infty$, $(1/t) + (1/s) = 1$, and $x, y > 0$, is the Log-Convexity of the Gamma Function.
+"rating": 1
+"error_codes":2b
+"warning_codes": 
+"comment":应为赫尔德不等式
+"msc":Complement
+ 
+"prompt": We want to prove that $$\\lim_{x\\to 0}\\frac{\\sin x}{x}=1.$$\n\nIt is easy to show that $\\lim_{x\\to 0} \\sin x = 0$ and $\\lim_{x\\to 0}  x = 0$. Thus, by l'Hôpital's rule it holds that [MISSING] which finishes the proof.\n\nCan you provide the missing equation?
+"output": The missing equation is:[MISSING] = \lim_{x\to 0} \frac{\cos x}{1} = 1To see why, let's go through the steps:We want to prove that $\lim_{x\to 0} \frac{\sin x}{x} = 1$.We are given that $\lim_{x\to 0} \sin x = 0$ and $\lim_{x\to 0} x = 0$.This is an indeterminate form of the type 0/0, so we can apply l'Hôpital's rule.L'Hôpital's rule states that if $\lim_{x\to a} f(x) = 0$ and $\lim_{x\to a} g(x) = 0$, and the limits of the derivatives $f'(x)$ and $g'(x)$ exist at x = a, then:\lim_{x\to a}\frac{f(x)}{g(x)}=\lim_{x\to a}\frac{f'(x)}{g'(x)}limx→a​g(x)f(x)​=limx→a​g′(x)f′(x)​In our case, we have:$f(x) = \sin x$ and $g(x) = x$Taking derivatives, we get:$f'(x) = \cos x$ and $g'(x) = 1$Applying l'Hôpital's rule, we have:\lim_{x\to 0}\frac{\sin x}{x}=\lim_{x\to 0}\frac{\cos x}{1}=1limx→0​xsinx​=limx→0​1cosx​=1since $\lim_{x\to 0} \cos x = 1$.Therefore, the missing equation is:\lim_{x\to 0} \frac{\cos x}{1} = 1which, by l'Hôpital's rule, proves that $\lim_{x\to 0} \frac{\sin x}{x} = 1$.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": Let $f : \\mathbb{R} \\to \\mathbb{R}$ be a differentiable function such that $f(0) = 1$ and $f'(x) = f(x)$. Then it must be the case that $f = e^x$. We will prove this statement in the following.\nLet $g(x) = f(x) e^{-x}$. Then\n$$g'(x) = -f(x) e^{-x} + f'(x) e^{-x} = (f'(x) - f(x)) e^{-x} = 0$$\nby assumption. Can you finish the proof?
+"output": Yes, I can finish the proof that if f(x) is a differentiable function satisfying f(0) = 1 and f'(x) = f(x), then f(x) must be the exponential function e^x.Given:
+Let f: R → R be a differentiable function such that f(0) = 1 and f'(x) = f(x) for all x.
+Define g(x) = f(x)e^(-x)
+We have shown that:
+g'(x) = (f'(x) - f(x))e^(-x) = 0 (Using the given conditions)This means g(x) is a constant function, since its derivative is 0 everywhere.Since g(0) = f(0)e^(-0) = 1, we have g(x) = 1 for all x.Substituting g(x) = f(x)e^(-x) = 1, we get:
+f(x) = e^xTherefore, we have proven that if f(0) = 1 and f'(x) = f(x), then f(x) must be the exponential function e^x.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": We are given a linear operator $T$ over a vector space $V$. We want to show that $T$ is a scalar multiple of the identity if $\\forall S \\in {\\cal L}(V), TS = ST$. Here, ${\\cal L}(V)$ denotes the set of all linear operators over $V$. We consider $S \\in L(V)$ given by $S x = f(x) v$ for some vector $v$ and some linear functional $f$ on V. Then $T S x = f(x) T v = S T x = f(T x) v$ for any x. In particular, as long as a nontrivial linear functional $f$ on $V$ exists, there is $x$ such that $f(x) \\ne 0$, and then $T v = \\alpha v$ for all $v$, where $\\alpha = f(T x)/f(x)$.\n\nFor an infinite-dimensional vector space $V$, the existence of a nontrivial linear function requires [MISSING]?\n\nCan you provide the name in [MISSING]?
+"output":For an infinite-dimensional vector space V, the existence of a nontrivial linear functional f requires the Hahn-Banach theorem.The Hahn-Banach theorem is a fundamental result in functional analysis that guarantees the existence and extension of bounded linear functionals on vector spaces, under certain conditions.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": Suppose $V$ is an inner product space and $T\\in\\mathcal{L}(V)$. We want to prove that\n$$ |\\det(T)|=\\det \\sqrt{T^* T}, $$\nwhere $\\sqrt{T^*T}$ denotes the unique positive square root of the positive operator $T^*T$.\nBy [MISSING] there is an isometry $S\\in\\mathcal{L}(V)$ such that\n$$ T = S \\sqrt{T^* T}. $$\nThus\n$$\n    |\\det T| = |\\det S| \\det \\sqrt{T^* T} = \\det \\sqrt{T^* T}.\n$$\nWhat is the name of the result used in [MISSING]?
+"output": The result used in [MISSING] is the Polar Decomposition Theorem.The Polar Decomposition Theorem states that for any bounded linear operator T on a Hilbert space (or more generally, any Banach space), there exists a partial isometry U and a positive semi-definite operator |T| such that:T = U|T|Here, U is an isometry (norm-preserving) on the closure of the range of |T|, and |T| = (TT)^(1/2) is the unique positive square root of the positive operator T.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": Suppose $u, v\\in V$, where $V$ is an inner product space over $\\mathbb{R}$ or $\\mathbb{C}$. We want to proof that\n$$|\\langle u, v\\rangle| \\le \\|u\\| \\|v\\|.$$\nLet us assume that $v\\neq 0 $. By [MISSING] we can write\n$$\nu = \\frac{\\langle u, v\\rangle}{\\|v\\|^2}v + w,\n$$\nwhere $w$ is orthogonal to $v$. By the Pythagorean Theorem,\n$$ \\|u\\|^2 =  \\left\\|\\frac{\\langle u, v\\rangle}{\\|v\\|^2}v\\right\\|^2+ \\|w\\|^2 \\ge  \\frac{|\\langle u, v\\rangle|^2}{\\|v\\|^2}. $$\nWhat is the name of the result used in [MISSING]?
+"output": The result used in [MISSING] is the Polar Decomposition Theorem.
+"rating": 1
+"error_codes":2b
+"warning_codes": 
+"comment": The result used in [MISSING] is the Pythagorean Theorem 
+"msc":Complement
+ 
+"prompt": Suppose $T\\in \\mathcal{L}(V,W)$, where $V$ and $W$ denote finite-dimensional inner product spaces over $\\mathbb{R}$ or $\\mathbb{C}$. Fix $w \\in W$. Consider the linear functional on $V$ that maps $v\\in V$ to $\\langle Tv, w\\rangle$; this linear functional depends on $T$ and $w$. By the Riesz Representation Theorem, there exists a unique vector a unique vector in $V$ such that this functional is given by taking the inner product with it. We call this unique vector $u_w$. In other words,  $u_w$ is the unique vector in $V$ such that $ \\langle Tv, w\\rangle = \\langle v, u_w \\rangle$ for every $v\\in V$. What is the name of the mapping $w \\mapsto u_w$?
+"output": The mapping w ↦ uw that associates to each w ∈ W the unique vector uw ∈ V satisfying ⟨Tv, w⟩ = ⟨v, uw⟩ for all v ∈ V is called the Adjoint or Adjoint Operator of T, denoted by T*.Specifically, the adjoint operator T* : W → V of a bounded linear operator T : V → W between finite-dimensional inner product spaces V and W is defined by the property:⟨Tv, w⟩ = ⟨v, T*w⟩ for all v ∈ V, w ∈ WIn other words, T* is the unique linear operator that satisfies the above equation, which expresses that T* is the "adjoint" or "transpose" of T with respect to the given inner products on V and W.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": We want to show that very operator on a finite-dimensional, nonzero, complex vector space has an eigenvalue. Suppose $V$ is a complex vector space with dimension $n>0$ and $T\\in\\mathcal{L}$. Choose $v\\in V$ with $v\\neq 0$. Then\n$$v,Tv,T^2v,\\dots,T^nv$$\nis not linearly independent, because $V$ has dimension $n$ and we have $n+1$ vectors. Thus there exist complex numbers $a_0,\\dots,a_n$, not all $0$, such that\n$$\n0 = a_0v + a_1Tv + \\dots + a_nT^nv.\n$$\nNote that $a_1,\\dots,a_n$ cannot alle be $0$, because otherwise the equation above would become $0=a_0v$, which would force $a_0$ to also be $0$.\nMake the $a$'s the coefficients of a polynomial, which has a factorization\n$$a_0 + a_1z + \\dots + a_nz^n = c(z-\\lambda_1)\\dots(z-\\lambda_m),$$\nwhere $c$ is a nonzero complex number, each $\\lambda_j$ is in $\\mathbb{C}$, and the equations holds for all $z\\in\\mathbb{C}$ (here $m$ is not necessarily equal to $n$, because $a_n$ may equal $0$).\nWe then have\n\\begin{align}\n0 &= a_0v + a_1Tv + \\dots + a_nT^nv \\\\\n  &= \\big(a_0I + a_1T + \\dots + a_nT^n\\big)v \\\\\n  &=c(T-\\lambda_1I) \\dots (T-\\lambda_mI)v.\n\\end{align}\nThus $T-\\lambda_jI$ is not injective for at least one $j$. In other words, $T$ has an eigenvalue.\n\nWhat is the name of the result that guarantees the factorization\n$$a_0 + a_1z + \\dots + a_nz^n = c(z-\\lambda_1)\\dots(z-\\lambda_m)$$\nin the proof above?
+"output": The result that guarantees the factorization is the Fundamental Theorem of Algebra.The Fundamental Theorem of Algebra states that every non-constant single-variable polynomial with complex coefficients has at least one complex root. Furthermore, it guarantees that such a polynomial of degree n can be factored as a product of n linear factors of the form (z - λ), where the λ's are the roots (counted with multiplicity) of the polynomial.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
+"prompt": Let $F$ be $\\mathbb{R}$ or $\\mathbb{C}$. Suppose $a_0,\\dots,a_m\\in F$. If\n$$\na_0 + a_1z + \\dots + a_m z^m = 0\n$$\nfor every $z\\in F$, then $a_0=\\dots=a_m=0.$\n\nWe will prove the contrapositive. If not all the coefficients are $0$, then by changing $m$ we can assume $a_m \\neq 0$. Let\n$$\nz=\\frac{|a_0|+|a_1|+ \\dots + |a_{m-1}|}{|a_m|} + 1.\n$$\nNote that $z\\ge 1$, and thus $z^j \\le z^{m-1}$ for $j=0,1,\\dots,m-1$. Using [MISSING], we have\n$$\n|a_0 + a_1z + \\dots + a_{m-1} z^{m-1}|  \\le \\big(|a_0| + |a_1| + \\dots + |a_{m-1}| \\big)z^{m-1} < |a_mz^m|.\n$$\nThus $a_0 + a_1z + \\dots + a_{m-1} z^{m-1} \\neq -a_mz^m$. Hence we conclude that $a_0 + a_1z + \\dots + a_{m-1} z^{m-1} + a_mz^m\\neq 0$\n\nCan you give the name of the result in [MISSING]?
+"output": The result used in [MISSING] is the Triangle Inequality for absolute values/norms in the field F.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Complement
+ 
