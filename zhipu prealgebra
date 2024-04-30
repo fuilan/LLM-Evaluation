@@ -13,8 +13,8 @@ lcm
 24
 The smallest positive multiple of \(6\) that is also a multiple of \(8\) is \(\boxed{24}\).
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -35,8 +35,8 @@ boxes_needed
 7
 Tamantha needs to buy at least \(\boxed{7}\) boxes to store all her 77 compact discs, as each box holds 12 discs and she cannot buy a fraction of a box.
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -48,8 +48,8 @@ Let's check this:
 - \(28\) divided by \(3\) does not give a whole number, which means \(28\) is not a multiple of \(3\).
 Therefore, the number \(C\) that satisfies all the conditions is \(\boxed{28}\).
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -68,8 +68,8 @@ number_of_boys
 9
 The number of boys at the meeting is \(\boxed{9}\).
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -89,8 +89,8 @@ result
 10000
 The result of the expression \( 49,994 \div 7 + 20,006 \div 7 \) is \(\boxed{10,000}\).
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -114,8 +114,8 @@ The total fraction of the pie eaten by Louis and Jack is \( \frac{13}{15} \). Th
 3. Add the converted fractions: \( \frac{3}{15} + \frac{10}{15} = \frac{13}{15} \).
 So, Louis and Jack eat \( \boxed{\frac{13}{15}} \) of the pie altogether.
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -137,8 +137,8 @@ The value of \( x \) is \( 60^\circ \). Therefore, the missing steps in the solu
 2. Set up the equation: \( 110^\circ = 50^\circ + x^\circ \).
 3. Solve for \( x \) to find that \( x = 60^\circ \).
 "rating": 2
-"errorcodes":2b
-"warningcodes": 
+"error_codes":2b
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -150,8 +150,8 @@ Now we can add the two fractions:
 \[ \frac{3}{6} + \frac{2}{6} = \frac{3 + 2}{6} = \frac{5}{6} \]
 So, \( \frac{1}{2} + \frac{1}{3} = \frac{5}{6} \).
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -173,8 +173,8 @@ number
 120
 The smallest multiple of 6 greater than 115 is \(\boxed{120}\).
 "rating": 4
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment": 没有完成填空，得到正确推理结果
 "msc":Prealgebra
 
@@ -185,8 +185,8 @@ Given that 63 divided by 5 equals 12 with a remainder of 3, we can express this 
 The mixed number is then formed by placing the quotient (12) as the whole number and the remainder (3) over the original denominator (5) as the fractional part.
 Therefore, the mixed number is \( 12\frac{3}{5} \).
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -204,8 +204,8 @@ Now, we need to find an even value of \( N \) such that when added to this sum, 
 - If \( N = 8 \), the sum is \( 9 + 8 = 17 \), which is not divisible by \( 3 \).
 Therefore, the nonzero value of \( N \) that makes \( 21420N \) divisible by \( 6 \) is \( \boxed{6} \).
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -220,8 +220,8 @@ Now we'll divide \( 300 \) by \( 4 \):
 \[ \frac{300}{4} = 75 \]
 Therefore, the final answer is \( \boxed{75} \).
 "rating": 4
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":没有完成填空，得到正确推理结果
 "msc":Prealgebra
 
@@ -240,8 +240,8 @@ Now, let's calculate this manually:
 \[ \text{Total} = 130 \]
 Therefore, the total number of students in the senior class is \(\boxed{130}\).
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -260,8 +260,8 @@ Step 2: LCM of \(36\) and \(15\):
 - Therefore, the LCM of \(36\) and \(15\) is \(3^2 \times 5 = 9 \times 5 = 45\).
 Therefore, the least common multiple (LCM) of \(9\), \(12\), and \(15\) is \(\boxed{45}\).
 "rating": 3
-"errorcodes":3b
-"warningcodes": 
+"error_codes":3b
+"warning_codes": 
 "comment":遗漏2*2
 "msc":Prealgebra
 
@@ -274,8 +274,8 @@ Enrico's multiples of 3 are: 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42
 From these, the even numbers are: 6, 12, 18, 24, 30, 36, 42, 48, 54, 60.
 Therefore, there are \(\boxed{10}\) numbers on Marie's list that are also on Enrico's list.
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -301,8 +301,8 @@ The maximum score is 17, which occurs in the orderings:
 3. James-Sarah-Matthew
 Therefore, the maximum possible score that their team can earn is \(\boxed{17}\) points.
 "rating": 4
-"errorcodes":4b
-"warningcodes": 
+"error_codes":4b
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -315,8 +315,8 @@ Now, let's calculate this manually:
 \[ 5! = 120 \]
 Therefore, the number of ways to stack 5 different books on a shelf is \(\boxed{120}\).
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -334,8 +334,8 @@ Now, we calculate \(x\) as the average of the fourth and third terms:
 \[ x = 17 \]
 Therefore, the value of \(x\) in the sequence is \(\boxed{17}\).
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -355,8 +355,8 @@ Now, let's calculate this manually:
 The total number of people is 42, and since every person either brought a yoga mat, a water bottle, or both, no one had to suffer through class without either item.
 Therefore, the number of people who had neither a yoga mat nor a water bottle is \(\boxed{0}\).
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -379,8 +379,8 @@ Since every fourth multiple of 12 is a multiple of both 3 and 4, we divide 72 by
 Total = 72 / 4 = 18.
 Therefore, there are \(\boxed{18}\) positive integers less than 100 that are divisible by both 3 and 4.
 "rating": 2
-"errorcodes":3b
-"warningcodes": 
+"error_codes":3b
+"warning_codes": 
 "comment":数数错误，没有必要再往下数
 "msc":Prealgebra
 
@@ -393,8 +393,8 @@ Now, let's calculate this count manually:
 \[ \frac{90}{2} - 1 = 45 - 1 = 44 \]
 Therefore, the number of even positive integers less than \(ab\) is \(\boxed{44}\).
 "rating": 3
-"errorcodes":5e
-"warningcodes": 
+"error_codes":5e
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -418,8 +418,8 @@ Comparing the rounded values:
 - $14.6$ (D)
 The smallest rounded value is $14.4$, which corresponds to option C. Therefore, the correct answer is \(\boxed{C}\).
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -435,8 +435,8 @@ gcf
 81
 The greatest common factor of \(144\) and \(405\) is \(\boxed{81}\).
 "rating": 3
-"errorcodes": 3b
-"warningcodes": 
+"error_codes": 3b
+"warning_codes": 
 "comment": 因式分解正确，但是公因子找错
 "msc":Prealgebra
 
@@ -456,8 +456,8 @@ Now, we need to count how many of these are divisible by 4. We'll do this by che
 Therefore, the total count of 2-digit numbers from 1 through 200 that have a 2 in the units place and are divisible by 4 is 9.
 There are \(\boxed{9}\) such numbers.
 "rating":2 
-"errorcodes":3a
-"warningcodes": 
+"error_codes":3a
+"warning_codes": 
 "comment":列举时计算错误
 "msc":Prealgebra
 
@@ -481,8 +481,8 @@ rounded_product
 420
 The nearest whole number of the product \(10.0000198 \cdot 5.9999985401 \cdot 6.9999852\) is \(\boxed{420}\).
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -501,8 +501,8 @@ The only valid pair that is not a multiple of 10 is \(2 \times 5 \times 2 = 20\)
 The sum of this pair is \(2 + 5 = 7\).
 Therefore, the sum of the two whole numbers is \(\boxed{7}\).
 "rating": 2
-"errorcodes":5c，3b
-"warningcodes": 
+"error_codes":5c，3b
+"warning_codes": 
 "comment": 选择因子时没有按照前面的分解
 "msc":Prealgebra
 
@@ -526,8 +526,8 @@ s_h
 2.0
 The length of the shadow of the 15-foot flagpole is \(\boxed{2.0}\) feet.
 "rating": 3
-"errorcodes": 3b
-"warningcodes": 
+"error_codes": 3b
+"warning_codes": 
 "comment": 方程正确 计算错误
 "msc":Prealgebra
 
@@ -553,8 +553,8 @@ solution[0]
 I am currently 3 years old. Since my brother is 4 times as old as I am, he is currently \( 4 \times 3 = 12 \) years old.
 Therefore, my brother is \(\boxed{12}\) years old now.
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -582,8 +582,8 @@ sqrt_1225
 35.0
 The value of \(\sqrt{3 \cdot 6 \cdot 10 \cdot 15 \cdot 21 \cdot 28}\) is \(\boxed{35}\).
 "rating": 3
-"errorcodes":3a
-"warningcodes": 
+"error_codes":3a
+"warning_codes": 
 "comment":没有将提出的因子乘在最后
 "msc":Prealgebra
 
@@ -599,8 +599,8 @@ Thus, any number satisfying these conditions is necessarily divisible by $2, 3, 
 Therefore, the number is necessarily divisible by **all** of the numbers $2, 3, 4, 5, 6, 8, 9$.
 The answer is **all** of them.
 "rating": 2
-"errorcodes":5a
-"warningcodes": 
+"error_codes":5a
+"warning_codes": 
 "comment":This means the number is already divisible by 2 and 5, which implies it is also divisible by 4 and 8 (as 4 and 8 are multiples of 2).
 "msc":Prealgebra
 
@@ -619,8 +619,8 @@ walk_fraction
 Fraction(11, 60)
 The fraction of students who walk to school is \(\boxed{\frac{11}{60}}\).
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -638,8 +638,8 @@ result
 5/9
 The expression \(0.\overline{7} - 0.\overline{4} + 0.\overline{2}\) simplifies to \(\boxed{\frac{5}{9}}\).
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -662,8 +662,8 @@ product
 12
 The value of \(\boxed{11 \times 20}\) is \(\boxed{12}\).
 "rating": 3
-"errorcodes":4e,5e
-"warningcodes": 
+"error_codes":4e,5e
+"warning_codes": 
 "comment": 没有计算完全
 "msc":Prealgebra
 
@@ -689,8 +689,8 @@ probability
 0.3076923076923077
 The probability that the card is a Queen or a diamond (or both) is approximately \(\boxed{0.308}\).
 "rating":5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -702,8 +702,8 @@ The probability that the card is a Queen or a diamond (or both) is approximately
 Next, we convert the simplified fraction into its decimal form. The repeating nature of the decimal is determined by the denominator after simplifying. The denominator, \(99999\), has six digits. Since the repeating decimal is a result of this denominator, the repeating sequence will be of length 6.
 Therefore, the number of digits that repeat in the repeating decimal of \(\frac{31}{11111}\) is \(\boxed{6}\).
 "rating": 2
-"errorcodes":2c
-"warningcodes": 
+"error_codes":2c
+"warning_codes": 
 "comment":使用不存在结论，应该直接计算
 "msc":Prealgebra
 
@@ -734,8 +734,8 @@ acute_angle
 20.0
 The degree measure of the acute angle formed by the hour and minute hands at 3:20 on a 12-hour analog clock is \(\boxed{20^\circ}\).
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -748,8 +748,8 @@ The factors of 63 are: 1, 3, 7, 9, 21, 27, 33, 63.
 The common numbers between the multiples of 63 and the factors of 63 are 1 and 63.
 The product of these two numbers is -3969.
 "rating": 4
-"errorcodes":3a
-"warningcodes": 
+"error_codes":3a
+"warning_codes": 
 "comment":计算63的因子时出错
 "msc":Prealgebra
 
@@ -769,8 +769,8 @@ Now, let's find out the maximum number of spins John can make for each of these 
 The maximum number of spins for any of these cases is 2.
 Therefore, the maximum number of total spins that John can make before the game is over is \(\boxed{3}\) (including the initial spin of 20).
 "rating": 3
-"errorcodes":5e
-"warningcodes": 
+"error_codes":5e
+"warning_codes": 
 "comment":the maximum total number of spins is $\\boxed{4}$. These would be achieved by spinning 20, 10, 2, 1 or 20, 10, 5, 1 or 20, 4, 2, 1.
 "msc":Prealgebra
 
@@ -789,9 +789,10 @@ Let’s calculate the total number of nights each meerkat sleeps.
 9
 Each meerkat sleeps for 99 nights during the period when every meerkat stands guard with every other meerkat exactly once.
 Therefore, the number of nights each meerkat gets is \boxed{9}9​.
+ 
 "rating": 4
-"errorcodes":4e
-"warningcodes": 
+"error_codes":4e
+"warning_codes": 
 "comment":需要相减得到36的最终答案
 "msc":Prealgebra
 
@@ -815,8 +816,8 @@ solution[0]
 0.846153846153846
 The solution for \( x \) is \( x = \frac{11}{13} \). Thus, the value of \( x \) is \(\boxed{\frac{11}{13}}\).
 "rating": 3
-"errorcodes":4a
-"warningcodes": 
+"error_codes":4a
+"warning_codes": 
 "comment":使用编程，跳过了需要填空的问题
 "msc":Prealgebra
 
@@ -841,8 +842,8 @@ $$
 \boxed{3x-4 + 2(x-5) + 3(x-4)}
 $$
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
 
@@ -863,8 +864,8 @@ next_prime
 23
 The smallest positive integer greater than 1 that is relatively prime to the product of the first 20 positive integers is \(\boxed{23}\). This is because 23 is the first prime number greater than 20, and thus it is not divisible by any of the primes less than or equal to 20.
 "rating": 4
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":结果正确，但并未使用提示引理
 "msc":Prealgebra
 
@@ -883,7 +884,7 @@ difference.simplify()
 10*pi
 The difference in the distance traveled by the top of the girl's head and her feet as she walks around the equator is \(\boxed{10\pi}\) feet.
 "rating": 5
-"errorcodes":
-"warningcodes": 
+"error_codes":
+"warning_codes": 
 "comment":
 "msc":Prealgebra
