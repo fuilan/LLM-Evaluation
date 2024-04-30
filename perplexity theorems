@@ -1,0 +1,553 @@
+"prompt": Prove the boundedness of convergent sequence 
+"output": Every convergent sequence is bounded. To prove this, let (an) be a convergent sequence with limit L. Then by the definition of limit, for any given ε > 0, there exists a positive integer N such that |an - L| < ε for all n ≥ N.Using the triangle inequality, we get:
+|an| ≤ |an - L| + |L| < ε + |L|Let M = max{|a1|, |a2|, ..., |aN-1|, ε + |L|}. Then |an| ≤ M for all n ≥ N.Combining this with the finitely many terms before the Nth term, we have |an| ≤ M for all n ∈ N. This shows that the sequence (an) is bounded.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems 
+ 
+"prompt": Prove that:A necessary and sufficient condition for a sequence to converge is that each of its subsequences converges. 
+"output": A necessary and sufficient condition for a sequence to converge is NOT that each of its subsequences converges. This statement is incorrect.The correct necessary and sufficient condition for the convergence of a sequence {an} is:A sequence {an} converges to a limit L if and only if for every ε > 0, there exists a positive integer N such that |an - L| < ε for all n ≥ N.This is the formal definition of convergence of a sequence based on the ε-N criterion.
+"rating": 2
+"error_codes":5e
+"warning_codes": 2
+"comment":The definition of subsequence is not correctly understood 
+"msc":Theorems
+ 
+"prompt": Prove the monotone bounded theorem 
+"output": Let's prove the theorem for the case of a monotonically increasing and bounded above sequence {an}. The proof for the decreasing case is similar.Let S = {an | n ∈ N} be the set of terms in the sequence. Since {an} is bounded above, S is a non-empty set bounded above. By the least upper bound property of real numbers, the supremum L = sup S exists.We need to show that the sequence {an} converges to L.Let ε > 0 be given. Since L is the least upper bound of S, L - ε is not an upper bound of S. Therefore, there exists some N ∈ N such that aN > L - ε.Since {an} is increasing, we have an ≥ aN for all n ≥ N. Combining this with the inequality above, we get:an ≥ aN > L - ε for all n ≥ N
+Additionally, since L is an upper bound of S, we have an ≤ L for all n.Therefore, for all n ≥ N, we have:L - ε < an ≤ L,This implies |an - L| < ε for all n ≥ N, which is the condition for convergence of {an} to L by the ε-N definition.Hence, we have proven that if a sequence is monotonically increasing and bounded above, then it converges to the supremum of its terms.The proof for the monotonically decreasing and bounded below case follows similarly by considering the infimum instead of the supremum.
+"rating": 4
+"error_codes":1b
+"warning_codes": 
+"comment":’ there exists some N ∈ N such that aN > L - ε’N被重复使用
+"msc":Theorems
+ 
+"prompt": Prove that any bounded sequence of numbers must have a convergent subsequence 
+"output":The statement that any bounded sequence of real numbers must have a convergent subsequence is known as the Bolzano-Weierstrass theorem. Here is a proof of this theorem:
+Let {an} be a bounded sequence of real numbers. We need to show that it has a convergent subsequence.Since {an} is bounded, there exists a real number M such that |an| ≤ M for all n.Consider the intervals:
+I1 = [-M, M]
+I2 = [-M, -M+1] or [M-1, M]
+I3 = [-M, -M+2] or [M-2, M]
+...
+In = [-M, -M+n] or [M-n, M]Note that each In is a closed, bounded interval of length 1 or 2. Also, the intervals In form a nested sequence, i.e., I1 ⊇ I2 ⊇ I3 ⊇ ...By the nested interval property, there exists at least one real number x that belongs to all the intervals In.We will construct a subsequence {ank} of {an} that converges to x.Since x ∈ I1, there exists n1 such that an1 ∈ I1.
+Since x ∈ I2, there exists n2 > n1 such that an2 ∈ I2.
+Since x ∈ I3, there exists n3 > n2 such that an3 ∈ I3.
+...Continuing this process, we obtain a subsequence {ank} such that ank ∈ Ik for all k.Since {ank} is a subsequence of the bounded sequence {an}, it is also bounded. Additionally, for any ε > 0, there exists N such that |ank - x| < ε for all k ≥ N (because ank eventually gets trapped in any interval around x).
+Therefore, by the definition of convergence, the subsequence {ank} converges to x.
+"rating": 3
+"error_codes": 2b
+"warning_codes": 
+"comment": 区间套的构造不正确，只能构造出有限的区间
+"msc":Theorems
+ 
+"prompt":  Proved that a continuous function on a closed interval can reach the maximum. 
+"output": The Extreme Value Theorem states that if a function f(x) is continuous on a closed interval [a, b], then f(x) must attain both a maximum and minimum value on that interval.Here is a proof that a continuous function on a closed interval [a, b] must attain its maximum value:Let f(x) be a continuous function on the closed interval [a, b].Since f(x) is continuous on [a, b], its range f([a, b]) is a subset of the real numbers.The range f([a, b]) is a non-empty set of real numbers, as it contains at least the values f(a) and f(b).Every non-empty set of real numbers has a least upper bound, which is called the supremum (sup) of the set.Let M = sup(f([a, b])) be the supremum of the range of f(x) on [a, b].By the definition of supremum, there exists a sequence {xn} in [a, b] such that f(xn) → M as n → ∞.Since f(x) is continuous on [a, b] and {xn} is a sequence in [a, b] converging to some x* in [a, b], we have by continuity that f(x*) = lim f(xn) = M.Therefore, f(x) attains its maximum value M at x = x* in the closed interval [a, b].Hence, we have proven that a continuous function on a closed, bounded interval [a, b] must attain its maximum value on that interval.The proof for the existence of a minimum value follows similarly by considering -f(x) instead of f(x).
+"rating": 2
+"error_codes": 2c
+"warning_codes": 
+"comment": 没有上确界的存在性的断言
+"msc":Theorems
+ 
+"prompt": Give the proof of intermediate value theorem of continuous function 
+"output": Statement: Let f(x) be a continuous function on a closed interval [a, b]. If k is any value between f(a) and f(b), then there exists at least one point c in the open interval (a, b) such that f(c) = k.
+Proof:Assume without loss of generality that f(a) < k < f(b). (The proof is similar if f(b) < k < f(a).)Define the set S = {x ∈ [a, b] | f(x) < k}. Note that S is non-empty since a ∈ S (because f(a) < k).Let c = sup(S), the least upper bound or supremum of the set S.We will prove that f(c) = k.Since a ∈ S, we have a ≤ c ≤ b. Also, c cannot be equal to b, because if c = b, then by continuity of f at b, we would have f(c) = f(b) which contradicts the assumption that f(b) > k.Therefore, a ≤ c < b, which implies c ∈ (a, b), the open interval.Next, we claim that f(c) ≥ k. If not, then f(c) < k, which would imply c ∈ S. But this contradicts the definition of c as the least upper bound of S.Finally, we claim that f(c) ≤ k. If not, then f(c) > k. By continuity of f at c, there exists some open interval around c where f(x) > k for all x in that interval. This would contradict the definition of c as the supremum of SHence, we must have f(c) = k, proving the intermediate value theorem.
+"rating": 3
+"error_codes": 4a
+"warning_codes": 
+"comment": S的上确界存在性没有说明
+"msc":Theorems
+ 
+"prompt": Prove that a continuous function in a closed interval is uniformly continuous on the closed interval. 
+"output": To prove that a continuous function f(x) on a closed interval [a, b] is uniformly continuous on [a, b], we can use the following steps:Let f(x) be a continuous function on the closed interval [a, b].Since [a, b] is a closed and bounded interval in R, it is a compact set by the Heine-Borel theorem.
+By the theorem that a continuous function on a compact set is uniformly continuous, it follows that f(x) is uniformly continuous on [a, b].
+"rating": 1
+"error_codes":4c
+"warning_codes": 
+"comment":使用定理的另一形式循环论证
+"msc":Theorems
+ 
+"prompt": Prove Rolle's theorem
+"output": Statement: Let f(x) be a real-valued function that satisfies the following conditions:
+1.f(x) is continuous on the closed interval [a, b]
+2.f(x) is differentiable on the open interval (a, b)
+3.f(a) = f(b)
+Then, there exists at least one point c in the open interval (a, b) such that f'(c) = 0.Proof:
+Assume the three conditions hold for the function f(x) on the interval [a, b].Define a new function g(x) = f(x) - f(a) for all x in [a, b].Clearly, g(x) satisfies the following properties:
+1.g(x) is continuous on [a, b] (since f(x) is continuous)
+2.g(x) is differentiable on (a, b) (since f(x) is differentiable)
+3.g(a) = f(a) - f(a) = 0
+4.g(b) = f(b) - f(a) = f(b) - f(b) = 0 (using the given condition f(a) = f(b))
+Therefore, by the Mean Value Theorem, there exists at least one point c in (a, b) such that g'(c) = 0.
+But g'(x) = f'(x) (by taking the derivative of g(x) = f(x) - f(a)).Hence, there exists at least one point c in (a, b) such that f'(c) = 0, which proves Rolle's theorem.
+"rating": 1
+"error_codes":4c
+"warning_codes": 
+"comment":用中值定理循环论证
+"msc":Theorems
+ 
+"prompt": Proving Lagrange's Mean Value Theorem 
+"output": Statement: Let f(x) be a continuous real-valued function on the closed interval [a, b], and differentiable on the open interval (a, b). Then there exists at least one point c in the open interval (a, b) such that:f(b) - f(a) = f'(c)(b - a)
+Proof:Define an auxiliary function g(x) = f(x) - (f(b) - f(a))/(b - a) * (x - a)Observe that:
+1.g(x) is continuous on [a, b] since f(x) is continuous.
+2.g(x) is differentiable on (a, b) since f(x) is differentiable.
+3.g(a) = f(a) - (f(b) - f(a))/(b - a) * (a - a) = f(a)
+4.g(b) = f(b) - (f(b) - f(a))/(b - a) * (b - a) = f(b)
+Since g(a) = g(b), by Rolle's theorem, there exists at least one point c in (a, b) such that g'(c) = 0.
+But g'(x) = f'(x) - (f(b) - f(a))/(b - a)Therefore, g'(c) = 0 implies f'(c) = (f(b) - f(a))/(b - a)Rearranging, we get:
+f(b) - f(a) = f'(c)(b - a)Thus, we have proven that there exists at least one point c in (a, b) satisfying Lagrange's Mean Value Theorem for the function f(x).
+"rating": 2
+"error_codes": 3a
+"warning_codes": 
+"comment":辅助函数构造错误，化简计算错误
+"msc":Theorems
+ 
+"prompt": Prove Taylor’s Theorem
+"output": Statement: 
+Let f(x) be an (n+1) times differentiable function on an open interval containing the points a and x. Then there exists a point c between a and x such that:f(x) = f(a) + f'(a)(x-a) + (f''(a)/2!)(x-a)^2 + ... + (f^(n)(a)/n!)(x-a)^n + (f^(n+1)(c)/(n+1)!)(x-a)^(n+1)
+Proof:
+Define the auxiliary function g(t) as:
+g(t) = f(t) - [f(a) + f'(a)(t-a) + (f''(a)/2!)(t-a)^2 + ... + (f^(n)(a)/n!)(t-a)^n]Note that g(a) = 0 and g^(k)(a) = 0 for k = 1, 2, ..., n (by taking derivatives).Next, consider the (n+1)th derivative of g(t):
+g^(n+1)(t) = f^(n+1)(t)Since f(x) is (n+1) times differentiable, g^(n+1)(t) exists and is continuous on the open interval containing a and x.By the Mean Value Theorem for derivatives, there exists some c between a and x such that:
+g^(n+1)(c) = (g(x) - g(a)) / (x-a)Substituting g(a) = 0, we get:
+g(x) = g^(n+1)(c)(x-a) = f^(n+1)(c)(x-a)Finally, substituting the definition of g(x), we arrive at:f(x) = f(a) + f'(a)(x-a) + ... + (f^(n)(a)/n!)(x-a)^n + f^(n+1)(c)/(n+1)!(x-a)^(n+1)This proves Taylor's Theorem for the function f(x).
+"rating": 2
+"error_codes":3a
+"warning_codes": 
+"comment": 辅助函数构造错误，求导计算错误
+"msc":Theorems
+ 
+"prompt": Prove the Nested Interval Theorem 
+“output”: 
+Let {In} be a sequence of closed, bounded intervals on the real line such that:
+1.In+1 is contained in In for all n (the intervals are nested)
+2.The length of In tends to 0 as n goes to infinity
+Then the intersection of all the intervals In contains exactly one real number x.Proof:Let In = [an, bn] where an and bn are the left and right endpoints of In respectively.Since In+1 ⊆ In, we have an ≤ an+1 ≤ bn+1 ≤ bn for all n.This implies that the sequences {an} and {bn} are monotonic (non-decreasing and non-increasing respectively) and bounded above by b1 and below by a1.By the Monotone Convergence Theorem, {an} converges to some real number x and {bn} also converges to the same real number x.
+We need to show that x belongs to the intersection ⋂n In.Since an ≤ x ≤ bn for all n, and In = [an, bn], we have x ∈ In for all n. Therefore, x belongs to the intersection.Finally, to show that x is the only point in the intersection, assume for contradiction that there exists another point y ≠ x in the intersection.Then |x - y| > 0. But since In converges to x, there exists N such that |aN - x| < |x - y|/2 and |bN - x| < |x - y|/2 for all n ≥ N.This implies aN < y < bN, contradicting that y belongs to IN = [aN, bN]
+Therefore, the intersection ⋂n In contains exactly one point x.This completes the proof of the Nested Interval Theorem.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems
+ 
+"prompt": Prove the partial integral method 
+"output": Let u(x) and v(x) be two differentiable functions. We want to find the integral of the product u(x)v'(x) dx, where v'(x) represents the derivative of v(x) with respect to x.Consider the product u(x)v(x). Taking the derivative with respect to x using the product rule, we get:(u(x)v(x))' = u'(x)v(x) + u(x)v'(x)Integrating both sides with respect to x, we have:∫ (u(x)v(x))' dx = ∫ u'(x)v(x) dx + ∫ u(x)v'(x) dxUsing the fundamental theorem of calculus, the left-hand side becomes:∫ (u(x)v(x))' dx = u(x)v(x) + Cwhere C is the constant of integration.Rearranging the terms, we get:∫ u(x)v'(x) dx = u(x)v(x) - ∫ u'(x)v(x) dx + CThis is the formula for integration by parts, often written as:∫ u(x) dv(x) = u(x)v(x) - ∫ v(x) du(x)where u(x) is chosen such that its derivative u'(x) is simpler than the original integrand, and dv(x) = v'(x) dx.
+"rating":5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems
+ 
+"prompt": Prove the Newton-Leibniz formula 
+"output": 
+To prove the Newton-Leibniz formula:
+
+$$\int_a^b f(x) dx = F(b) - F(a)$$
+
+where F(x) is an antiderivative of f(x), i.e., F'(x) = f(x), we can use the following steps:
+
+1. Define the function G(x) as:
+   G(x) = \int_a^x f(t) dt
+
+2. By the definition of the indefinite integral, we have:
+   G'(x) = f(x)  [Since G(x) is an antiderivative of f(x)]
+
+3. Let F(x) be any antiderivative of f(x), i.e., F'(x) = f(x). Then, by the properties of indefinite integrals:
+   F(x) = G(x) + C, for some constant C.
+
+4. Differentiating both sides with respect to x, we get:
+   F'(x) = G'(x) = f(x)
+
+5. Evaluating F(x) at the limits a and b, we have:
+   F(b) - F(a) = [G(b) + C] - [G(a) + C]
+               = G(b) - G(a)  [Since C is a constant]
+               = \int_a^b f(t) dt - \int_a^a f(t) dt
+               = \int_a^b f(t) dt  [Since \int_a^a f(t) dt = 0]
+
+Therefore, we have proven the Newton-Leibniz formula:
+
+$$\int_a^b f(x) dx = F(b) - F(a)$$
+
+where F(x) is any antiderivative of f(x).
+
+The key steps involve defining the indefinite integral G(x), relating it to an antiderivative F(x), and using the properties of indefinite integrals and their derivatives to arrive at the desired result.
+
+"rating": 1
+"error_codes":2a,4d
+"warning_codes": 
+"comment":应考虑区间分割与一致连续性。
+"msc":Theorems
+ 
+"prompt": Prove the First Mean Value Theorem for Integrals
+"output":First Mean Value Theorem for Integrals:
+Let f(x) be a continuous function on the closed interval [a, b]. Then there exists at least one point c in the open interval (a, b) such that:f(c) = (1/(b-a)) ∫a^b f(x) dxIn other words, there exists a point c where f(c) equals the average value of f(x) over the interval [a, b].Proof:
+Define a new function F(x) as:
+F(x) = ∫a^x f(t) dtBy the First Fundamental Theorem of Calculus, F(x) is continuous on [a, b] and differentiable on (a, b), with F'(x) = f(x).Also, F(a) = ∫a^a f(t) dt = 0
+And F(b) = ∫a^b f(t) dtApplying the Mean Value Theorem for derivatives to F(x) on [a, b], we get:
+There exists a point c in (a, b) such that F'(c) = (F(b) - F(a))/(b - a)Substituting the values, we get:
+F'(c) = (∫a^b f(t) dt - 0)/(b - a)
+= (1/(b-a)) ∫a^b f(t) dtBut F'(c) = f(c) by the Fundamental Theorem of Calculus.Therefore, f(c) = (1/(b-a)) ∫a^b f(x) dxThis proves that there exists at least one point c in (a, b) where f(c) equals the average value of f(x) over [a, b].
+"rating": 5
+"error_codes": 
+"warning_codes": 
+"comment":  
+
+"prompt": Prove the Theorem: Any matrix can be transformed into row echelon form using elementary row operations.
+"output": Let A be an m x n matrix over a field F. We will use induction on m, the number of rows, to prove that A can be transformed into row echelon form.Base case (m = 1): If A has only one row, it is already in row echelon form by definition. So the theorem holds for m = 1.Inductive step: Assume the theorem holds for all matrices with fewer than m rows, where m > 1. We need to show it also holds for an m x n matrix A.If all entries of A are zero, then A is already in row echelon form. Otherwise, let the first non-zero entry in A be aij for some i and j.Using elementary row operations:
+1.Interchange row i with row 1 if i ≠ 1. This puts the first non-zero entry in row 1.
+2.Divide row 1 by aij to make the leading entry 1.
+3.For each k = 2, 3, ..., m, subtract aik/a1j times row 1 from row k. This creates zeros below the leading 1 in column j.
+2After these operations, the first non-zero entry from the left in each row occurs in a later column than the previous row. This gives a matrix B in row echelon form except for the submatrix formed by removing the first row and column.By the inductive hypothesis, this (m-1) x (n-1) submatrix of B can be transformed into row echelon form using elementary row operations on just the last m-1 rows.Combining these row operations on the submatrix with the operations used to create B, we get a sequence of elementary row operations that transforms the original m x n matrix A into row echelon form.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems
+ 
+"prompt": Prove that Let f: A → A be a function from a finite set A to itself. If f is surjective, then f is also injective.
+"output": Assume that f: A → A is a surjective function, where A is a finite set.Suppose, for the sake of contradiction, that f is not injective. Then there exist distinct elements x, y in A such that f(x) = f(y).Since f is surjective, its range is equal to A. So there exists an element z in A such that f(z) = z.Consider the set S = {w in A | f(w) = z}. Since x, y are distinct elements in S, S has at least two elements.However, the function g: S → A defined by g(w) = f(w) is injective (one-to-one), because if g(w1) = g(w2), then f(w1) = f(w2), which implies w1 = w2 since f is a function.But g is a injective function from the set S to the set A, where S is a proper subset of A (since z is in A but not in S). This contradicts the fact that no injective function can exist from a proper subset of a finite set to the whole set.Therefore, our assumption that f is not injective must be wrong. Hence, if f is surjective, it must also be injective.
+"rating": 2
+"error_codes":2c
+"warning_codes": 
+"comment":f不一定有不动点，断言错误
+"msc":Theorems
+ 
+"prompt": Prove that mappings satisfy the associative law 
+"output": Let f: A → B, g: B → C, and h: C → D be mappings between sets A, B, C, and D.We want to prove that (h ∘ g) ∘ f = h ∘ (g ∘ f)Let x be an element in the set A.Consider the left-hand side (LHS):
+((h ∘ g) ∘ f)(x)
+= (h ∘ g)(f(x)) (By definition of composition)
+= h(g(f(x))) (By definition of composition)Now consider the right-hand side (RHS):
+(h ∘ (g ∘ f))(x)
+= h((g ∘ f)(x)) (By definition of composition)
+= h(g(f(x))) (By definition of composition)Clearly, the LHS and RHS are equal, as they both evaluate to h(g(f(x))).
+"rating": 5
+"error_codes": 
+"warning_codes": 
+"comment":
+"msc":Theorems
+ 
+"prompt": State the Bolzano–Weierstrass theorem and give a list of the main mathematical results and tools which are used in its proof.
+"output": The Bolzano-Weierstrass theorem states that every bounded sequence in R^n (n-dimensional Euclidean space) has a convergent subsequence.
+
+The main mathematical results and tools used in proving the Bolzano-Weierstrass theorem are:
+
+1. Nested Interval Property/Theorem: If {[an, bn]} is a sequence of nested closed intervals (i.e. [an+1, bn+1] ⊆ [an, bn] for all n) such that the lengths bn - an tend to 0 as n goes to infinity, then the nested intervals have a unique common point.
+
+2. Monotone Convergence Theorem: Every bounded monotone sequence in R converges.
+
+3. Pigeonhole Principle: For any infinite set and any partition of it into finitely many parts, at least one part must contain infinitely many elements.
+
+4. Subsequence Principle: If a sequence (xn) converges to x, then every subsequence of (xn) also converges to x.
+
+5. Properties of closed and bounded sets in R^n:
+   - A set is closed if it contains all its limit points.
+   - A set is bounded if it is contained in some open ball of finite radius.
+   - Closed and bounded sets in R^n are sequentially compact (every sequence has a convergent subsequence).
+
+6. Proof by contradiction and construction of appropriate subsequences.
+
+The proof typically proceeds by first showing the result for R (real line) using tools like the Nested Interval Property, Monotone Convergence Theorem, and constructing appropriate monotone subsequences. Then the general case in R^n is established using the sequential compactness of closed and bounded sets.
+"rating": 4
+"error_codes":
+"warning_codes": 2
+"comment":Pigeonhole Principle might be useless.
+"msc":Theorems
+ 
+"prompt": State Zorn's lemma and give a list of the main mathematical results and tools which are used in its proof.
+"output": Zorn's Lemma states that if P is a non-empty partially ordered set in which every chain (totally ordered subset) has an upper bound in P, then P contains at least one maximal element.
+
+More precisely, the statement of Zorn's Lemma is:
+
+Let (P, ≤) be a partially ordered set. If every chain C in P has an upper bound in P, then P contains at least one maximal element.
+
+Here, a maximal element m in P is an element such that for all x in P, if m ≤ x then x = m.
+
+The main mathematical results and tools used in proving Zorn's Lemma are:
+
+1. Axiom of Choice (or an equivalent formulation like the Well-Ordering Principle)
+2. Definition and properties of partially ordered sets
+3. Definition and properties of chains (totally ordered subsets)
+4. Definition and properties of upper bounds
+5. Definition and properties of maximal elements
+6. Proof by contradiction
+7. Construction of appropriate subsets and chains
+8. Transfinite induction
+
+The proof typically proceeds by assuming there are no maximal elements in P and constructing an infinite increasing chain that violates the assumption that every chain has an upper bound. This leads to a contradiction, implying the existence of at least one maximal element in P.
+
+Zorn's Lemma is equivalent to the Axiom of Choice and the Well-Ordering Principle in the context of Zermelo-Fraenkel set theory (ZF). Its proof often relies on one of these equivalent formulations, most commonly the Axiom of Choice or a consequence like the Well-Ordering Principle.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems
+ 
+"prompt": State the fundamental theorem of calculus and give a list of the main mathematical results and tools which are used in its proof.
+"output": The fundamental theorem of calculus consists of two parts:
+
+Part 1 (First Fundamental Theorem of Calculus):
+If f(x) is a continuous function on the closed interval [a, b], and F(x) is an antiderivative of f(x), i.e., F'(x) = f(x), then:
+
+∫_a^x f(t) dt = F(x) - F(a)
+
+Part 2 (Second Fundamental Theorem of Calculus): 
+If f(x) is a continuous function on the closed interval [a, b], then:
+
+∫_a^b f(x) dx = F(b) - F(a)
+
+where F(x) is any antiderivative of f(x).
+
+The main mathematical results and tools used in proving the fundamental theorem of calculus are:
+
+1. Definition and properties of continuous functions on closed intervals.
+2. Definition and properties of the definite integral (as the limit of Riemann sums).
+3. Definition and properties of the indefinite integral (antiderivative).
+4. The Mean Value Theorem for Integrals.
+5. Existence of antiderivatives for continuous functions (proved using properties of Riemann integrability).
+6. Additivity property of the definite integral.
+7. Monotone Convergence Theorem (or related results on limits of sequences of functions).
+8. Algebraic properties of limits.
+9. Proof by contradiction and construction of appropriate sequences/functions.
+
+The proof typically proceeds by first establishing the first part using the Mean Value Theorem for Integrals and properties of continuous functions and antiderivatives. The second part is then derived from the first part by using additivity of the definite integral and algebraic manipulations.
+
+The fundamental theorem connects the two seemingly distinct operations of differentiation and integration, establishing them as inverse operations (apart from a constant). Its proof requires a careful synthesis of results from calculus, real analysis, and algebra.
+"rating": 4
+"error_codes":
+"warning_codes": 
+"comment":The differentiability of the antiderivative is typically part of the statement.
+"msc":Theorems
+ 
+"prompt": State Minkowski's inequality and give a list of the main mathematical results and tools which are used in its proof.
+"output": Minkowski's inequality, also known as the Minkowski inequality for integrals, states that for any two measurable functions f and g defined on a measure space (X, Σ, μ), and any p ≥ 1, we have:
+
+||f + g||_p ≤ ||f||_p + ||g||_p
+
+where ||·||_p denotes the L^p norm, defined as:
+
+||f||_p = (∫_X |f|^p dμ)^(1/p)
+
+The main mathematical results and tools used in proving Minkowski's inequality are:
+
+1. Hölder's inequality: For any two measurable functions f and g, and p, q ≥ 1 with 1/p + 1/q = 1, we have:
+   ∫_X |fg| dμ ≤ ||f||_p ||g||_q
+
+2. Triangle inequality for norms: For any normed vector space V and vectors x, y in V, we have:
+   ||x + y|| ≤ ||x|| + ||y||
+
+3. Properties of L^p spaces and norms, including the fact that L^p is a normed vector space for p ≥ 1.
+
+4. Properties of measurable functions and integrals, including linearity and monotonicity.
+
+5. Proof by contradiction and construction of appropriate functions.
+
+6. Algebraic manipulations and inequalities involving exponents and powers.
+
+The proof typically proceeds by first establishing the inequality for p = 1 using the triangle inequality for integrals and the linearity of the integral. For p > 1, Hölder's inequality is applied to the product |f|^p |g|^p, with exponents p/p and p/q, where q is the Hölder conjugate of p (1/p + 1/q = 1). This leads to the desired inequality after some algebraic manipulations.
+
+Minkowski's inequality is a fundamental result in functional analysis and has numerous applications in various areas of mathematics, including probability theory, partial differential equations, and harmonic analysis.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems
+ 
+"prompt": State the dominated convergence theorem and give a list of the main mathematical results and tools which are used in its proof.
+"output": The Dominated Convergence Theorem states that:
+
+Let (X, Σ, μ) be a measure space and let {fn} be a sequence of measurable functions on X that converges pointwise almost everywhere to a function f. If there exists an integrable function g on X such that |fn(x)| ≤ g(x) for all n and almost every x in X, then f is integrable and:
+
+lim_{n→∞} ∫_X fn dμ = ∫_X f dμ
+
+In other words, if a sequence of measurable functions converges pointwise almost everywhere and is dominated by an integrable function, then the limit can be taken inside the integral.
+
+The main mathematical results and tools used in proving the Dominated Convergence Theorem are:
+
+1. Fatou's Lemma: If {fn} is a sequence of non-negative measurable functions, then ∫_X liminf fn dμ ≤ liminf ∫_X fn dμ.
+
+2. Monotone Convergence Theorem: If {fn} is a non-decreasing sequence of non-negative measurable functions that converges pointwise to f, then ∫_X f dμ = lim_{n→∞} ∫_X fn dμ.
+
+3. Properties of measurable functions, such as the fact that the absolute value of a measurable function is measurable.
+
+4. Properties of integrals, such as linearity and monotonicity.
+
+5. Algebraic manipulations and inequalities involving limits and integrals.
+
+6. Proof by contradiction and construction of appropriate sequences of functions.
+
+The proof typically proceeds by first considering the case where the dominating function g is non-negative. Fatou's Lemma is applied to the sequence {|fn - f|} to show that ∫_X |f| dμ ≤ liminf ∫_X |fn| dμ ≤ ∫_X g dμ, establishing the integrability of f.
+
+Then, the Monotone Convergence Theorem is applied to the non-negative sequence {|fn - f|} to show that ∫_X |fn - f| dμ → 0 as n → ∞, which implies the desired convergence of integrals.
+
+For the general case where g can take negative values, the functions are decomposed into positive and negative parts, and the result is obtained by applying the non-negative case to each part separately.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems
+ 
+"prompt": State the Riemann-Lebesgue Lemma and give a list of the main mathematical results and tools which are used in its proof. 
+"output": The Riemann-Lebesgue Lemma states that:
+
+If f is an integrable function on the real line R, then
+
+lim_{t→∞} ∫_R f(x)e^{itx} dx = 0
+
+In other words, the Fourier transform of an integrable function tends to zero as the frequency t goes to infinity.
+
+The main mathematical results and tools used in proving the Riemann-Lebesgue Lemma are:
+
+1. Fourier inversion formula: For any integrable function f, we have f(x) = (1/2π) ∫_R f̂(t)e^{-itx} dt, where f̂(t) = ∫_R f(x)e^{itx} dx is the Fourier transform of f.
+
+2. Fubini's theorem: For non-negative integrable functions f and g, we have ∫_R (∫_R f(x,y) dy) dx = ∫_R (∫_R f(x,y) dx) dy.
+
+3. Dominated Convergence Theorem: If a sequence of integrable functions {fn} converges pointwise to f and is dominated by an integrable function g, then lim_{n→∞} ∫ fn = ∫ f.
+
+4. Properties of the exponential function, such as periodicity and boundedness.
+
+5. Algebraic manipulations and inequalities involving integrals and limits.
+
+6. Proof by contradiction and construction of appropriate sequences of functions.
+
+The proof typically proceeds by first considering the case where f is a continuous function with compact support (i.e., f is zero outside a bounded interval). In this case, the Fourier inversion formula and Fubini's theorem can be used to show that the Fourier transform tends to zero as t goes to infinity.
+
+For the general case of an integrable function f, the proof involves approximating f by a sequence of continuous functions with compact support and using the Dominated Convergence Theorem to show that the Fourier transform of f also tends to zero at infinity.
+
+The Riemann-Lebesgue Lemma is a fundamental result in Fourier analysis and has numerous applications in various areas of mathematics and physics, including signal processing, partial differential equations, and quantum mechanics.
+"rating": 3
+"error_codes":2a
+"warning_codes": 2
+"comment":定理陈述正确，但提供所需定理与证明过程无关
+"msc":Theorems
+ 
+"prompt": State the Peano existence theorem and give a list of the main mathematical results and tools which are used in its proof. 
+"output": The Peano Existence Theorem states that given an initial value problem (IVP) for an ordinary differential equation (ODE):
+
+dx/dt = f(t, x)
+x(t0) = x0
+
+where f is a continuous function defined on some rectangle R = {(t, x) | |t - t0| ≤ a, |x - x0| ≤ b} in the (t, x) plane, there exists at least one solution x(t) defined on some open interval containing t0.
+
+The main mathematical results and tools used in proving the Peano Existence Theorem are:
+
+1. Existence of successive approximations (Picard iterations):
+   - Defining a sequence of functions {φn(t)} that approximate the solution x(t).
+   - Showing that this sequence converges uniformly on some interval to a solution.
+
+2. Arzela-Ascoli Theorem:
+   - Used to establish that the sequence of Picard iterates {φn(t)} has a uniformly convergent subsequence.
+
+3. Properties of continuous functions:
+   - Continuity of f on the rectangle R.
+   - Uniform continuity of continuous functions on compact sets.
+
+4. Inequalities and estimates:
+   - Using the continuity of f to bound the difference between successive Picard iterates.
+   - Establishing uniform convergence of the Picard iterates using these bounds.
+
+5. Existence of antiderivatives (Indefinite integrals):
+   - Representing the Picard iterates using antiderivatives/indefinite integrals of f.
+
+6. Concatenation Lemma (Extension Lemma):
+   - Extending the solution beyond the initial interval by concatenating solutions on adjacent intervals.
+
+The proof typically proceeds by constructing the Picard iterates, establishing their uniform convergence using the Arzela-Ascoli Theorem and continuity estimates, and then showing that the limit function satisfies the given ODE and initial condition, thus providing a solution on some open interval around t0.
+"rating": 4
+"error_codes":4a
+"warning_codes": 
+"comment":Arzela-Ascoli Theorem要再证明欧拉折线满足的进一步关系
+"msc":Theorems
+ 
+"prompt":State the Theorem of Picard-Lindelöf and give a list of the main mathematical results and tools which are used in its proof. 
+"output": The Picard-Lindelöf Theorem, also known as the Picard Existence and Uniqueness Theorem, states that:
+
+Given an initial value problem for an ordinary differential equation:
+
+dy/dt = f(t, y)
+y(t0) = y0  
+
+If the function f(t, y) is continuous in a rectangle R = {(t, y) | |t - t0| ≤ a, |y - y0| ≤ b} and satisfies a Lipschitz condition in y on R, then:
+
+1) There exists a solution y(t) to the initial value problem on some open interval containing t0. 
+2) This solution is unique in R.
+
+The main mathematical results and tools used in proving the Picard-Lindelöf Theorem are:
+
+1. Picard Iterations/Successive Approximations:
+   - Defining a sequence of functions {φn(t)} that approximate the solution y(t).
+   - Showing this sequence converges uniformly to a solution on some interval.
+
+2. Banach Fixed Point Theorem/Contraction Mapping Principle:
+   - Used to establish the uniform convergence of the Picard iteration sequence.
+
+3. Arzela-Ascoli Theorem:
+   - Employed to extract a uniformly convergent subsequence from the Picard iterates.
+
+4. Properties of Continuous and Lipschitz Functions:
+   - Continuity of f(t, y) on the rectangle R.
+   - Lipschitz condition on f(t, y) with respect to y.
+   - Uniform continuity and bounds on Lipschitz functions.
+
+5. Inequalities and Estimates:
+   - Using the Lipschitz condition to bound differences between successive Picard iterates.
+   - Establishing uniform convergence using these bounds.
+
+6. Existence of Antiderivatives/Indefinite Integrals:
+   - Representing the Picard iterates using antiderivatives of f(t, y).
+
+The proof typically constructs the Picard iteration sequence, establishes its uniform convergence using tools like the Banach Fixed Point Theorem and Arzela-Ascoli Theorem, and then shows the limit function satisfies the given ODE and initial condition, thus providing a solution on some open interval around t0. Uniqueness is also established using properties of Lipschitz functions.
+"rating": 3
+"error_codes":2a
+"warning_codes": 
+"comment":MVT等重要定理没有提及
+"msc":Theorems
+ 
+"prompt": State Rolle's theorem and give a list of the main mathematical results and tools which are used in its proof.
+"output": Rolle's Theorem states that:
+
+If a function f(x) is continuous on a closed interval [a, b], differentiable on the open interval (a, b), and satisfies f(a) = f(b), then there exists at least one point c in the open interval (a, b) such that f'(c) = 0.
+
+In other words, if a continuous differentiable function has equal values at the endpoints of an interval, then it must have at least one stationary point (where the derivative is zero) within that interval.
+
+The main mathematical results and tools used in proving Rolle's Theorem are:
+
+1. Mean Value Theorem: This more general theorem is typically used to prove Rolle's Theorem as a special case when f(a) = f(b).
+
+2. Properties of continuous functions: Continuity of f(x) on the closed interval [a, b] is a key assumption.
+
+3. Properties of differentiable functions: Differentiability of f(x) on the open interval (a, b) is also required.
+
+4. Intermediate Value Theorem (or properties implied by it): Used to show the existence of a point c where f'(c) = 0, given the assumptions.
+
+5. Proof by contradiction: Assuming no such point c exists and deriving a contradiction.
+
+6. Algebraic manipulations and analysis concepts like limits, inequalities, etc.
+
+The proof typically proceeds by assuming there is no point c satisfying f'(c) = 0, and then using the Mean Value Theorem and the assumption f(a) = f(b) to derive a contradiction, thus establishing the existence of at least one such point c in (a, b).
+"rating": 3
+"error_codes":2a,2b
+"warning_codes": 2
+"comment":a lot of unrelated results are stated and the essential 'extreme value theorem ' is omitted
+"msc":Theorems
+ 
+"prompt": State the Hahn-Banach Theorem and give a list of the main mathematical results and tools that are used in its proof.
+"output": The Hahn-Banach Theorem states that:
+
+Let X be a real (or complex) normed linear space, M be a subspace of X, and f be a bounded linear functional defined on M. Then there exists a bounded linear functional F defined on the whole space X that extends f, i.e., F(x) = f(x) for all x in M, and moreover ||F|| = ||f||.
+In other words, the Hahn-Banach Theorem guarantees the existence of an extension of any bounded linear functional defined on a subspace to the whole space, without increasing its norm.
+The main mathematical results and tools used in proving the Hahn-Banach Theorem are:
+1. Zorn's Lemma (or the Axiom of Choice): Used to establish the existence of a maximal extension of the given functional.
+2. Properties of linear functionals: Linearity, boundedness, and the relationship between the norm of a functional and its operator norm.
+3. Properties of subspaces: Subspace structure, linear combinations, and the algebraic operations on subspaces.
+4. Hamel Basis: Constructing a basis for the quotient space X/M to facilitate the extension process.
+5. Algebraic and analytic techniques: Inequalities, estimates, and algebraic manipulations to construct the desired extension.
+6. Proof by contradiction: Assuming the non-existence of an extension and deriving a contradiction.
+The proof typically proceeds by first establishing the result for subspaces of dimension 1 (one-dimensional extension lemma), and then using Zorn's Lemma and transfinite induction to extend the functional from subspaces of successively higher dimensions to the whole space.
+The Hahn-Banach Theorem is a fundamental result in functional analysis and has numerous applications in various areas of mathematics, including optimization, partial differential equations, and operator theory.
+"rating": 4
+"error_codes":2a
+"warning_codes": 
+"comment":
+"msc":Theorems
