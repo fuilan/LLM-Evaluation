@@ -1,0 +1,1113 @@
+"prompt": Prove the boundedness of convergent sequence 
+"output": To prove that every convergent sequence is bounded, consider the following approach:
+
+### Definition of a Convergent Sequence
+A sequence \((a_n)\) in \(\mathbb{R}\) (or \(\mathbb{C}\)) converges to a limit \(L\) if for every \(\epsilon > 0\), there exists a natural number \(N\) such that for all \(n \geq N\), the terms of the sequence satisfy:
+\[
+|a_n - L| < \epsilon.
+\]
+
+### Proving Boundedness
+Given that \((a_n)\) converges to \(L\), choose \(\epsilon = 1\). By the definition of convergence, there exists an integer \(N\) such that for all \(n \geq N\),
+\[
+|a_n - L| < 1.
+\]
+This implies:
+\[
+|a_n| = |a_n - L + L| \leq |a_n - L| + |L| < 1 + |L|.
+\]
+Let \(M = 1 + |L|\). Thus, for all \(n \geq N\), \(|a_n| < M\).
+
+### Considering the Terms Before \(N\)
+For the finitely many terms \(a_1, a_2, \ldots, a_{N-1}\), each term \(a_i\) (where \(1 \leq i < N\)) is finite, since the sequence consists of real (or complex) numbers. Let:
+\[
+M' = \max\{|a_1|, |a_2|, \ldots, |a_{N-1}|, M\}.
+\]
+This maximum exists and is finite because it is the maximum of a finite set of real numbers.
+
+### Conclusion: The Sequence is Bounded
+The value \(M'\) serves as a bound for the entire sequence. For every \(n \in \mathbb{N}\),
+\[
+|a_n| \leq M'.
+\]
+Hence, the sequence \((a_n)\) is bounded.
+
+This proof demonstrates that the terms of any convergent sequence remain within a fixed distance from the limit beyond some point in the sequence, and prior to this, the sequence consists of only finitely many terms, each of which is also bounded. This characteristic ensures the sequence as a whole does not extend indefinitely in magnitude, thus confirming its bounded nature.
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems 
+ 
+
+"prompt": Prove that:A necessary and sufficient condition for a sequence to converge is that each of its subsequences converges. 
+"output": The statement as posed can be a bit misleading because it may imply that any sequence whose subsequences all converge must itself converge. However, this is not true unless additional conditions are specified about the limit points of these subsequences. To clarify and correct:
+
+### Corrected Statement
+**A necessary and sufficient condition for a sequence to converge to a limit \(L\) is that every subsequence also converges to the same limit \(L\).**
+
+### Proof
+We will prove this statement in two parts:
+1. **Necessity**: If a sequence converges, then every subsequence also converges to the same limit.
+2. **Sufficiency**: If every subsequence of a sequence converges to the same limit, then the sequence itself converges to that limit.
+
+#### Part 1: Necessity
+Suppose a sequence \((a_n)\) converges to a limit \(L\). By definition, for every \(\epsilon > 0\), there exists a natural number \(N\) such that for all \(n \geq N\), \(|a_n - L| < \epsilon\).
+
+Now consider any subsequence \((a_{n_k})\) of \((a_n)\). Since \((n_k)\) is increasing, \(n_k \geq k\), and for \(k\) sufficiently large such that \(n_k \geq N\), it follows that \(|a_{n_k} - L| < \epsilon\). Hence, \((a_{n_k})\) converges to \(L\).
+
+#### Part 2: Sufficiency
+Suppose every subsequence of \((a_n)\) converges to the same limit \(L\). Assume for the sake of contradiction that \((a_n)\) does not converge to \(L\). Then, by definition, there exists an \(\epsilon > 0\) such that for every \(N\), there is some \(n \geq N\) with \(|a_n - L| \geq \epsilon\).
+
+Using this property, we can construct a subsequence \((a_{n_k})\) as follows: 
+- Choose \(n_1\) such that \(|a_{n_1} - L| \geq \epsilon\).
+- Having chosen \(n_1, n_2, \ldots, n_{k-1}\), choose \(n_k > n_{k-1}\) such that \(|a_{n_k} - L| \geq \epsilon\).
+
+This construction ensures that \((a_{n_k})\) is a subsequence of \((a_n)\) where each term of the subsequence does not get arbitrarily close to \(L\), hence \((a_{n_k})\) does not converge to \(L\). This contradicts our assumption that every subsequence of \((a_n)\) converges to \(L\). Therefore, \((a_n)\) must converge to \(L\).
+
+### Conclusion
+This corrected statement and proof clarify that if every subsequence of a sequence converges to the same point, then the original sequence must also converge to that point. Conversely, if the sequence converges, so must all its subsequences. This requirement that all subsequences converge to the **same** limit is critical; without it, the sufficiency part does not hold.
+
+"rating": 3
+"error_codes":5e
+"warning_codes": 
+"comment":The definition of subsequence is not correctly understood 
+"msc":Theorems
+
+
+"prompt": Prove the monotone bounded theorem 
+"output": The **Monotone Convergence Theorem** (also referred to as the Monotone Bounded Theorem) is a fundamental result in real analysis that states if a sequence is monotone and bounded, then it must converge. We can break this theorem into two cases based on the nature of the sequence: monotonically increasing and monotonically decreasing. Here, we'll prove the theorem for a monotonically increasing sequence that is bounded above. A similar argument applies for a monotonically decreasing sequence that is bounded below.
+
+### Theorem Statement
+If a sequence \((a_n)\) is monotonically increasing and bounded above, then \((a_n)\) converges.
+
+### Proof
+1. **Assumptions**: Assume \((a_n)\) is a sequence such that:
+   - **Monotonically Increasing**: \(a_n \leq a_{n+1}\) for all \(n \in \mathbb{N}\).
+   - **Bounded Above**: There exists a real number \(M\) such that \(a_n \leq M\) for all \(n \in \mathbb{N}\).
+
+2. **Define the Limit**:
+   - Since the sequence is bounded above and consists of real numbers, the set \(\{a_n : n \in \mathbb{N}\}\) is non-empty and bounded above. By the completeness property of real numbers, this set has a supremum (least upper bound). Let \(L = \sup \{a_n : n \in \mathbb{N}\}\).
+
+3. **Show the Sequence Converges to \(L\)**:
+   - To show that \(a_n \rightarrow L\) as \(n \rightarrow \infty\), consider any \(\epsilon > 0\). By the definition of the supremum, \(L - \epsilon\) is not an upper bound of the set \(\{a_n\}\). Therefore, there exists some \(N \in \mathbb{N}\) such that \(a_N > L - \epsilon\).
+   - Since the sequence \((a_n)\) is monotonically increasing, for all \(n \geq N\), \(a_n \geq a_N > L - \epsilon\). This shows that all terms of the sequence from \(a_N\) onwards are within \(\epsilon\) of \(L\) from below.
+
+4. **Upper Bound**:
+   - Since \(L\) is the least upper bound, \(a_n \leq L\) for all \(n\). Thus, for all \(n \geq N\), \(a_n < L + \epsilon\).
+
+5. **Combine the Results**:
+   - For all \(n \geq N\), we have \(L - \epsilon < a_n \leq L < L + \epsilon\). Thus, \(|a_n - L| < \epsilon\) for all \(n \geq N\).
+
+### Conclusion
+Hence, the sequence \((a_n)\) converges to \(L\). This proves the Monotone Convergence Theorem for a monotonically increasing sequence that is bounded above. The proof for a monotonically decreasing sequence that is bounded below follows similarly, with the infimum playing the role that the supremum does here.
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems
+  
+
+"prompt": Prove that any bounded sequence of numbers must have a convergent subsequence 
+"output":To prove that any bounded sequence of numbers must have a convergent subsequence, we can utilize the **Bolzano-Weierstrass Theorem**. This theorem is fundamental in real analysis, particularly because it provides a crucial bridge between boundedness and the existence of limits within sequences in Euclidean spaces.
+
+### Theorem Statement: Bolzano-Weierstrass Theorem
+Every bounded sequence in \(\mathbb{R}^n\) (although we will focus on \(\mathbb{R}\) for simplicity) has at least one convergent subsequence.
+
+### Proof
+Here is a proof that directly addresses the statement for sequences in \(\mathbb{R}\), the real numbers.
+
+1. **Assumption of Boundedness**:
+   - Assume \((a_n)\) is a bounded sequence in \(\mathbb{R}\). This means there exist real numbers \(m\) and \(M\) such that \(m \leq a_n \leq M\) for all \(n \in \mathbb{N}\). Thus, the sequence is confined within the interval \([m, M]\).
+
+2. **Application of the Nested Interval Property**:
+   - Begin by dividing the interval \([m, M]\) into two equal parts. At least one of these subintervals must contain an infinite number of terms from the sequence \((a_n)\) because the sequence is infinite.
+   - Select one such subinterval containing infinitely many terms and denote it as \([m_1, M_1]\). Continue this process recursively, each time selecting a subinterval \([m_k, M_k]\) that contains infinitely many terms of the sequence.
+
+3. **Convergence of Subinterval Endpoints**:
+   - The length of the intervals \([m_k, M_k]\) decreases with each step in the subdivision process. Specifically, the length at step \(k\) is \(\frac{M-m}{2^k}\), which tends to 0 as \(k \to \infty\).
+   - By the completeness of the real numbers and the Nested Interval Theorem, the intersection of the decreasing sequence of closed intervals \(\bigcap_{k=1}^\infty [m_k, M_k]\) contains exactly one point, say \(L\).
+
+4. **Construction of the Convergent Subsequence**:
+   - For each interval \([m_k, M_k]\), choose \(a_{n_k}\) such that \(a_{n_k} \in [m_k, M_k]\) and \(n_k < n_{k+1}\), ensuring \(a_{n_k}\) is a subsequence of \((a_n)\).
+   - As \(k \to \infty\), \(a_{n_k}\) must converge to \(L\) because \(|a_{n_k} - L| \leq \frac{M-m}{2^k} \to 0\).
+
+### Conclusion
+Thus, we have constructed a subsequence \((a_{n_k})\) of the bounded sequence \((a_n)\) that converges to \(L\), proving that every bounded sequence in \(\mathbb{R}\) has at least one convergent subsequence. This result highlights an essential property of compactness in metric spaces and is crucial in various applications, including proofs involving limits, continuity, and functions in analysis.
+
+
+"rating": 5
+"error_codes": 
+"warning_codes": 
+"comment": 
+"msc":Theorems
+  
+
+"prompt":  Proved that a continuous function on a closed interval can reach the maximum. 
+"output": To prove that a continuous function on a closed interval reaches its maximum, we use the **Extreme Value Theorem**, which states that if a function \( f \) is continuous on a closed interval \([a, b]\), then \( f \) attains both a maximum and a minimum value on that interval. Here's a step-by-step proof:
+
+### Theorem Statement: Extreme Value Theorem
+Let \( f: [a, b] \rightarrow \mathbb{R} \) be a continuous function on the closed interval \([a, b]\). Then \( f \) attains a maximum value \( M \) and a minimum value \( m \) at some points \( c \) and \( d \) in \([a, b]\), respectively.
+
+### Proof
+
+1. **Continuity and Compactness**:
+   - The interval \([a, b]\) is a compact set because it is both closed and bounded.
+   - A function that is continuous on a compact set is both bounded and attains its bounds. This statement stems from the properties of compactness in topology, specifically the Heine-Borel Theorem in Euclidean space, which asserts that every closed and bounded set in \(\mathbb{R}^n\) is compact.
+
+2. **Boundedness**:
+   - Since \( f \) is continuous on \([a, b]\), and \([a, b]\) is compact, \( f \) must be bounded on \([a, b]\). This means there exist real numbers \( M \) and \( m \) such that \( m \leq f(x) \leq M \) for all \( x \in [a, b] \).
+
+3. **Attainment of Bounds**:
+   - We need to show that \( f \) attains the bounds \( M \) and \( m \) within the interval \([a, b]\). Since \( f \) is continuous and \([a, b]\) is compact, by the properties of compact sets, the image of \([a, b]\) under \( f \), which is \( f([a, b]) \), is also compact.
+   - A compact subset of \(\mathbb{R}\) is closed and bounded, and crucially, it contains its supremum and infimum. Thus, there exist points \( c, d \in [a, b] \) such that \( f(c) = M \) and \( f(d) = m \).
+
+4. **Conclusion**:
+   - The function \( f \) reaches its maximum value \( M \) at \( c \) and its minimum value \( m \) at \( d \), with both \( c \) and \( d \) lying within the closed interval \([a, b]\).
+
+### Summary
+This proof hinges fundamentally on the continuity of the function and the compactness of the interval. The conclusion that a continuous function on a closed interval must reach its maximum and minimum follows from the general topological properties of compact spaces and the behavior of continuous mappings on these spaces. This result is powerful and widely used in calculus, analysis, and many applied fields where optimization within constraints is required.
+
+"rating": 3
+"error_codes": 4a
+"warning_codes": 
+"comment": f的有界性没有具体说明
+"msc":Theorems
+  
+  
+
+"prompt": Give the proof of intermediate value theorem of continuous function 
+"output": The **Intermediate Value Theorem (IVT)** is a fundamental result in real analysis, asserting that a continuous function over an interval takes on every value between any two of its values. This theorem is crucial for demonstrating the existence of solutions to equations and the connective behavior of continuous functions.
+
+### Statement of the Intermediate Value Theorem
+If \( f: [a, b] \rightarrow \mathbb{R} \) is a continuous function on a closed interval \([a, b]\) and \(d\) is any number between \(f(a)\) and \(f(b)\), inclusive, then there exists at least one \(c \in [a, b]\) such that \(f(c) = d\).
+
+### Proof
+
+1. **Assumptions and Setup**:
+   - Assume without loss of generality that \(f(a) \leq f(b)\) (the proof is similar if \(f(a) > f(b)\)).
+   - Let \(d\) be a value such that \(f(a) \leq d \leq f(b)\).
+
+2. **Define the Set S**:
+   - Consider the set \(S = \{x \in [a, b] : f(x) \leq d\}\).
+   - Note that \(S\) is non-empty since \(a \in S\) (because \(f(a) \leq d\)).
+   - \(S\) is bounded above by \(b\).
+
+3. **Use of the Completeness of Real Numbers**:
+   - By the completeness property of the real numbers, the set \(S\) has a least upper bound. Let \(c = \sup S\) be this least upper bound.
+
+4. **Continuity at the Supremum**:
+   - Since \(f\) is continuous on \([a, b]\) and \(c \in [a, b]\), the limit of \(f(x)\) as \(x\) approaches \(c\) from the left (or right, as needed) is \(f(c)\).
+
+5. **Show that \(f(c) = d\)**:
+   - **Case 1: \(f(c) > d\)**:
+     - If \(f(c) > d\), by the continuity of \(f\) at \(c\), there exists an \(\epsilon > 0\) such that for all \(x\) in \((c-\epsilon, c]\), \(f(x) > d\). This contradicts the definition of \(c\) as the supremum of \(S\) since none of these \(x\) values could be in \(S\).
+   - **Case 2: \(f(c) < d\)**:
+     - Similarly, if \(f(c) < d\), by continuity, there exists an \(\epsilon > 0\) such that for all \(x\) in \((c, c+\epsilon)\), \(f(x) < d\). This contradicts \(c\) being the supremum of \(S\) because it implies there are elements greater than \(c\) in \(S\).
+
+6. **Conclusion**:
+   - Since neither \(f(c) > d\) nor \(f(c) < d\) can occur without contradiction, it must be that \(f(c) = d\). Hence, there exists such a \(c \in [a, b]\) for any \(d\) between \(f(a)\) and \(f(b)\).
+
+### Summary
+The Intermediate Value Theorem uses the properties of continuous functions and the completeness of the real numbers to ensure that a continuous function over an interval takes every intermediate value. This theorem is widely used in proofs regarding roots of equations and properties of functions in calculus and beyond.
+
+"rating": 5
+"error_codes": 
+"warning_codes": 
+"comment": 
+"msc":Theorems
+  
+  
+
+"prompt": Prove that a continuous function in a closed interval is uniformly continuous on the closed interval. 
+"output":To prove that a continuous function on a closed interval is uniformly continuous on that interval, we can utilize a series of logical steps derived from the definitions of continuity and uniform continuity. Here's a detailed proof:
+
+### Statement to Prove
+If \( f: [a, b] \rightarrow \mathbb{R} \) is a continuous function on the closed interval \([a, b]\), then \( f \) is uniformly continuous on \([a, b]\).
+
+### Definitions
+- **Continuity**: A function \( f \) is continuous at a point \( x \) if for every \(\epsilon > 0\), there exists a \(\delta > 0\) such that for all \( y \) in the domain, if \( |x - y| < \delta \), then \( |f(x) - f(y)| < \epsilon \).
+- **Uniform Continuity**: A function \( f \) is uniformly continuous on a domain if for every \(\epsilon > 0\), there exists a \(\delta > 0\) such that for all \( x, y \) in the domain, if \( |x - y| < \delta \), then \( |f(x) - f(y)| < \epsilon \), independent of the location of \( x \) and \( y \) within the domain.
+
+### Proof
+1. **Assumptions and Setup**:
+   - Assume \( f: [a, b] \rightarrow \mathbb{R} \) is continuous on \([a, b]\).
+   - Assume by contradiction that \( f \) is not uniformly continuous on \([a, b]\). This means there exists an \(\epsilon > 0\) such that for every \(\delta > 0\), there exist points \( x, y \in [a, b] \) such that \( |x - y| < \delta \) but \( |f(x) - f(y)| \geq \epsilon \).
+
+2. **Construction of Sequences**:
+   - For each \( n \in \mathbb{N} \), choose \(\delta = \frac{1}{n}\) and find \( x_n, y_n \in [a, b] \) such that \( |x_n - y_n| < \frac{1}{n} \) but \( |f(x_n) - f(y_n)| \geq \epsilon \).
+   - Since \( [a, b] \) is compact, by the Bolzano-Weierstrass theorem, subsequences \( (x_{n_k}) \) and \( (y_{n_k}) \) converge to some limit \( c \in [a, b] \).
+
+3. **Limit Behavior and Continuity**:
+   - As \( n_k \rightarrow \infty \), \( x_{n_k} \rightarrow c \) and \( y_{n_k} \rightarrow c \) because \( |x_{n_k} - y_{n_k}| < \frac{1}{n_k} \rightarrow 0 \).
+   - By continuity of \( f \) at \( c \), \( f(x_{n_k}) \rightarrow f(c) \) and \( f(y_{n_k}) \rightarrow f(c) \) as \( k \rightarrow \infty \).
+
+4. **Contradiction**:
+   - The convergence \( f(x_{n_k}) \rightarrow f(c) \) and \( f(y_{n_k}) \rightarrow f(c) \) implies that eventually \( |f(x_{n_k}) - f(y_{n_k})| < \epsilon \), contradicting our assumption that \( |f(x_{n_k}) - f(y_{n_k})| \geq \epsilon \) for all \( k \).
+   - Therefore, our original assumption that \( f \) is not uniformly continuous must be false.
+
+### Conclusion
+Thus, \( f \) must be uniformly continuous on \([a, b]\). This result follows directly from the properties of continuity on compact sets, notably the ability to handle all parts of the interval uniformly due to the bounded and closed nature of the interval. This proof fundamentally relies on the compactness of the interval and the Heine-Cantor theorem, which asserts that continuous functions on compact sets are uniformly continuous.
+
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems
+  
+  
+
+"prompt": Prove Rolle's theorem
+"output": **Rolle's Theorem** is a fundamental result in calculus that provides a necessary condition for a function to have a stationary point, i.e., a point where the derivative equals zero, between two points where the function takes the same value. The theorem is often used as a stepping stone to prove the Mean Value Theorem.
+
+### Statement of Rolle's Theorem
+Let \( f \) be a function that satisfies the following conditions:
+1. \( f \) is continuous on the closed interval \([a, b]\),
+2. \( f \) is differentiable on the open interval \((a, b)\),
+3. \( f(a) = f(b) \).
+
+Then there exists at least one \( c \) in \((a, b)\) such that \( f'(c) = 0 \).
+
+### Proof of Rolle's Theorem
+
+1. **Check for Constant Function**:
+   - First, check if \( f \) is constant on \([a, b]\). If \( f \) is constant, then \( f(x) = f(a) = f(b) \) for all \( x \in [a, b] \), and thus \( f'(x) = 0 \) for all \( x \in (a, b) \). In this case, any \( c \in (a, b) \) satisfies \( f'(c) = 0 \), and the theorem holds trivially.
+
+2. **Assume \( f \) is not Constant**:
+   - If \( f \) is not constant, then there must exist at least one point \( x \in (a, b) \) where \( f(x) \neq f(a) \). Since \( f \) is continuous on \([a, b]\) and \( f(a) = f(b) \), by the Intermediate Value Theorem, \( f \) must take values both greater than and less than \( f(a) \) within the interval (if not, \( f \) would be constant due to continuity).
+
+3. **Application of the Extreme Value Theorem**:
+   - Since \( f \) is continuous on the compact interval \([a, b]\), by the Extreme Value Theorem, \( f \) attains its maximum and minimum values on \([a, b]\). Let's denote these points where the extremum is achieved as \( x_{\text{max}} \) and \( x_{\text{min}} \), respectively.
+   - Since \( f \) is not constant and \( f(a) = f(b) \), the extremum points \( x_{\text{max}} \) and \( x_{\text{min}} \) must occur in the interval \((a, b)\) (not at the endpoints).
+
+4. **Differentiability and Stationary Points**:
+   - At each extremum point within \((a, b)\), the derivative must be zero (because the function cannot increase or decrease at these points, and it is differentiable there). Thus, \( f'(x_{\text{max}}) = 0 \) and \( f'(x_{\text{min}}) = 0 \).
+
+5. **Conclusion**:
+   - Therefore, there exists at least one \( c \in (a, b) \) (specifically, you can take \( c = x_{\text{max}} \) or \( c = x_{\text{min}} \)) such that \( f'(c) = 0 \).
+
+This completes the proof of Rolle's Theorem. The theorem essentially states that if a continuous and differentiable function starts and ends at the same value over an interval, then there must be some point within that interval where the tangent to the function is horizontal, implying a derivative of zero.
+"rating": 2
+"error_codes":4c
+"warning_codes": 
+"comment":用中值定理循环论证
+"msc":Theorems
+  
+  
+
+"prompt": Proving Lagrange's Mean Value Theorem 
+"output": Lagrange's Mean Value Theorem (often referred to as the Mean Value Theorem for derivatives) is a fundamental result in calculus that provides a link between derivatives and differences in function values. It essentially says that if a function is continuous on a closed interval and differentiable on the open interval between two points, then there is at least one point where the derivative of the function is equal to the average rate of change of the function over that interval.
+
+### Statement of Lagrange's Mean Value Theorem
+Let \( f: [a, b] \rightarrow \mathbb{R} \) be a function that satisfies the following conditions:
+1. \( f \) is continuous on the closed interval \([a, b]\),
+2. \( f \) is differentiable on the open interval \((a, b)\).
+
+Then there exists at least one \( c \) in \((a, b)\) such that:
+\[ f'(c) = \frac{f(b) - f(a)}{b - a} \]
+
+### Proof of Lagrange's Mean Value Theorem
+
+1. **Define an Auxiliary Function**:
+   - Define a function \( g \) by
+     \[
+     g(x) = f(x) - \left(f(a) + \frac{f(b) - f(a)}{b - a} (x - a)\right)
+     \]
+   - Notice that \( g(x) \) is constructed so that \( g(a) = g(b) = 0 \). This is because when \( x = a \), the terms involving \( (x - a) \) vanish, and when \( x = b \), the expression simplifies to \( f(b) - f(b) = 0 \).
+
+2. **Apply Rolle's Theorem**:
+   - The function \( g \) is continuous on \([a, b]\) and differentiable on \((a, b)\) because it is composed of \( f(x) \) (which is continuous on \([a, b]\) and differentiable on \((a, b)\)) and a linear function (which is always continuous and differentiable).
+   - Since \( g(a) = g(b) \), by Rolle's Theorem, there exists some \( c \in (a, b) \) such that \( g'(c) = 0 \).
+
+3. **Calculate the Derivative of \( g(x) \)**:
+   - The derivative of \( g \) is given by:
+     \[
+     g'(x) = f'(x) - \frac{f(b) - f(a)}{b - a}
+     \]
+   - Setting \( g'(c) = 0 \) gives:
+     \[
+     f'(c) - \frac{f(b) - f(a)}{b - a} = 0
+     \]
+   - Rearrange to find:
+     \[
+     f'(c) = \frac{f(b) - f(a)}{b - a}
+     \]
+
+4. **Conclusion**:
+   - Thus, there exists at least one \( c \in (a, b) \) such that the derivative of \( f \) at \( c \) equals the average rate of change of \( f \) over the interval from \( a \) to \( b \), as stated by the Mean Value Theorem.
+
+This theorem is powerful because it establishes that under conditions of continuity and differentiability, the behavior of a function can be approximated and understood through its derivatives, giving a deeper insight into the function's average behavior over an interval.
+
+"rating": 5
+"error_codes": 
+"warning_codes": 
+"comment":
+"msc":Theorems
+  
+  
+
+"prompt": Prove Taylor’s Theorem
+"output":Taylor's Theorem is an essential result in calculus that provides a polynomial approximation of differentiable functions around a specific point, usually known as the Taylor polynomial. The theorem gives a precise form of the remainder term, indicating the error made by truncating the Taylor series.
+
+### Statement of Taylor's Theorem
+
+Let \( f \) be a function that is \(n+1\) times differentiable on the open interval containing \(a\) and \(x\), and let \(a\) and \(x\) be points in this interval. Then Taylor's Theorem states that:
+\[ f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \ldots + \frac{f^{(n)}(a)}{n!}(x-a)^n + R_n(x) \]
+where \( R_n(x) \) is the remainder term given by:
+\[ R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1} \]
+for some \( c \) between \( a \) and \( x \).
+
+### Proof of Taylor's Theorem
+The proof typically uses the method of **induction** and **integration** to establish the formula and the remainder term.
+
+1. **Base Case**:
+   - For \( n = 0 \), the statement reduces to the Mean Value Theorem (MVT). According to MVT, there exists \( c \) between \( a \) and \( x \) such that:
+     \[ f(x) = f(a) + f'(c)(x-a) \]
+   - This is Taylor's theorem for \( n = 0 \) with the remainder \( R_0(x) = f'(c)(x-a) \).
+
+2. **Inductive Step**:
+   - Assume the theorem holds for \( n = k \); that is, assume we have:
+     \[ f(x) = f(a) + f'(a)(x-a) + \ldots + \frac{f^{(k)}(a)}{k!}(x-a)^k + R_k(x) \]
+   - To prove for \( n = k+1 \), define a new function \( g \) by:
+     \[ g(t) = f(x) - \left( f(t) + f'(t)(x-t) + \ldots + \frac{f^{(k+1)}(t)}{(k+1)!}(x-t)^{k+1} \right) \]
+   - Apply Rolle's Theorem iteratively to \( g(t) \) and its derivatives up to the \( k+1 \)-th derivative to find a point \( c \) between \( a \) and \( x \) such that:
+     \[ g^{(k+1)}(c) = 0 \]
+   - This process shows:
+     \[ f(x) = f(a) + f'(a)(x-a) + \ldots + \frac{f^{(k+1)}(a)}{(k+1)!}(x-a)^{k+1} + R_{k+1}(x) \]
+   - Where \( R_{k+1}(x) \) satisfies the Taylor remainder formula.
+
+3. **Integral Form of the Remainder**:
+   - Another common approach to establish the remainder involves integrating \( f^{(n+1)}(t) \) over the interval from \( a \) to \( x \), using integration by parts iteratively:
+     \[ R_n(x) = \int_a^x \frac{f^{(n+1)}(t)}{n!}(x-t)^n dt \]
+   - Evaluate this integral to deduce the form of \( R_n(x) \) as given in the statement.
+
+### Conclusion
+Taylor's Theorem provides not only a polynomial approximation but also quantifies the error of this approximation via the remainder term. It's widely used in numerical methods, approximation theory, and in the analysis of algorithms where function behavior near a point needs precise estimation.
+
+"rating": 3
+"error_codes":2a
+"warning_codes": 
+"comment": 辅助函数构造正确，应使用柯西中值公式
+"msc":Theorems
+  
+  
+
+"prompt": Prove the Nested Interval Theorem 
+“output”: The Nested Interval Theorem is a fundamental result in real analysis, which guarantees the existence of at least one point common to a sequence of nested, closed intervals. This theorem has important implications in topology and the theory of real numbers, especially concerning the completeness property of the real line.
+
+### Statement of the Nested Interval Theorem
+Let \(\{[a_n, b_n]\}_{n=1}^\infty\) be a sequence of closed intervals in \(\mathbb{R}\) such that each interval is nested within the preceding one:
+\[ [a_1, b_1] \supseteq [a_2, b_2] \supseteq [a_3, b_3] \supseteq \cdots \]
+If the length of these intervals, \(b_n - a_n\), tends to zero as \(n \rightarrow \infty\), then there exists exactly one point \(x \in \mathbb{R}\) that belongs to all intervals. If the lengths do not necessarily tend to zero, the intersection of all these intervals is still non-empty, although it may contain more than one point.
+
+### Proof of the Nested Interval Theorem
+
+1. **Non-empty and Nested Nature**:
+   - Since \( [a_{n+1}, b_{n+1}] \subseteq [a_n, b_n] \) for each \(n\), we have \(a_n \leq a_{n+1} \leq b_{n+1} \leq b_n\). This shows that \(\{a_n\}\) is a non-decreasing sequence and \(\{b_n\}\) is a non-increasing sequence.
+
+2. **Boundness and Convergence**:
+   - The sequences \(\{a_n\}\) and \(\{b_n\}\) are bounded (each \(a_n\) is bounded above by \(b_1\) and each \(b_n\) is bounded below by \(a_1\)).
+   - By the Monotone Convergence Theorem, since \(\{a_n\}\) is non-decreasing and bounded above, and \(\{b_n\}\) is non-increasing and bounded below, both sequences converge. Let \( \lim_{n \rightarrow \infty} a_n = A \) and \( \lim_{n \rightarrow \infty} b_n = B \).
+
+3. **Intersection and Common Point**:
+   - We claim that \( A = B \). Suppose, for contradiction, that \( A < B \). By the definition of limits, for any small \(\epsilon > 0\), there exist \(N_1, N_2\) such that for all \(n \geq N_1\), \(|a_n - A| < \epsilon/2\) and for all \(n \geq N_2\), \(|b_n - B| < \epsilon/2\).
+   - Let \(N = \max(N_1, N_2)\). Then for \(n \geq N\), we have \(b_n - a_n = (B - A) - (b_n - B) - (A - a_n) > B - A - \epsilon\). By choosing \(\epsilon\) small enough, \(b_n - a_n\) remains positive, contradicting the assumption that \(b_n - a_n \rightarrow 0\).
+   - Therefore, \( A = B \), and \(x = A = B\) is the single point in the intersection of all intervals \([a_n, b_n]\).
+
+4. **Conclusion**:
+   - If the length of the intervals \(b_n - a_n\) does not necessarily go to zero, the same logic up to the convergence of \(a_n\) and \(b_n\) still guarantees the existence of a common point (or points) \(x\) such that \(x = A = B\) in all intervals. If \(b_n - a_n\) does not tend to zero, \(A = B\) still ensures that this single point \(x\) lies in every interval.
+
+This proof underlines the power of completeness in the real numbers and provides a foundational tool for arguments involving limits, continuity, and real-valued functions defined on intervals.
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems
+  
+  
+
+"prompt": Prove the partial integral method 
+"output": The **partial integral method** is better known as **integration by parts**. It is a powerful technique in calculus used to compute the integral of the product of two functions. This method stems from the product rule of differentiation and provides a way to transform the integral of a product into simpler integrals. Here’s a step-by-step proof of integration by parts:
+
+### Statement of Integration by Parts
+For functions \( u(x) \) and \( v(x) \) that are differentiable in an interval, the formula for integration by parts is given by:
+\[
+\int u(x) v'(x) \, dx = u(x) v(x) - \int v(x) u'(x) \, dx
+\]
+where \( u = u(x) \) and \( v = v(x) \), and \( u' \) and \( v' \) are their respective derivatives.
+
+### Proof of Integration by Parts
+We start with the product rule for differentiation, which states:
+\[
+\frac{d}{dx} [u(x)v(x)] = u(x)v'(x) + v(x)u'(x)
+\]
+Now, integrate both sides with respect to \( x \):
+\[
+\int \frac{d}{dx} [u(x)v(x)] \, dx = \int (u(x)v'(x) + v(x)u'(x)) \, dx
+\]
+The left side simplifies using the Fundamental Theorem of Calculus:
+\[
+u(x)v(x) = \int u(x)v'(x) \, dx + \int v(x)u'(x) \, dx
+\]
+Now, rearrange the equation to isolate the term \( \int u(x)v'(x) \, dx \):
+\[
+\int u(x)v'(x) \, dx = u(x)v(x) - \int v(x)u'(x) \, dx
+\]
+This is the formula for integration by parts.
+
+### Example of Using Integration by Parts
+To illustrate how integration by parts is applied, consider:
+\[
+\int x \cos(x) \, dx
+\]
+Choose \( u(x) = x \) and \( dv = \cos(x) \, dx \). Then, \( du = dx \) and \( v = \sin(x) \) (since \( \int \cos(x) \, dx = \sin(x) \)). Applying integration by parts:
+\[
+\int x \cos(x) \, dx = x \sin(x) - \int \sin(x) \, dx = x \sin(x) + \cos(x) + C
+\]
+where \( C \) is the constant of integration.
+
+### Conclusion
+Integration by parts is an essential method in calculus for dealing with integrals of products of functions. It simplifies complex integrals into more manageable forms and is particularly useful when one function is easily integrable and the other is easily differentiable. This technique is broadly used across all fields of mathematics, physics, and engineering where integration is necessary.
+
+
+"rating":5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems
+  
+  
+
+"prompt": Prove the Newton-Leibniz formula 
+"output": 
+The **Newton-Leibniz Formula**, often referred to as the **Fundamental Theorem of Calculus**, connects differentiation and integration, providing a powerful tool for evaluating definite integrals using antiderivatives. This theorem has two parts: the first establishes that the integral of a derivative recovers the original function (up to a constant), and the second gives a method for computing definite integrals using antiderivatives.
+
+### Statement of the Newton-Leibniz Formula
+Suppose \( f \) is a continuous function on a closed interval \([a, b]\), and let \( F \) be an antiderivative of \( f \) over \([a, b]\), meaning \( F'(x) = f(x) \) for all \( x \) in \([a, b]\). Then, the integral of \( f \) from \( a \) to \( b \) is given by:
+\[
+\int_a^b f(x) \, dx = F(b) - F(a)
+\]
+
+### Proof of the Newton-Leibniz Formula
+
+1. **Setup and Antiderivative**:
+   - Assume \( F \) is an antiderivative of \( f \), which means \( F'(x) = f(x) \).
+
+2. **Define a Function \( G \)**:
+   - Define \( G(x) = \int_a^x f(t) \, dt \). This function \( G \) measures the area under the curve of \( f \) from \( a \) to \( x \), where \( x \) is any point in the interval \([a, b]\).
+
+3. **Differentiate \( G \)**:
+   - By the Fundamental Theorem of Calculus, Part 1, \( G'(x) = f(x) \) for all \( x \) in \([a, b]\). This differentiation directly follows from the definition of \( G \) and the properties of the definite integral.
+
+4. **Relation Between \( G \) and \( F \)**:
+   - Since both \( G \) and \( F \) are antiderivatives of \( f \) over the interval \([a, b]\) and they differ by a constant, we can write:
+     \[
+     G(x) = F(x) + C
+     \]
+     for some constant \( C \). To determine \( C \), evaluate \( G \) at \( x = a \):
+     \[
+     G(a) = \int_a^a f(t) \, dt = 0
+     \]
+     So, \( G(a) = F(a) + C \Rightarrow 0 = F(a) + C \Rightarrow C = -F(a) \).
+
+5. **Evaluate \( G(b) \)**:
+   - Substitute \( x = b \) into the equation \( G(x) = F(x) - F(a) \):
+     \[
+     G(b) = F(b) - F(a)
+     \]
+     And recall that \( G(b) = \int_a^b f(t) \, dt \).
+
+6. **Conclude the Proof**:
+   - Thus, the definite integral of \( f \) from \( a \) to \( b \) is:
+     \[
+     \int_a^b f(x) \, dx = F(b) - F(a)
+     \]
+     which is the statement of the Newton-Leibniz Formula.
+
+### Conclusion
+The Newton-Leibniz Formula is crucial for practical computations of definite integrals and illustrates a profound connection between the operations of differentiation and integration. This theorem simplifies the evaluation of areas and other quantities in physical and mathematical applications, making it one of the cornerstones of calculus.
+"rating": 1
+"error_codes":2a,4d
+"warning_codes": 2
+"comment":应考虑区间分割与一致连续性。
+"msc":Theorems
+  
+  
+
+"prompt": Prove the First Mean Value Theorem for Integrals
+"output":The **First Mean Value Theorem for Integrals** is a powerful result in real analysis that provides a link between the definite integral of a function and its values. It states that for a continuous function, the definite integral over an interval can be expressed as the product of the length of the interval and the function value at some point within the interval.
+
+### Statement of the First Mean Value Theorem for Integrals
+Let \( f: [a, b] \rightarrow \mathbb{R} \) be a continuous function on the closed interval \([a, b]\). Then there exists at least one point \( c \) in \((a, b)\) such that:
+\[
+\int_a^b f(x) \, dx = f(c)(b - a)
+\]
+
+### Proof of the First Mean Value Theorem for Integrals
+
+1. **Setup**:
+   - Consider the function \( f \) which is continuous on \([a, b]\). By the properties of continuous functions on closed intervals, \( f \) attains its maximum and minimum on \([a, b]\). Let \( M \) and \( m \) be the maximum and minimum values of \( f \) on this interval, respectively.
+
+2. **Integral Bounds**:
+   - Since \( f(x) \) is always between \( m \) and \( M \) for all \( x \in [a, b] \), the integral of \( f \) over \([a, b]\) must satisfy:
+     \[
+     m(b-a) \leq \int_a^b f(x) \, dx \leq M(b-a)
+     \]
+
+3. **Intermediate Value Theorem**:
+   - Consider the function \( F(t) = \int_a^t f(x) \, dx \). \( F \) is continuous and differentiable on \([a, b]\) (by the Fundamental Theorem of Calculus), and \( F'(t) = f(t) \) for all \( t \in (a, b) \).
+   - Define a new function \( g(t) = \frac{F(t) - F(a)}{t-a} \). Notice that \( g(a) = f(a) \) and \( g(b) = \frac{\int_a^b f(x) \, dx}{b-a} \).
+   - Since \( f \) is continuous on \([a, b]\), so is \( g \), and by the Intermediate Value Theorem applied to \( g \), there exists some \( c \in [a, b] \) such that \( g(c) \) takes any value between \( g(a) \) and \( g(b) \), specifically \( g(c) = f(c) \).
+
+4. **Conclusion**:
+   - We have \( g(c) = f(c) = \frac{\int_a^b f(x) \, dx}{b-a} \).
+   - Hence, \( \int_a^b f(x) \, dx = f(c)(b-a) \).
+
+### Summary
+This theorem effectively states that there is a point \( c \) in the interval \([a, b]\) at which the value of \( f(c) \) multiplied by the length of the interval equals the area under \( f \) over \([a, b]\). This result is not only significant theoretically but also useful in applications where average values are computed, and it underscores the geometric interpretation of the integral as the area under a curve.
+
+
+"rating": 5
+"error_codes": 
+"warning_codes": 
+"comment":  
+  
+
+
+
+
+
+"prompt": Prove the Theorem: Any matrix can be transformed into row echelon form using elementary row operations.
+"output": To prove that any matrix can be transformed into row echelon form using elementary row operations, we'll use a systematic approach involving these operations: row swapping, row multiplication, and row addition. These operations are fundamental in linear algebra for simplifying matrices and solving systems of linear equations.
+
+### Definitions and Elementary Row Operations
+1. **Row Swapping**: Exchange two rows of the matrix.
+2. **Row Multiplication**: Multiply all entries in a row by a non-zero constant.
+3. **Row Addition**: Add a multiple of one row to another row.
+
+### Row Echelon Form
+A matrix is in **row echelon form** (REF) if:
+- All nonzero rows are above any rows of all zeros.
+- The leading coefficient (the first nonzero number from the left, also called the pivot) of a nonzero row is always strictly to the right of the leading coefficient of the row above it.
+- All entries in a column below a pivot are zeros.
+
+### Proof that Any Matrix Can Be Transformed into Row Echelon Form
+We'll demonstrate the process to transform any matrix into REF using a combination of the elementary row operations outlined above.
+
+#### Step-by-Step Transformation
+Consider a matrix \( A \) of size \( m \times n \). We aim to transform \( A \) into REF. The process is iterative and involves working column by column, starting from the first column.
+
+1. **Initial Setup**:
+   - Start with the first column of \( A \). If all entries in this column are zero, move to the next column. Otherwise, proceed to the next step.
+
+2. **Establish a Pivot**:
+   - Identify the first nonzero entry in the current column, starting from the top. If the first nonzero entry is not in the first row, perform a row swap to move it to the top row of the current submatrix (the part of the matrix below and including the current row and column being considered).
+
+3. **Clear Entries Below the Pivot**:
+   - Use row addition to create zeros below the pivot. For each row below the pivot, subtract an appropriate multiple of the pivot row. The multiple should be chosen so that the addition will cancel the entry below the pivot in the current column.
+
+4. **Iterate Through Columns**:
+   - Move to the next column to the right of the current pivot and repeat the process starting from step 2, considering the submatrix that excludes the rows above the current pivot row.
+
+5. **Continue the Process**:
+   - Continue this process column by column. For each column, establish a pivot (if possible) and use it to clear all entries below it. This iterative process transforms the matrix into REF.
+
+#### Completion of Transformation
+- The procedure terminates when there are no more columns to process or when the remaining submatrix contains only zero entries.
+- The resulting matrix after these operations is in row echelon form by construction: each pivot is to the right of the pivot above it, and all entries below each pivot are zero.
+
+### Conclusion
+This systematic application of elementary row operations guarantees that any matrix, regardless of its initial entries, can be transformed into row echelon form. The method is fundamental in linear algebra and forms the basis for more advanced matrix operations, including finding the rank of a matrix, solving linear systems, and performing matrix decompositions.
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems
+  
+  
+
+"prompt": Prove that Let f: A → A be a function from a finite set A to itself. If f is surjective, then f is also injective.
+"output":To prove that if a function \( f: A \rightarrow A \) from a finite set \( A \) to itself is surjective, then it must also be injective, let's first define the terms and set up the proof.
+
+### Definitions
+1. **Injective (One-to-One) Function**: A function \( f \) is injective if different inputs map to different outputs. Formally, if \( f(a) = f(b) \), then \( a = b \) for any \( a, b \in A \).
+2. **Surjective (Onto) Function**: A function \( f \) is surjective if every element in the codomain \( A \) has a preimage in the domain \( A \). That is, for every \( b \in A \), there exists an \( a \in A \) such that \( f(a) = b \).
+
+### Statement to Prove
+Given \( f: A \rightarrow A \) is surjective, where \( A \) is a finite set, prove that \( f \) is also injective.
+
+### Proof
+
+1. **Assumptions**: Assume \( A \) is finite and let \( |A| = n \). Since \( f \) is a function from \( A \) to \( A \), both the domain and codomain have \( n \) elements.
+
+2. **Surjectivity Implies Full Coverage**: By assumption, \( f \) is surjective. This means that every element in \( A \) is the image of at least one element in \( A \) under \( f \). Hence, the function \( f \) maps \( n \) elements of \( A \) onto \( n \) elements of \( A \), covering all elements of \( A \).
+
+3. **Injectivity Requirement**: Suppose for the sake of contradiction that \( f \) is not injective. This would mean there exist elements \( a, b \in A \) such that \( a \neq b \) but \( f(a) = f(b) \). In other words, two different elements of \( A \) map to the same element in \( A \).
+
+4. **Impact of Non-Injectivity on Surjectivity**: If \( f \) is not injective, then the number of distinct images under \( f \) must be less than \( n \) because at least two elements of \( A \) share the same image. This contradicts the surjectivity of \( f \), which requires that the number of distinct images be exactly \( n \) to match the number of elements in \( A \).
+
+5. **Contradiction and Conclusion**: Since assuming \( f \) is not injective leads to a contradiction of the surjectivity of \( f \), our assumption must be incorrect. Thus, \( f \) must be injective.
+
+### Conclusion
+We conclude that for a function \( f: A \rightarrow A \) defined on a finite set \( A \), if \( f \) is surjective, it must also be injective. This result stems from the fact that a surjective function on a finite set necessarily uses up all available elements in the codomain, leaving no room for duplicating images without missing some elements, which would contradict surjectivity.
+"rating":5 
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems
+  
+  
+
+"prompt": Prove that mappings satisfy the associative law 
+"output": The **associative law** for mappings (or functions) is an essential property that facilitates the composition of multiple functions. This law states that when you compose functions, the order in which the compositions are performed does not matter, as long as the sequence of the functions involved remains the same.
+
+### Statement of the Associative Law for Mappings
+Given three functions \( f: A \rightarrow B \), \( g: B \rightarrow C \), and \( h: C \rightarrow D \), the associative law states that:
+\[ (h \circ g) \circ f = h \circ (g \circ f) \]
+This means that if you first compose \( g \) and \( h \), and then compose the result with \( f \), it is the same as first composing \( f \) and \( g \), and then composing the result with \( h \).
+
+### Proof of Associativity for Function Composition
+To prove this, let's analyze what happens when you apply these compositions to an element \( x \in A \).
+
+#### Step 1: Compute \((h \circ g) \circ f\)
+- First, compute \( f(x) \), which is an element of \( B \) because \( f: A \rightarrow B \).
+- Next, apply \( g \) to \( f(x) \): \( g(f(x)) \), which is an element of \( C \) since \( g: B \rightarrow C \).
+- Finally, apply \( h \) to \( g(f(x)) \): \( h(g(f(x))) \), which is an element of \( D \) as \( h: C \rightarrow D \).
+Thus, \( (h \circ g) \circ f (x) = h(g(f(x))) \).
+
+#### Step 2: Compute \(h \circ (g \circ f)\)
+- First, compute the composition of \( g \) and \( f \) on \( x \): \( (g \circ f)(x) = g(f(x)) \).
+- Next, apply \( h \) to the result of \( g(f(x)) \): \( h(g(f(x))) \).
+Thus, \( h \circ (g \circ f)(x) = h(g(f(x))) \).
+
+#### Conclusion of the Proof
+Comparing the results from Steps 1 and 2, we see that for every \( x \in A \):
+\[ (h \circ g) \circ f (x) = h(g(f(x))) = h \circ (g \circ f)(x) \]
+This shows that the two different ways of composing the functions \( h \), \( g \), and \( f \) give the same result for any input \( x \), proving that function composition is associative.
+
+### Conclusion
+The proof confirms that the associative law holds for function composition. This property is foundational in mathematics, particularly in areas involving transformations and operations, allowing for simplification and reordering of operations without changing the outcome. This principle ensures that function composition can be handled flexibly and consistently across different contexts in mathematics and applications.
+"rating": 5
+"error_codes": 
+"warning_codes": 
+"comment":
+"msc":Theorems
+  
+  
+
+"prompt": State the Bolzano–Weierstrass theorem and give a list of the main mathematical results and tools which are used in its proof.
+"output": The **Bolzano–Weierstrass Theorem** is a fundamental result in real analysis and topology. It provides a critical compactness criterion in Euclidean space, particularly concerning sequences.
+
+### Statement of the Bolzano–Weierstrass Theorem:
+Every bounded sequence in \(\mathbb{R}^n\) has a convergent subsequence.
+
+This theorem can be stated more broadly for any metric space, but the classical setting is \(\mathbb{R}^n\), where it is most commonly applied. The essence of the theorem is that in a limited (bounded) setting, no sequence can "escape" indefinitely without some of its points coming arbitrarily close to each other, leading to convergence of a subsequence.
+
+### Main Mathematical Results and Tools Used in the Proof:
+The proof of the Bolzano–Weierstrass Theorem employs several key concepts and tools from topology and analysis:
+
+1. **Properties of Bounded Sequences**:
+   - **Definition of Boundedness**: A sequence \((x_n)\) in \(\mathbb{R}^n\) is bounded if there exists a number \(M > 0\) such that \(\|x_n\| \leq M\) for all \(n\). This implies that the sequence is contained within a closed ball of radius \(M\).
+
+2. **Nested Interval Theorem (or Nested Set Property)**:
+   - In \(\mathbb{R}\), the Nested Interval Theorem states that the intersection of a decreasing sequence of closed intervals is non-empty. In higher dimensions, similar results apply to sequences of nested compact sets, which are crucial when constructing convergent subsequences.
+
+3. **Compactness**:
+   - In topology, a subset of \(\mathbb{R}^n\) is compact if every sequence in the subset has a convergent subsequence whose limit is in the subset. Compactness in metric spaces, particularly in \(\mathbb{R}^n\), can also be characterized using covering properties (like Heine-Borel Theorem, which states that a subset of \(\mathbb{R}^n\) is compact if and only if it is closed and bounded).
+
+4. **Axiom of Choice or Equivalent**:
+   - Some form of the Axiom of Choice is often used implicitly in selecting elements from each segment or part of the partitioning process during the proof. This might involve choosing convergent subsequences at various stages.
+
+5. **Cantor’s Diagonal Argument (in some proofs)**:
+   - Especially in spaces like \(\mathbb{R}^n\), the diagonalization technique can be used to pick out convergent subsequences by repeatedly applying the theorem in one dimension and then extending to higher dimensions.
+
+### Example of Proof Outline in \(\mathbb{R}\):
+1. **Assume the sequence \((x_n)\) is bounded**.
+2. **Partition the bounded interval**: Divide the interval into two halves, at least one of which must contain infinitely many points of the sequence.
+3. **Apply the Nested Interval Theorem**: Choose a subinterval containing infinitely many points and iterate this partitioning process.
+4. **Construction of a Convergent Subsequence**: From each chosen subinterval, select a point, ensuring that the chosen subsequence is Cauchy and hence convergent (by completeness of \(\mathbb{R}\)).
+
+This theorem is pivotal in analysis because it guarantees the existence of limits within bounded sets and underpins many convergence arguments in calculus, differential equations, and functional analysis. It shows that boundedness coupled with the structure of Euclidean space inherently leads to the existence of accumulation points, which are critical in many mathematical proofs and applications.
+
+"rating": 4
+"error_codes":2a
+"warning_codes": 2
+"comment":Axiom of Choice or Equivalent might be useless.
+"msc":Theorems
+  
+  
+
+"prompt": State Zorn's lemma and give a list of the main mathematical results and tools which are used in its proof.
+"output": **Zorn's Lemma** is a fundamental principle in set theory, particularly useful in various branches of mathematics such as algebra, analysis, and beyond. It is equivalent to the Axiom of Choice and the Well-Ordering Theorem, playing a critical role in proofs where constructing an object by extending it step by step is required.
+
+### Statement of Zorn's Lemma
+**Zorn's Lemma** asserts that:
+*If a partially ordered set has the property that every chain (i.e., totally ordered subset) has an upper bound, then the set contains at least one maximal element.*
+
+Here, a **maximal element** in a partially ordered set is an element \( m \) such that there is no element \( x \) in the set for which \( m < x \) holds.
+
+### Main Mathematical Results and Tools Used in Its Proof
+The proof of Zorn's Lemma typically depends on the Axiom of Choice, among other foundational concepts in set theory and logic. Here’s an outline of the key elements and results used in the proof:
+
+1. **Axiom of Choice**: 
+   - This axiom is crucial for selecting elements from each subset of the partially ordered set to construct chains. It states that for any set of non-empty and disjoint sets, there exists at least one set that contains exactly one element from each of these sets.
+
+2. **Chains and Upper Bounds**:
+   - **Chain**: A totally ordered subset of a partially ordered set.
+   - **Upper Bound**: An element that is greater than or equal to every element in a chain. The requirement that every chain has an upper bound is central to the application of Zorn's Lemma.
+
+3. **Transfinite Induction**:
+   - This form of induction is used to extend arguments from finite to infinitely many steps, which is essential when dealing with chains that could potentially be unbounded or reach into transfinite ordinal numbers.
+
+4. **Maximal Principles**:
+   - The concept of a maximal element and ensuring that no larger element exists under the given order relation is fundamental in concluding the proof.
+
+5. **Proof by Contradiction**:
+   - Often, the proof involves assuming that no maximal element exists and showing that this leads to a contradiction, specifically by constructing a chain that can be extended indefinitely, which violates the assumption that every chain has an upper bound.
+
+### Summary of the Proof Strategy
+- Begin by assuming that no maximal element exists in the partially ordered set.
+- Using the Axiom of Choice, construct a chain by selecting an upper bound for each chain formed and extending it, since no maximal elements are presumed to exist.
+- Since every chain is assumed to have an upper bound, this process constructs an ever-increasing chain.
+- The contradiction arises when this process indefinitely extends, implying the existence of a maximal element, contrary to the initial assumption.
+
+### Conclusion
+Zorn's Lemma is an essential tool in many areas of mathematics, enabling the construction of maximal or extremal objects under conditions where direct construction isn't feasible. Its equivalence to the Axiom of Choice highlights its foundational importance in modern set theory and its applications across mathematical disciplines
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems
+  
+  
+
+"prompt": State the fundamental theorem of calculus and give a list of the main mathematical results and tools which are used in its proof.
+"output": The **Fundamental Theorem of Calculus** (FTC) is one of the most significant results in the field of calculus, linking the concept of differentiation with integration. The theorem essentially bridges the two main operations of calculus and has two primary parts:
+
+### Fundamental Theorem of Calculus
+
+**Part 1 (FTC1):**
+This part of the theorem states that if \( f \) is a continuous function on the interval \([a, b]\), and if \( F \) is defined by the integral of \( f \) from \( a \) to \( x \), i.e.,
+\[ F(x) = \int_a^x f(t) \, dt, \]
+then \( F \) is continuous on \([a, b]\), differentiable on \( (a, b) \), and \( F'(x) = f(x) \) for every \( x \in (a, b) \).
+
+**Part 2 (FTC2):**
+The second part states that if \( f \) is a continuous function on \([a, b]\), and \( F \) is any antiderivative of \( f \) on \([a, b]\) (that is, a function such that \( F'(x) = f(x) \) for all \( x \in [a, b] \)), then
+\[ \int_a^b f(x) \, dx = F(b) - F(a). \]
+
+### Main Mathematical Results and Tools Used in Its Proof
+
+The proof of the Fundamental Theorem of Calculus relies on several foundational concepts in analysis:
+
+1. **Continuity and Integrability:**
+   - The function \( f \) being continuous on \([a, b]\) ensures that it is integrable on this interval. This is a direct consequence of the properties of continuous functions on closed intervals.
+
+2. **Definition of the Riemann Integral:**
+   - FTC uses the concept of the Riemann Integral, where the integral of a function over an interval is defined as the limit of Riemann sums as the partition of the interval becomes finer.
+
+3. **Mean Value Theorem for Integrals (for FTC2):**
+   - This theorem, which is sometimes used in the proof of FTC2, states that if a function is continuous on a closed interval, then there exists at least one point in the interval at which the function value equals the average value of the function over the interval.
+
+4. **Properties of Differentiable Functions:**
+   - The differentiability of \( F \) and the calculation of \( F' \) in FTC1 make use of the limit definition of the derivative and properties of limits.
+
+5. **Limits and the Fundamental Theorem of Calculus Part 1:**
+   - The proof of FTC1 involves showing that the derivative of the integral function \( F \) exists and evaluating it using the definition of the derivative as a limit of difference quotients.
+
+6. **Intermediate Value Theorem:**
+   - Used implicitly to ensure that the function \( F \), which accumulates the area under \( f \), behaves well between the points \( a \) and \( b \) based on the behavior of \( f \).
+
+### Summary
+The FTC provides a powerful connection between the seemingly disparate concepts of integration and differentiation. It not only allows us to compute areas under curves (integrals) by finding antiderivatives but also confirms that integration can be viewed as the "inverse" operation to differentiation. This theorem is fundamental not only in pure mathematics but also in applied fields where calculating quantities like areas, volumes, and accumulations are essential.
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems
+  
+  
+
+"prompt": State Minkowski's inequality and give a list of the main mathematical results and tools which are used in its proof.
+"output": Minkowski's inequality is a foundational result in mathematical analysis, particularly in the theory of \( L^p \) spaces, which are pivotal in functional analysis and probability theory. It extends the concept of the triangle inequality from Euclidean geometry to the more abstract setting of \( L^p \) spaces.
+
+### Statement of Minkowski's Inequality
+For \( p \geq 1 \) and functions \( f \) and \( g \) in the \( L^p \) space over a measure space \( (X, \mu) \), Minkowski's inequality is given by:
+\[
+\left( \int_X |f(x) + g(x)|^p \, d\mu \right)^{1/p} \leq \left( \int_X |f(x)|^p \, d\mu \right)^{1/p} + \left( \int_X |g(x)|^p \, d\mu \right)^{1/p}.
+\]
+This inequality essentially states that the \( L^p \) norm is a norm, adhering to the triangle inequality.
+
+### Main Mathematical Results and Tools Used in the Proof of Minkowski's Inequality
+
+1. **Hölder's Inequality:**
+   - Hölder's Inequality is crucial in the proof of Minkowski's Inequality for \( p > 1 \). It states that for conjugate exponents \( p \) and \( q \) (i.e., \( \frac{1}{p} + \frac{1}{q} = 1 \)), if \( f \in L^p \) and \( g \in L^q \), then
+   \[
+   \int_X |f(x)g(x)| \, d\mu \leq \left( \int_X |f(x)|^p \, d\mu \right)^{1/p} \left( \int_X |g(x)|^q \, d\mu \right)^{1/q}.
+   \]
+   This inequality is used to handle the cross-term arising from expanding \( |f + g|^p \) when \( p \geq 1 \).
+
+2. **Jensen's Inequality:**
+   - Jensen's Inequality is sometimes used in mathematical arguments related to convex functions, especially when dealing with expectations in probability theory. While not directly used in the standard proof of Minkowski’s inequality, it underlies the convexity arguments for \( p \)-norms.
+
+3. **Convexity of the \( p \)-th Power Function:**
+   - The function \( t \mapsto t^p \) for \( p \geq 1 \) is convex. This property is fundamental because Minkowski's inequality can be viewed as a statement about the convexity of the function \( \|f\|_p \) defined on the space of measurable functions.
+
+4. **Properties of Integrals and Measures:**
+   - Basic properties of integrals, such as linearity and positivity, are used extensively. The non-negativity of the integral and the ability to split integrals over sums are particularly crucial.
+
+5. **Induction and Simplification Techniques:**
+   - For certain proofs, especially involving sequence spaces like \( \ell^p \), induction can be used to extend proofs from simple cases (like finite sequences) to more complex or infinite cases.
+
+### Summary
+Minkowski's Inequality generalizes the triangle inequality to integrable functions with respect to the \( L^p \) norm, providing a fundamental tool for analyzing the structure of functions in \( L^p \) spaces. It is indispensable in many areas of analysis, including the study of Fourier transforms, differential equations, and other parts of functional analysis. This inequality, alongside Hölder's Inequality, forms the backbone of many results in both pure and applied mathematics, reflecting the interplay between algebraic structures and geometric intuition in functional spaces.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems
+  
+  
+
+"prompt": State the dominated convergence theorem and give a list of the main mathematical results and tools which are used in its proof.
+"output": The **Dominated Convergence Theorem (DCT)** is a cornerstone in the study of measure theory and Lebesgue integration, providing a key result for handling limits of integrals involving sequences of functions. It is widely used in analysis, especially in cases involving probabilities and expected values, as well as in solving differential equations.
+
+### Statement of the Dominated Convergence Theorem
+The Dominated Convergence Theorem states:
+*Let \((X, \mathcal{A}, \mu)\) be a measure space and \(\{f_n\}\) be a sequence of measurable functions that converges pointwise almost everywhere to a function \(f\) on \(X\). If there exists an integrable function \(g\) on \(X\) such that for all \(n\) and almost every \(x \in X\), \(|f_n(x)| \leq g(x)\), then \(f\) is integrable, and:*
+\[
+\lim_{n \to \infty} \int_X f_n \, d\mu = \int_X f \, d\mu.
+\]
+
+### Main Mathematical Results and Tools Used in Its Proof
+The proof of the Dominated Convergence Theorem utilizes several fundamental concepts and results from measure theory and real analysis:
+
+1. **Absolute Integrability and the Role of the Dominating Function \(g\)**:
+   - The function \(g\) must be integrable over \(X\), which means \(\int_X |g| \, d\mu < \infty\). This condition ensures that the integral of the absolute values of \(f_n\) is uniformly bounded by the integral of \(g\).
+
+2. **Lebesgue's Dominated Convergence Theorem**:
+   - This principle allows swapping the limit and the integral under the dominance condition. The core idea is that the domination by \(g\) controls the integrals of the \(f_n\)’s, preventing them from "escaping to infinity" and ensuring the convergence of their integrals.
+
+3. **Fatou's Lemma**:
+   - Often used in the proof of DCT as a preliminary step, Fatou's Lemma provides a lower bound on the integral of the limit function. It states that for any sequence of non-negative measurable functions \(\{f_n\}\), 
+   \[
+   \int_X \liminf_{n \to \infty} f_n \, d\mu \leq \liminf_{n \to \infty} \int_X f_n \, d\mu.
+   \]
+
+4. **Pointwise Convergence Almost Everywhere**:
+   - The theorem requires that \(f_n\) converges to \(f\) pointwise almost everywhere. This condition, combined with the domination by \(g\), allows the use of majorization techniques to handle the integrals.
+
+5. **Properties of Integrable Functions**:
+   - The integral's linearity and the measure's countable additivity are used to establish the convergence of integrals and the legitimacy of interchanging limit operations with integral operations.
+
+6. **Egorov's Theorem** (occasionally used in discussions):
+   - In some contexts, Egorov's Theorem can provide uniform convergence almost everywhere on sets of large measure, which might be used to simplify or strengthen certain arguments around the DCT.
+
+### Summary
+The Dominated Convergence Theorem is essential for dealing with sequences of functions in integration, especially in cases where direct integration of the limit function is complicated by the functions' behaviors. It encapsulates how measure theory elegantly handles limits and integrals, providing a robust framework for advanced analysis in both pure and applied mathematics.
+
+"rating": 4
+"error_codes":4c
+"warning_codes": 
+"comment":DCT不被用作证明过程，循环论证
+"msc":Theorems
+  
+  
+
+"prompt": State the Riemann-Lebesgue Lemma and give a list of the main mathematical results and tools which are used in its proof. 
+"output":The **Riemann-Lebesgue Lemma** is an important result in the theory of Fourier analysis, especially in the context of dealing with integrable functions and their Fourier transforms. It addresses the behavior of the Fourier transform of a function as the frequency variable tends to infinity.
+
+### Statement of the Riemann-Lebesgue Lemma:
+Let \( f \) be a Lebesgue integrable function on \( \mathbb{R} \). The lemma states that the Fourier transform of \( f \) tends to zero as the frequency tends to infinity:
+\[
+\lim_{|\xi| \to \infty} \int_{-\infty}^{\infty} f(x) e^{-i \xi x} \, dx = 0
+\]
+This implies that the Fourier transform of any integrable function is not only well-defined but also vanishes at infinity, reflecting the idea that "oscillations" average out over a large scale.
+
+### Main Mathematical Results and Tools Used in the Proof:
+The proof of the Riemann-Lebesgue Lemma utilizes several key concepts from analysis and measure theory:
+
+1. **Lebesgue Integration**:
+   - **Absolute Integrability**: The function \( f(x) \) is assumed to be Lebesgue integrable, which means that \(\int |f(x)| \, dx < \infty\). This property is crucial as it guarantees that the Fourier transform is well-defined.
+
+2. **Properties of Sinusoids**:
+   - Oscillatory Nature: The functions \( e^{-i \xi x} \), which are essentially complex exponentials, oscillate increasingly rapidly as \( |\xi| \) increases. The rapid oscillations lead to cancellations when integrated against a function \( f(x) \) that does not similarly oscillate.
+
+3. **Integration by Parts**:
+   - If \( f \) is sufficiently smooth (e.g., continuously differentiable), integration by parts can be used to show that each integration by parts reduces the magnitude of the integral by a factor related to \( 1/|\xi| \), helping establish the limit as zero. This technique is particularly useful when the derivative \( f'(x) \) is also integrable.
+
+4. **Density Arguments**:
+   - For general \( L^1 \) functions which may not be smooth, the proof may involve approximating \( f \) by smooth functions (such as using mollifiers or simple functions). The density of smooth functions in \( L^1 \) under the integral norm allows extending results proven for smooth functions to general integrable functions.
+
+5. **Dominating Convergence Theorem**:
+   - When extending results from simpler functions to more general \( L^1 \) functions, the Dominated Convergence Theorem can facilitate the passage to the limit under the integral sign, assuming that suitable bounds (dominating functions) can be established.
+
+6. **Use of Schwartz Functions or Smooth Compactly Supported Functions**:
+   - In some proofs, the lemma is first proven for Schwartz functions (infinitely differentiable and rapidly decreasing) or functions with compact support, as these allow for straightforward integration by parts and limiting processes.
+
+### Implications and Applications:
+The Riemann-Lebesgue Lemma is a foundational result in Fourier analysis, demonstrating the decay of the Fourier transform at infinity and implying that high-frequency components have negligible contributions for integrable functions. It plays a crucial role in signal processing, the theory of partial differential equations, and in understanding the behavior of solutions to wave equations and other physical phenomena modeled by differential equations.
+"rating": 3
+"error_codes":2a
+"warning_codes": 
+"comment":定理陈述正确，但提供所需定理与证明过程无关
+"msc":Theorems
+  
+  
+
+"prompt": State the Peano existence theorem and give a list of the main mathematical results and tools which are used in its proof. 
+"output":The **Peano Existence Theorem** is an important result in the theory of ordinary differential equations (ODEs). It provides conditions under which a given ordinary differential equation has at least one solution. The theorem is named after the Italian mathematician Giuseppe Peano.
+
+### Statement of the Peano Existence Theorem
+Let \(f(t, y)\) be a function that is continuous in both variables on a rectangle \(R\) in the \(ty\)-plane, defined by:
+\[ R = \{(t, y) \mid |t - t_0| \leq a, |y - y_0| \leq b\} \]
+where \(t_0\), \(y_0\), \(a\), and \(b\) are constants. Consider the initial value problem (IVP) for the differential equation:
+\[ \frac{dy}{dt} = f(t, y), \quad y(t_0) = y_0. \]
+Then, there exists at least one solution \(y(t)\) to this differential equation that passes through the point \((t_0, y_0)\) and is defined on some interval \(|t - t_0| \leq \delta\), where \(\delta \leq a\) and is determined by the Lipschitz condition or the bounds of the function.
+
+### Main Mathematical Results and Tools Used in Its Proof
+The proof of the Peano Existence Theorem employs several fundamental concepts and mathematical tools:
+
+1. **Continuity**:
+   - The theorem requires the function \(f(t, y)\) to be continuous on the specified rectangle \(R\). Continuity is essential to apply the subsequent integral and approximation methods.
+
+2. **Picard Iterates (Successive Approximations)**:
+   - A key method used in the proof is the construction of successive approximations to the solution, known as Picard iterates. This method involves defining a sequence of functions that converge to the actual solution of the differential equation.
+   - The iterative formula is:
+     \[ y_{n+1}(t) = y_0 + \int_{t_0}^t f(s, y_n(s)) \, ds, \]
+     starting from an initial function \(y_0(t) = y_0\).
+
+3. **Compactness and Uniform Convergence**:
+   - The sequence of Picard iterates is shown to be uniformly convergent under certain conditions. The Arzela-Ascoli theorem, which provides criteria for the compactness and convergence of a family of functions, may be used to demonstrate the convergence of these iterates.
+
+4. **Existence of a Solution**:
+   - The limit of the sequence of Picard iterates is shown to satisfy the original differential equation, thus proving the existence of a solution. This step typically utilizes properties of integral calculus and the continuity of \(f\).
+
+5. **Local Lipschitz Condition (not strictly necessary for Peano)**:
+   - While Peano's theorem does not require \(f\) to satisfy a Lipschitz condition, the presence of such a condition can simplify the proof and is required for the uniqueness of the solution (not covered by Peano's theorem but by the Picard-Lindelöf theorem).
+
+### Summary
+The Peano Existence Theorem assures the existence of at least one solution to certain types of first-order ordinary differential equations under conditions of continuity. It is foundational in the study of differential equations, highlighting the interplay between continuity, integral calculus, and function approximation techniques. The theorem's primary implication is that for broad classes of ODEs, solutions exist, although the theorem does not address uniqueness or the number of such solutions.
+"rating": 2
+"error_codes":2a
+"warning_codes": 
+"comment":Arzela-Ascoli Theorem是最核心定理，没有提及
+"msc":Theorems
+  
+  
+
+"prompt":State the Theorem of Picard-Lindelöf and give a list of the main mathematical results and tools which are used in its proof. 
+"output":The **Picard-Lindelöf Theorem**, also known as the **Picard Existence and Uniqueness Theorem**, is a fundamental result in the theory of ordinary differential equations (ODEs). It extends beyond the basic existence results given by Peano's theorem by also guaranteeing the uniqueness of the solution under certain conditions.
+
+### Statement of the Picard-Lindelöf Theorem
+Let \( f: [a, b] \times \mathbb{R}^n \rightarrow \mathbb{R}^n \) be a function. Suppose \( f \) is continuous in the closed interval \([a, b]\) and Lipschitz continuous in the second argument \( y \) over the domain of \( f \). Consider the initial value problem (IVP):
+\[ \frac{dy}{dt} = f(t, y), \quad y(a) = y_0, \]
+where \( y_0 \in \mathbb{R}^n \) is given. Then there exists a unique function \( y: [a, b] \rightarrow \mathbb{R}^n \) that solves this differential equation on some interval around \( a \).
+
+### Main Mathematical Results and Tools Used in Its Proof
+The proof of the Picard-Lindelöf Theorem utilizes several important concepts and mathematical tools, particularly from analysis and topology:
+
+1. **Continuity**:
+   - **Continuity of \( f \)**: The function \( f(t, y) \) must be continuous in both its variables \( t \) and \( y \). This ensures the integral operations involved in the solution are well-defined.
+
+2. **Lipschitz Continuity**:
+   - The key to the uniqueness part of the theorem is the Lipschitz condition. A function \( f(y) \) is said to be Lipschitz continuous if there exists a constant \( L \) such that for all \( y_1, y_2 \):
+     \[ \|f(t, y_1) - f(t, y_2)\| \leq L \|y_1 - y_2\|. \]
+   - This condition prevents the solutions from diverging from each other, ensuring uniqueness.
+
+3. **Picard Iteration (Successive Approximations)**:
+   - The method of successive approximations, also known as Picard iteration, is used to construct a sequence of approximations that converge to the actual solution. Each iteration is defined as:
+     \[ y_{n+1}(t) = y_0 + \int_{a}^t f(s, y_n(s)) \, ds. \]
+   - This method is crucial for establishing both existence and uniqueness.
+
+4. **Fixed Point Theorem**:
+   - **Banach Fixed Point Theorem (Contraction Mapping Principle)**: Often used in the proof to show that the Picard iteration sequence converges to a unique limit. The theorem states that in a complete metric space, a contraction mapping (a function that brings points closer together) has exactly one fixed point.
+
+5. **Compactness and Arzela-Ascoli Theorem**:
+   - These are not directly used in the most basic form of the Picard-Lindelöf proof but are essential in more general contexts where the domains of the functions involved are not necessarily compact.
+
+### Summary
+The Picard-Lindelöf Theorem is vital in the study of differential equations, particularly because it assures both the existence and uniqueness of solutions under reasonable conditions. This theorem is fundamental not only for theoretical purposes but also for practical applications where differential equations model real-world phenomena, ensuring that such models have well-defined and unique behaviors under initial conditions.
+"rating": 4
+"error_codes":
+"warning_codes": 
+"comment":2a
+"msc":Theorems
+  
+  
+
+"prompt": State Rolle's theorem and give a list of the main mathematical results and tools which are used in its proof.
+"output": **Rolle's Theorem** is a fundamental result in calculus, specifically in the field of differential calculus. It provides a useful precursor to the more general Mean Value Theorem, offering insight into the behavior of differentiable functions.
+
+### Statement of Rolle's Theorem
+Rolle's Theorem states that if a function \( f: [a, b] \rightarrow \mathbb{R} \) satisfies the following conditions:
+1. **Continuity on \([a, b]\)**: The function \( f \) is continuous on the closed interval \([a, b]\).
+2. **Differentiability on \((a, b)\)**: The function \( f \) is differentiable on the open interval \((a, b)\).
+3. **Equal Values at the Endpoints**: \( f(a) = f(b) \).
+
+Then there exists at least one point \( c \) in the open interval \((a, b)\) such that the derivative of \( f \) at \( c \) is zero, i.e., \( f'(c) = 0 \).
+
+### Main Mathematical Results and Tools Used in Its Proof
+The proof of Rolle's Theorem leverages several core concepts and tools from real analysis and calculus:
+
+1. **Extreme Value Theorem**:
+   - This theorem is used to assert that since \( f \) is continuous on a closed interval \([a, b]\), it must attain both its maximum and minimum values somewhere on \([a, b]\). This is crucial because if the maximum or minimum occurs at any point in the interval \((a, b)\) (and not at the endpoints), Rolle's Theorem immediately applies.
+
+2. **Fermat's Theorem on Stationary Points**:
+   - This theorem states that if a function has a local maximum or minimum at a point within an open interval where it is also differentiable, then its derivative at that point must be zero. This principle directly supports Rolle’s Theorem when combined with the application of the Extreme Value Theorem.
+
+3. **Continuity and Differentiability**:
+   - The concepts of continuity and differentiability are foundational in proving Rolle's Theorem. The conditions of the theorem ensure that the function behaves nicely enough for the derivative to reliably indicate changes in the function's behavior.
+
+4. **Zero Derivative at Interior Extrema**:
+   - When a function's derivative is zero at a point in an open interval, it suggests a possible extremum at that point. If such an extremum is not on the boundary of the interval, it contributes directly to proving Rolle's condition.
+
+### Summary
+Rolle's Theorem is elegantly simple but deeply significant in understanding the implications of derivatives and their zeroes. It essentially states that if a function returns to the same value after some interval, there must be at least one point within that interval where the function's rate of change (its derivative) is zero. This conclusion has far-reaching implications, particularly in proving the Mean Value Theorem, which extends Rolle's conditions to functions that do not necessarily have equal values at the endpoints.
+
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems
+  
+  
+
+"prompt": State the Hahn-Banach Theorem and give a list of the main mathematical results and tools that are used in its proof.
+"output": The **Hahn-Banach Theorem** is a pivotal result in functional analysis that allows for the extension of linear functionals defined on a subspace of a normed vector space to the entire space without increasing the norm. This theorem has several versions, including an algebraic (axiomatic) version applicable in general vector spaces and a more geometric (analytic) version for normed spaces.
+
+### Statement of the Hahn-Banach Theorem
+For the geometric version in the context of normed vector spaces, the theorem can be stated as follows:
+
+**Let \( V \) be a normed vector space, and let \( U \) be a linear subspace of \( V \). Suppose \( f: U \rightarrow \mathbb{R} \) (or \( \mathbb{C} \) for complex spaces) is a bounded linear functional. Then there exists an extension \( F: V \rightarrow \mathbb{R} \) (or \( \mathbb{C} \)) of \( f \) to the entire space \( V \) such that \( F \) is linear, \( F|_U = f \), and \( \|F\| = \|f\| \), where \( \|f\| \) denotes the norm of \( f \) defined as \( \sup_{x \in U, \|x\| = 1} |f(x)| \).**
+
+### Main Mathematical Results and Tools Used in Its Proof
+Several key mathematical concepts and tools are integral to the proof of the Hahn-Banach Theorem:
+
+1. **Zorn's Lemma**:
+   - This is a principle from set theory, equivalent to the Axiom of Choice, often used in the proof of the Hahn-Banach Theorem. It's utilized to show that every partially ordered set in which every totally ordered subset has an upper bound contains at least one maximal element. In the context of extending functionals, Zorn's Lemma helps to assert the existence of a maximal extension of \( f \).
+
+2. **Sublinear Functions and the Minkowski Functional**:
+   - The proof often involves a sublinear function \( p \) that dominates \( f \) on \( U \). A sublinear function is a mapping \( p: V \rightarrow \mathbb{R} \) satisfying \( p(x+y) \leq p(x) + p(y) \) and \( p(\alpha x) = \alpha p(x) \) for all \( x, y \in V \) and \( \alpha \geq 0 \). The Hahn-Banach Theorem utilizes the properties of sublinear functions to extend \( f \) while maintaining its norm.
+
+3. **Locally Convex Spaces and Separation Theorems**:
+   - Although not directly involved in the most elementary versions of the theorem, in more advanced contexts, locally convex spaces and separation theorems play roles in the uniqueness of extensions and in proving the theorem under weaker conditions.
+
+4. **Extension Lemma**:
+   - This lemma is a stepwise procedure in the proof. It asserts that if \( f \) is defined on a subspace \( U \) and \( x \notin U \), then \( f \) can be extended to the span of \( U \) and \( x \) while maintaining the linearity and norm constraints.
+
+5. **Proof by Transfinite Induction**:
+   - For complex versions or in certain advanced formulations, transfinite induction might be used to construct the extension over a well-ordered basis of the space.
+
+### Summary
+The Hahn-Banach Theorem is crucial because it ensures that linear functionals with desirable properties (like boundedness) can be extended from subspaces to whole spaces without losing those properties. This capability is fundamental in the analysis of dual spaces, operator theory, and many other areas of pure and applied mathematics. The theorem not only facilitates theoretical explorations but also supports various practical applications in optimization, economics, and systems theory.
+"rating": 5
+"error_codes":
+"warning_codes": 
+"comment":
+"msc":Theorems
